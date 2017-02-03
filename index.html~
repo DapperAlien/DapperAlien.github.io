@@ -337,7 +337,7 @@
 		function onscroll(){
 			document.querySelector(".title").classList.add("titleGone");
 			var scrollTop = document.body.scrollTop;
-			if (scrollTop === 0){
+			if (scrollTop <== 0){
 				document.querySelector(".title").classList.remove("titleGone");
 				document.querySelector(".fabsvg").style.transform = "rotate(0deg)";	
 				document.getElementById("svg1").classList.remove("logoScrolled");
@@ -360,7 +360,7 @@
 				document.querySelector(".fabsvg").addEventListener("click",pageJumpForward);
 				document.querySelector(".fabsvg").removeEventListener("click",pageJumpBackward);
 			}
-			if (scrollTop === (height - 56)){
+			if (scrollTop >== (height - 56)){
 
 				document.querySelector(".fabsvg").style.transform = "rotate(180deg)";	
 				document.getElementById("svg1").classList.add("logoScrolled");
