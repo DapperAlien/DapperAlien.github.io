@@ -340,7 +340,7 @@
 				document.getElementById("monocle").classList.remove("monocleScrolled");
 				document.getElementById("lapel1").classList.remove("lapel1Scrolled");
 				document.getElementById("lapel2").classList.remove("lapel2Scrolled");
-				document.querySelector(".button").classList.remove("buttonScrolled");
+				document.querySelectorAll(".button").classList.remove("buttonScrolled");
 				document.querySelector(".fabsvg").addEventListener("click",pageJumpForward);
 				document.querySelector(".fabsvg").removeEventListener("click",pageJumpBackward);
 			}
@@ -359,7 +359,7 @@
 				document.getElementById("monocle").classList.add("monocleScrolled");
 				document.getElementById("lapel1").classList.add("lapel1Scrolled");
 				document.getElementById("lapel2").classList.add("lapel2Scrolled");
-				document.querySelector(".button").classList.add("buttonScrolled");
+				document.querySelectorAll(".button").classList.add("buttonScrolled");
 				document.querySelector(".fabsvg").removeEventListener("click",pageJumpForward);
 				document.querySelector(".fabsvg").addEventListener("click",pageJumpBackward);
 			}
