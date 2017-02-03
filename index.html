@@ -237,7 +237,19 @@
 		.lapel2Scrolled{
 			fill:#FAFAFA;
 		}
-		.buttonScrolled{
+		.button1Scrolled{
+			fill:#FAFAFA;
+		}
+		.button2Scrolled{
+			fill:#FAFAFA;
+		}
+		.button3Scrolled{
+			fill:#FAFAFA;
+		}
+		.button4Scrolled{
+			fill:#FAFAFA;
+		}
+		.button5Scrolled{
 			fill:#FAFAFA;
 		}
 	</style>
@@ -298,11 +310,11 @@
 				<path d="M42 50 L49.5 80 L35 50 Z" fill="#212121" id="lapel1"/>
 				<path d="M58 50 L50.5 80 L65 50 Z" fill="#212121" id="lapel2"/>
 
-		 		<circle cx="50" cy="53" r="1" fill="#212121" class="button"/>
-		 		<circle cx="50" cy="56" r="1" fill="#212121" class="button"/>
-		 		<circle cx="50" cy="59" r="1" fill="#212121" class="button"/>
-		 		<circle cx="50" cy="62" r="1" fill="#212121" class="button"/>
-		 		<circle cx="50" cy="65" r="1" fill="#212121" class="button"/>
+		 		<circle cx="50" cy="53" r="1" fill="#212121" class="button1"/>
+		 		<circle cx="50" cy="56" r="1" fill="#212121" class="button2"/>
+		 		<circle cx="50" cy="59" r="1" fill="#212121" class="button3"/>
+		 		<circle cx="50" cy="62" r="1" fill="#212121" class="button4"/>
+		 		<circle cx="50" cy="65" r="1" fill="#212121" class="button5"/>
 			</svg>
 			<div class="title"><span style="color:#388E3C;">DAPPER ALIEN</span></div>
 		</div>
@@ -340,7 +352,11 @@
 				document.getElementById("monocle").classList.remove("monocleScrolled");
 				document.getElementById("lapel1").classList.remove("lapel1Scrolled");
 				document.getElementById("lapel2").classList.remove("lapel2Scrolled");
-				document.querySelectorAll(".button").classList.remove("buttonScrolled");
+				document.querySelector(".button1").classList.remove("button1Scrolled");	
+				document.querySelector(".button2").classList.remove("button2Scrolled");	
+				document.querySelector(".button3").classList.remove("button3Scrolled");	
+				document.querySelector(".button4").classList.remove("button4Scrolled");	
+				document.querySelector(".button5").classList.remove("button5Scrolled");	
 				document.querySelector(".fabsvg").addEventListener("click",pageJumpForward);
 				document.querySelector(".fabsvg").removeEventListener("click",pageJumpBackward);
 			}
@@ -359,7 +375,11 @@
 				document.getElementById("monocle").classList.add("monocleScrolled");
 				document.getElementById("lapel1").classList.add("lapel1Scrolled");
 				document.getElementById("lapel2").classList.add("lapel2Scrolled");
-				document.querySelectorAll(".button").classList.add("buttonScrolled");
+				document.querySelector(".button1").classList.add("button1Scrolled");	
+				document.querySelector(".button2").classList.add("button2Scrolled");	
+				document.querySelector(".button3").classList.add("button3Scrolled");	
+				document.querySelector(".button4").classList.add("button4Scrolled");	
+				document.querySelector(".button5").classList.add("button5Scrolled");	
 				document.querySelector(".fabsvg").removeEventListener("click",pageJumpForward);
 				document.querySelector(".fabsvg").addEventListener("click",pageJumpBackward);
 			}
