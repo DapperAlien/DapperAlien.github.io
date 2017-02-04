@@ -645,12 +645,12 @@
 				document.querySelector(".title").classList.add("title-animation");
 				document.querySelector(".fab1").classList.add("fab1-animation-in");
 				document.querySelector(".fab2").classList.remove("fab2-animation-in");
-				document.getElementById("about").style.background = "#4CAF50";
-				document.getElementById("about").style.opacity = "0.5";
+				document.getElementById("about").style.background = "#76FF03";
+				document.getElementById("projects").style.color = "#212121";
+				document.getElementById("projects").style.color = "#FAFAFA";
 				document.getElementById("projects").style.background = "transparent";
-				document.getElementById("projects").style.opacity = "0.8";
 				document.getElementById("contact").style.background = "transparent";
-				document.getElementById("contact").style.opacity = "0.8";
+				document.getElementById("contact").style.color = "#FAFAFA";
 			}
 			if (scrollTop > 100){
 				document.querySelector(".header").classList.add("header-animation");
@@ -659,11 +659,11 @@
 			if (scroll1 <= 0){
 				document.querySelector(".fab1").classList.remove("fab1-animation-in");
 				document.getElementById("about").style.background = "transparent";
-				document.getElementById("about").style.opacity = "0.8";
+				document.getElementById("about").style.color = "#FAFAFA";
 				document.getElementById("contact").style.background = "transparent";
-				document.getElementById("contact").style.opacity = "0.8";
-				document.getElementById("projects").style.background = "#4CAF50";
-				document.getElementById("projects").style.opacity = "0.5";
+				document.getElementById("contact").style.color = "#FAFAFA";
+				document.getElementById("projects").style.background = "#76FF03";
+				document.getElementById("projects").style.color = "#212121";
 			}
 			if (scroll2 == 0){
 				document.querySelector(".fab2").classList.remove("fab2-animation-in");
@@ -672,11 +672,10 @@
 				document.querySelector(".contact-logo").classList.add("contact-logo-animation");
 				document.querySelector(".contactForm").classList.add("contactForm-animation");
 				document.getElementById("about").style.background = "transparent";
-				document.getElementById("about").style.opacity = "0.8";
 				document.getElementById("projects").style.background = "transparent";
-				document.getElementById("projects").style.opacity = "0.8";
-				document.getElementById("contact").style.background = "#4CAF50";
-				document.getElementById("contact").style.opacity = "0.5";
+				document.getElementById("projects").style.color = "#FAFAFA";
+				document.getElementById("contact").style.background = "#76FF03";
+				document.getElementById("contact").style.color = "#212121";
 			}
 			if ((scrollTop >= (height-56)) && (scroll2 >= 56)){
 				document.querySelector(".fab2").classList.add("fab2-animation-in");
@@ -769,24 +768,24 @@
 		}
 		function route(destination){
 			if (destination === "about"){
-				document.getElementById("about").style.background = "#4CAF50";
-				document.getElementById("about").style.opacity = "0.5";
+				document.getElementById("about").style.background = "#76FF03";
+				document.getElementById("about").style.color = "#212121";
 				scrollToTop();
 			}
 			if (destination === "projects"){
 				var scrollTop = document.body.scrollTop;
 				var scroll1 = document.querySelector(".projects").getBoundingClientRect().top;
 				var scroll2 = document.querySelector(".contact").getBoundingClientRect().top;
-				document.getElementById("projects").style.background = "#4CAF50";
-				document.getElementById("projects").style.opacity = "0.5";
+				document.getElementById("projects").style.background = "#76FF03";
+				document.getElementById("projects").style.color = "#212121";
 				scrollToProjects();
 				if (scroll1 < 0){
 					reverseScrollToProjects();
 				}
 			}
 			if (destination === "contact"){
-				document.getElementById("contact").style.background = "#4CAF50";
-				document.getElementById("contact").style.opacity = "0.5";
+				document.getElementById("contact").style.background = "#76FF03";
+				document.getElementById("contact").style.color = "#212121";
 				scrollToContact();
 			}
 		}
