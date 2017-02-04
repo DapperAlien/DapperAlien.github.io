@@ -12,7 +12,7 @@
 	<!---->
 
 	<!--RESPONSIVE: Make sure viewport is scaled to 1 on mobile devices-->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
 	<style>
 		html, body{
@@ -316,10 +316,6 @@
 			width:50px;
 			height:50px;
 			border-radius:25px;
-			box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-		}
-		.contactButton:hover {
-			box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 		}
 		.contactMessage{
 			text-align:center;
