@@ -329,6 +329,7 @@
 			border-bottom: 1.5px solid #9E9E9E;
     	resize: none;
 			background:#FAFAFA;
+		  font-size: 16px;
 		}
 		.contactMessage::-webkit-input-placeholder {
 			font-family: 'Orbitron', sans-serif;
@@ -368,6 +369,8 @@
 			border-right:none;
 			border-bottom: 1.5px solid #9E9E9E;
 			background:#FAFAFA;
+  		font-size: 16px;
+
 		}
 		.contactEmail::-webkit-input-placeholder {
 			font-family: 'Orbitron', sans-serif;
@@ -390,6 +393,7 @@
 			margin-top:-2px;
 			margin-bottom:10px;
 			background:#4CAF50;
+
 			transform:scale(0, 1);
 		  -webkit-transition: all .25s; /* Safari */
 		  transition: all .25s;
