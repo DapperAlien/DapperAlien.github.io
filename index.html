@@ -444,6 +444,28 @@
 		.emailUnderline-animation{
 			transform:scale(1, 1);
 		}
+		.contactEmail-error-animation{
+
+		}
+		.contactEmail-error-animation::-webkit-input-placeholder {
+			font-family: 'Orbitron', sans-serif;
+			letter-spacing:3px;
+			color:#FF1744;
+		}
+		.contactEmail-error-animation:-moz-placeholder { /* Firefox 18- */
+			font-family: 'Orbitron', sans-serif;
+			letter-spacing:3px;
+			color:#FF1744;
+		}
+		.contactEmail-error-animation::-moz-placeholder {  /* Firefox 19+ */
+			font-family: 'Orbitron', sans-serif;
+			letter-spacing:3px;
+		}
+		.contactEmail-error-animation:-ms-input-placeholder {  
+			font-family: 'Orbitron', sans-serif;
+			letter-spacing:3px;
+			color:#FF1744;
+		}
 		@media screen and (min-width: 400px) {
 			.contactForm{
 				width:400px;
@@ -827,7 +849,7 @@
 			var form = document.querySelector(".contactForm");
 			if (email.value === ""){
   			evt.preventDefault(); 
-				form.action = "#Contact";
+				document.querySelector(".contactEmail").classList.add("contactEmail-error-animation");
 			}
 			else{
 				form.action="https://formspree.io/dapperaliendesign@gmail.com"
