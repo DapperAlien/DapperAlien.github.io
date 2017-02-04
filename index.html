@@ -643,7 +643,7 @@
 					<div class="messageUnderline"></div>
 					<input onclick="focusEmail()" type="email" name="_replyto" placeholder="email address" class="contactEmail">
 					<div class="emailUnderline"></div>
-					<button onclick="validate()" type="submit" value="Send" class="contactButton"><img src="email.svg"></img></button>
+					<button type="submit" value="Send" class="contactButton"><img src="email.svg"></img></button>
 					<input type="text" name="_gotcha" style="display:none" />
 
 			</form>
@@ -664,6 +664,7 @@
 		var formClicked = false;
 		var internalRoute = "about";
 		function load(){
+			document.querySelector(".contactForm").addEventListener('submit', validate);
 			document.querySelector(".title").classList.add("title-animation");
 			document.querySelector(".fab1").classList.add("fab1-animation-in");
 		}
@@ -821,11 +822,15 @@
 				scrollToContact();
 			}
 		}
-		function validate(){
+		function validate(evt){
 			var email = document.querySelector(".contactEmail");
 			var form = document.querySelector(".contactForm");
 			if (email.value === ""){
+  			evt.preventDefault(); 
 				form.action = "#Contact";
+			}
+			else{
+				form.action="https://formspree.io/dapperaliendesign@gmail.com"
 			}
 		}
 	</script>
