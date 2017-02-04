@@ -612,6 +612,7 @@
 					<input onclick="focusEmail()" type="email" name="_replyto" placeholder="email address" class="contactEmail">
 					<div class="emailUnderline"></div>
 					<button type="submit" value="Send" class="contactButton"><img src="email.png"></img></button>
+					<input type="text" name="_gotcha" style="display:none" />
 			</form>
 			</center>
 			<div class="footer">
