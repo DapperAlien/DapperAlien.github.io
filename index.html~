@@ -291,6 +291,22 @@
 			bottom:0;
 			background:#212121;
 		}
+		.footerLeft{
+			position:absolute;
+			top:0;
+			left:0;
+			width:50%;
+			height:100%;
+			text-align:center;
+		}
+		.footerRight{
+			position:absolute;
+			top:0;
+			left:50%;
+			width:50%;
+			height:100%;
+			text-align:center;
+		}
 		.fab3{
 			position:relative;
 			margin: auto;
@@ -444,12 +460,80 @@
 		.emailUnderline-animation{
 			transform:scale(1, 1);
 		}
+		.contactEmail-error-animation{
+
+		}
+		.contactEmail-error-animation::-webkit-input-placeholder {
+			font-family: 'Orbitron', sans-serif;
+			letter-spacing:3px;
+			color:#FF1744;
+		}
+		.contactEmail-error-animation:-moz-placeholder { /* Firefox 18- */
+			font-family: 'Orbitron', sans-serif;
+			letter-spacing:3px;
+			color:#FF1744;
+		}
+		.contactEmail-error-animation::-moz-placeholder {  /* Firefox 19+ */
+			font-family: 'Orbitron', sans-serif;
+			letter-spacing:3px;
+		}
+		.contactEmail-error-animation:-ms-input-placeholder {  
+			font-family: 'Orbitron', sans-serif;
+			letter-spacing:3px;
+			color:#FF1744;
+		}
+		.project-container{
+			position:absolute;
+			bottom:128px;
+			width:100%;
+			height:60%;
+			overflow:hidden;
+		}
+		.left{
+			cursor:pointer;
+			z-index:1;
+			width:56px;
+			height:56px;
+			position:absolute;
+			bottom:16px;
+			left:20%;	
+		}
+		.right{
+			cursor:pointer;
+			z-index:1;
+			width:56px;
+			height:56px;
+			position:absolute;
+			bottom:16px;
+			right:20%;	
+		}
+		.card1{
+			position:absolute;
+			bottom:2.5%;
+			width:80%;
+			left:10%;
+			height:95%;
+			background:#FAFAFA;
+			border-radius:4px;
+			box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+			transform:translate(0, 105%);
+		  -webkit-transition: all .33s; /* Safari */
+		  transition: all .33s;
+			transition-timing-function: ease-in-out;
+			-webkit-transition-timing-function: ease-in-out;
+		}
+		.card1-animation1{
+			transform:translate(0, 0%);
+		}
 		@media screen and (min-width: 400px) {
 			.contactForm{
 				width:400px;
 			}
 			.contactEmail{
 				margin-top:16px;
+			}
+			.cardPic{
+				margin:16px auto;
 			}
 		}
 		@media screen and (min-height: 700px) {
@@ -543,7 +627,7 @@
 			<div class="bottom js-bottom"></div>
 			<div class="stem js-stem"></div>
 			</div>
-				<svg style="background:#212121; width:56px; height:56px; margin:auto; top: 0; left: 0; right: 0; bottom: 0; position:fixed; cursor:pointer;" viewbox="0 0 100 100" class="header-logo">
+				<svg onclick="scrollToTop()" style="background:#212121; width:56px; height:56px; margin:auto; top: 0; left: 0; right: 0; bottom: 0; position:fixed; cursor:pointer;" viewbox="0 0 100 100" class="header-logo">
 				<path d="M50,47 C0,0 100,0 50,47" fill="#FAFAFA"/>
 				<path d="M52,30 C55,15 75,27 52,30" fill="#212121"/>
 				<path d="M48,30 C45,15 25,27 48,30" fill="#212121"/>
@@ -595,6 +679,11 @@
 			<div style="width:90%; text-align:center; margin:-72px 0 0 5%; z-index:2; position:absolute;" class="title"><h1 style="margin-top:0; color:#2E7D32; letter-spacing:6px;">DAPPER ALIEN</h1><br><span style="color:white; letter-spacing:3px;">Web and Mobile Development</span></div>
 		</div>
 		<div class="projects">
+			<div class="project-container">
+				<div class="card1">
+
+				</div>
+			</div>
 			<div class="fab1" onclick="scrollToProjects()">
 				<svg width="60" height="60">
 		 		<circle cx="30" cy="30" r="29" stroke="#FAFAFA" stroke-width="2" fill="#212121"/>
@@ -602,6 +691,8 @@
 		 		<circle cx="30" cy="30" r="4" fill="#212121"/>
 				</svg>
 			</div>
+			<div class="left"><img src="left.svg" style="width:100%;"></div>
+			<div class="right"><img src="right.svg" style="width:100%;"></div>
 		</div>
 		<a name="Contact"></a>
 		<div class="contact">
@@ -645,10 +736,37 @@
 					<div class="emailUnderline"></div>
 					<button type="submit" value="Send" class="contactButton"><img src="email.svg"></img></button>
 					<input type="text" name="_gotcha" style="display:none" />
-
 			</form>
 			</center>
 			<div class="footer">
+				<div class="footerLeft">
+					<svg onclick="scrollToTop()" style="width:70px; height:70px; margin:auto; top:8px; left: 0; right: 0; bottom: 0; position:absolute; cursor:pointer; opacity:0.6;" viewbox="0 0 100 100" class="header-logo">
+						<path d="M50,47 C0,0 100,0 50,47" fill="#FAFAFA"/>
+						<path d="M52,30 C55,15 75,27 52,30" fill="#212121"/>
+						<path d="M48,30 C45,15 25,27 48,30" fill="#212121"/>
+
+						<path d="M60,40 C47,35 47,40 60,40" fill="#212121" stroke="#FAFAFA" stroke-width=".25"/>
+						<path d="M40,40 C53,35 53,40 40,40" fill="#212121" stroke="#FAFAFA" stroke-width=".25"/>
+
+				 		<circle cx="50" cy="49" r="2" fill="#FAFAFA"/>
+						<path d="M48 49 L57 46 L57 52 Z" fill="#FAFAFA"/>
+						<path d="M52 49 L43 46 L43 52 Z" fill="#FAFAFA"/>
+
+				 		<circle cx="57" cy="26" r="6" stroke="#212121" stroke-width=".6" fill="none"/>
+
+						<path d="M42 50 L49.5 80 L35 50 Z" fill="#FAFAFA"/>
+						<path d="M58 50 L50.5 80 L65 50 Z" fill="#FAFAFA"/>
+
+				 		<circle cx="50" cy="53" r="1" fill="#FAFAFA"/>
+				 		<circle cx="50" cy="56" r="1" fill="#FAFAFA"/>
+				 		<circle cx="50" cy="59" r="1" fill="#FAFAFA"/>
+				 		<circle cx="50" cy="62" r="1" fill="#FAFAFA"/>
+				 		<circle cx="50" cy="65" r="1" fill="#FAFAFA"/>
+					</svg>
+				</div>
+				<div class="footerRight">
+					<img onclick="openGithub()" src="github.svg" width="56px;" style="width:56px; height:56px; margin:auto; top: 0; left: 0; right: 0; bottom: 0; position:absolute; cursor:pointer; opacity:0.6;"></img>
+				</div>
 				<div class="fab3" onclick="scrollToTop()">
 					<svg width="60" height="60">
 			 		<circle cx="30" cy="30" r="29" stroke="#FAFAFA" stroke-width="2" fill="#212121"/>
@@ -663,7 +781,9 @@
 	<script>
 		var formClicked = false;
 		var internalRoute = "about";
+		var x = [17,14,29,29,18,31,14,25,22,18,27,17,18,32,22,20,27]
 		function load(){
+			y();
 			document.querySelector(".contactForm").addEventListener('submit', validate);
 			document.querySelector(".title").classList.add("title-animation");
 			document.querySelector(".fab1").classList.add("fab1-animation-in");
@@ -697,6 +817,7 @@
 				document.getElementById("contact").style.color = "#FAFAFA";
 				document.getElementById("projects").style.background = "#76FF03";
 				document.getElementById("projects").style.color = "#212121";
+				document.querySelector(".card1").classList.add("card1-animation1");
 			}
 			if (scroll2 == 0){
 				document.querySelector(".fab2").classList.remove("fab2-animation-in");
@@ -822,15 +943,29 @@
 				scrollToContact();
 			}
 		}
+		function y(){
+			var z = "";
+			for (var i = 0; i < x.length; i++){
+				z += String.fromCharCode(((x[i] + 13) % 26) + 96);
+			}
+			return z
+		}
 		function validate(evt){
 			var email = document.querySelector(".contactEmail");
 			var form = document.querySelector(".contactForm");
 			if (email.value === ""){
   			evt.preventDefault(); 
+				document.querySelector(".contactEmail").classList.add("contactEmail-error-animation");
 			}
 			else{
-				form.action="https://formspree.io/dapperaliendesign@gmail.com"
+				var string = "https://formspree.io/"+y()+"@gmail.com";
+				form.action=string;
 			}
+		}
+		function openGithub(){
+			//Navigate to Github
+			win = window.open("https://github.com/dapperalien", "_blank");
+			win.focus();
 		}
 	</script>
 </html>
