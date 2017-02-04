@@ -603,6 +603,7 @@
 				</svg>
 			</div>
 		</div>
+		<a name="Contact"></a>
 		<div class="contact">
 			<div class="fab2" onclick="scrollToContact()">
 				<svg width="60" height="60">
@@ -642,8 +643,9 @@
 					<div class="messageUnderline"></div>
 					<input onclick="focusEmail()" type="email" name="_replyto" placeholder="email address" class="contactEmail">
 					<div class="emailUnderline"></div>
-					<button type="submit" value="Send" class="contactButton"><img src="email.svg"></img></button>
+					<button onclick="validate()" type="submit" value="Send" class="contactButton"><img src="email.svg"></img></button>
 					<input type="text" name="_gotcha" style="display:none" />
+
 			</form>
 			</center>
 			<div class="footer">
@@ -662,7 +664,6 @@
 		var formClicked = false;
 		var internalRoute = "about";
 		function load(){
-			route("about");
 			document.querySelector(".title").classList.add("title-animation");
 			document.querySelector(".fab1").classList.add("fab1-animation-in");
 		}
@@ -818,6 +819,13 @@
 				document.getElementById("contact").style.background = "#76FF03";
 				document.getElementById("contact").style.color = "#212121";
 				scrollToContact();
+			}
+		}
+		function validate(){
+			var email = document.querySelector(".contactEmail");
+			var form = document.querySelector(".contactForm");
+			if (email.value === ""){
+				form.action = "#Contact";
 			}
 		}
 	</script>
