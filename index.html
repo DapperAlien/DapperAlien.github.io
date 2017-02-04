@@ -70,10 +70,19 @@
 		.nav-content{
 			width:100%;
 			height:100%;
-			background:#FAFAFA;
+			background:#212121;
 			overflow-x:hidden;
 			overflow-y:auto;
 			-webkit-overflow-scrolling:touch;
+			color:#FAFAFA;
+		}
+		.navItem{
+			float:left;
+			width:100%;
+			height:56px;
+			margin-top:16px;
+			opacity:0.8;
+			cursor:pointer;
 		}
 		.header{
 			position:fixed;
@@ -428,29 +437,64 @@
 		<aside class="nav js-nav">
 			<nav class="nav__container js-nav__container">
 				<div class="nav-content">
-					<svg style="width:100%;" height="300" viewbox="0 0 100 100">
-					<path d="M50,47 C0,0 100,0 50,47" fill="#212121"/>
-					<path d="M52,30 C55,15 75,27 52,30" fill="#FAFAFA"/>
-					<path d="M48,30 C45,15 25,27 48,30" fill="#FAFAFA"/>
+					<svg style="width:100%; background:#FAFAFA;" height="300" viewbox="0 0 100 100">
+						<path d="M50,47 C0,0 100,0 50,47" fill="#212121"/>
+						<path d="M52,30 C55,15 75,27 52,30" fill="#FAFAFA"/>
+						<path d="M48,30 C45,15 25,27 48,30" fill="#FAFAFA"/>
 
-					<path d="M60,40 C47,35 47,40 60,40" fill="#FAFAFA" stroke="#212121" stroke-width=".25"/>
-					<path d="M40,40 C53,35 53,40 40,40" fill="#FAFAFA" stroke="#212121" stroke-width=".25"/>
+						<path d="M60,40 C47,35 47,40 60,40" fill="#FAFAFA" stroke="#212121" stroke-width=".25"/>
+						<path d="M40,40 C53,35 53,40 40,40" fill="#FAFAFA" stroke="#212121" stroke-width=".25"/>
 
-			 		<circle cx="50" cy="49" r="2" fill="#212121"/>
-					<path d="M48 49 L57 46 L57 52 Z" fill="#212121"/>
-					<path d="M52 49 L43 46 L43 52 Z" fill="#212121"/>
+				 		<circle cx="50" cy="49" r="2" fill="#212121"/>
+						<path d="M48 49 L57 46 L57 52 Z" fill="#212121"/>
+						<path d="M52 49 L43 46 L43 52 Z" fill="#212121"/>
 
-			 		<circle cx="57" cy="26" r="6" stroke="#FAFAFA" stroke-width=".6" fill="none"/>
+				 		<circle cx="57" cy="26" r="6" stroke="#FAFAFA" stroke-width=".6" fill="none"/>
 
-					<path d="M42 50 L49.5 80 L35 50 Z" fill="#212121"/>
-					<path d="M58 50 L50.5 80 L65 50 Z" fill="#212121"/>
+						<path d="M42 50 L49.5 80 L35 50 Z" fill="#212121"/>
+						<path d="M58 50 L50.5 80 L65 50 Z" fill="#212121"/>
 
-			 		<circle cx="50" cy="53" r="1" fill="#212121"/>
-			 		<circle cx="50" cy="56" r="1" fill="#212121"/>
-			 		<circle cx="50" cy="59" r="1" fill="#212121"/>
-			 		<circle cx="50" cy="62" r="1" fill="#212121"/>
-			 		<circle cx="50" cy="65" r="1" fill="#212121"/>
-				</svg>
+				 		<circle cx="50" cy="53" r="1" fill="#212121"/>
+				 		<circle cx="50" cy="56" r="1" fill="#212121"/>
+				 		<circle cx="50" cy="59" r="1" fill="#212121"/>
+				 		<circle cx="50" cy="62" r="1" fill="#212121"/>
+				 		<circle cx="50" cy="65" r="1" fill="#212121"/>
+					</svg>
+					<div class="navItem js-about" id="about" onclick="route('about')">
+						<svg style="background:transparent; width:56px; height:56px; cursor:pointer; position:relative; float:left; margin-left:16px;" viewbox="0 0 100 100" class="header-logo">
+							<path d="M50,47 C0,0 100,0 50,47" fill="#FAFAFA"/>
+							<path d="M52,30 C55,15 75,27 52,30" fill="#212121"/>
+							<path d="M48,30 C45,15 25,27 48,30" fill="#212121"/>
+
+							<path d="M60,40 C47,35 47,40 60,40" fill="#212121" stroke="#FAFAFA" stroke-width=".25"/>
+							<path d="M40,40 C53,35 53,40 40,40" fill="#212121" stroke="#FAFAFA" stroke-width=".25"/>
+
+					 		<circle cx="50" cy="49" r="2" fill="#FAFAFA"/>
+							<path d="M48 49 L57 46 L57 52 Z" fill="#FAFAFA"/>
+							<path d="M52 49 L43 46 L43 52 Z" fill="#FAFAFA"/>
+
+					 		<circle cx="57" cy="26" r="6" stroke="#212121" stroke-width=".6" fill="none"/>
+
+							<path d="M42 50 L49.5 80 L35 50 Z" fill="#FAFAFA"/>
+							<path d="M58 50 L50.5 80 L65 50 Z" fill="#FAFAFA"/>
+
+					 		<circle cx="50" cy="53" r="1" fill="#FAFAFA"/>
+					 		<circle cx="50" cy="56" r="1" fill="#FAFAFA"/>
+					 		<circle cx="50" cy="59" r="1" fill="#FAFAFA"/>
+					 		<circle cx="50" cy="62" r="1" fill="#FAFAFA"/>
+					 		<circle cx="50" cy="65" r="1" fill="#FAFAFA"/>
+						</svg>
+						<h1 style="position:absolute; width:100%; text-align:center;">About</h1>
+					</div>
+					<div class="navItem js-projects" onclick="route('projects')" id="projects">
+						<div style="background:transparent; width:56px; height:56px; cursor:pointer; position:relative; float:left; text-align:center; padding-top:16px; margin-left:16px;"> < / > </div>
+						<h1 style="position:absolute; width:100%; text-align:center;">Projects</h1>
+					</div>
+					<div class="navItem js-contact" onclick="route('contact')" id="contact">
+						<div style="background:transparent; width:56px; height:56px; cursor:pointer; position:relative; float:left; text-align:center; padding-top:16px; margin-left:16px;"><img src="email.png"></img></div>
+						<h1 style="position:absolute; width:100%; text-align:center;">Contact</h1>
+					</div>
+					<div class="navItem"></div>
 				</div>
 			</nav>
 		</aside>
@@ -576,7 +620,9 @@
 	<script src="./nav.js"></script>
 	<script>
 		var formClicked = false;
+		var internalRoute = "about";
 		function load(){
+			route("about");
 			document.querySelector(".title").classList.add("title-animation");
 			document.querySelector(".fab1").classList.add("fab1-animation-in");
 		}
@@ -590,6 +636,12 @@
 				document.querySelector(".title").classList.add("title-animation");
 				document.querySelector(".fab1").classList.add("fab1-animation-in");
 				document.querySelector(".fab2").classList.remove("fab2-animation-in");
+				document.getElementById("about").style.background = "#4CAF50";
+				document.getElementById("about").style.opacity = "0.5";
+				document.getElementById("projects").style.background = "transparent";
+				document.getElementById("projects").style.opacity = "0.8";
+				document.getElementById("contact").style.background = "transparent";
+				document.getElementById("contact").style.opacity = "0.8";
 			}
 			if (scrollTop > 100){
 				document.querySelector(".header").classList.add("header-animation");
@@ -597,6 +649,12 @@
 			}
 			if (scroll1 <= 0){
 				document.querySelector(".fab1").classList.remove("fab1-animation-in");
+				document.getElementById("about").style.background = "transparent";
+				document.getElementById("about").style.opacity = "0.8";
+				document.getElementById("contact").style.background = "transparent";
+				document.getElementById("contact").style.opacity = "0.8";
+				document.getElementById("projects").style.background = "#4CAF50";
+				document.getElementById("projects").style.opacity = "0.5";
 			}
 			if (scroll2 == 0){
 				document.querySelector(".fab2").classList.remove("fab2-animation-in");
@@ -604,6 +662,12 @@
 				document.querySelector(".contactTitle").classList.add("contactTitle-animation");
 				document.querySelector(".contact-logo").classList.add("contact-logo-animation");
 				document.querySelector(".contactForm").classList.add("contactForm-animation");
+				document.getElementById("about").style.background = "transparent";
+				document.getElementById("about").style.opacity = "0.8";
+				document.getElementById("projects").style.background = "transparent";
+				document.getElementById("projects").style.opacity = "0.8";
+				document.getElementById("contact").style.background = "#4CAF50";
+				document.getElementById("contact").style.opacity = "0.5";
 			}
 			if ((scrollTop >= (height-56)) && (scroll2 >= 56)){
 				document.querySelector(".fab2").classList.add("fab2-animation-in");
@@ -627,6 +691,22 @@
 		      } else {
 							i++
 		          pos = pos + Math.pow(i, 2)/i; 
+							window.scrollTo(0, pos);
+		      }
+		  }
+		}
+		function reverseScrollToProjects(){
+			var scrollTop = document.body.scrollTop;
+		  var pos = scrollTop;
+			var i = 0;
+		  var id = setInterval(frame, 10);
+		  function frame() {
+					var scroll1 = document.querySelector(".projects").getBoundingClientRect().top;
+		      if (scroll1 >= -56) {
+		          clearInterval(id);
+		      } else {
+							i++
+		          pos = pos - Math.pow(i, 2)/i; 
 							window.scrollTo(0, pos);
 		      }
 		  }
@@ -677,6 +757,29 @@
 			document.querySelector(".contactTitle").classList.add("contactTitle-animation");
 			document.querySelector(".contact-logo").classList.add("contact-logo-animation");
 			document.querySelector(".contactForm").classList.add("contactForm-animation");
+		}
+		function route(destination){
+			if (destination === "about"){
+				document.getElementById("about").style.background = "#4CAF50";
+				document.getElementById("about").style.opacity = "0.5";
+				scrollToTop();
+			}
+			if (destination === "projects"){
+				var scrollTop = document.body.scrollTop;
+				var scroll1 = document.querySelector(".projects").getBoundingClientRect().top;
+				var scroll2 = document.querySelector(".contact").getBoundingClientRect().top;
+				document.getElementById("projects").style.background = "#4CAF50";
+				document.getElementById("projects").style.opacity = "0.5";
+				scrollToProjects();
+				if (scroll1 < 0){
+					reverseScrollToProjects();
+				}
+			}
+			if (destination === "contact"){
+				document.getElementById("contact").style.background = "#4CAF50";
+				document.getElementById("contact").style.opacity = "0.5";
+				scrollToContact();
+			}
 		}
 	</script>
 </html>
