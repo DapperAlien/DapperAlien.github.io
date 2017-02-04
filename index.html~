@@ -408,7 +408,7 @@
 				width:400px;
 			}
 			.contactEmail{
-				margin-top:56px;
+				margin-top:16px;
 			}
 		}
 		@media screen and (min-height: 700px) {
