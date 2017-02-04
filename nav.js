@@ -5,6 +5,7 @@ class Nav{
 		this.nav = document.querySelector(".js-nav");
 		this.navContainer = document.querySelector(".js-nav__container");
 		this.box = document.querySelector(".js-box");
+		this.exit = document.querySelector(".js-exit");
 		this.about = document.querySelector(".js-about");
 		this.projects = document.querySelector(".js-projects");
 		this.contact = document.querySelector(".js-contact");
@@ -15,15 +16,20 @@ class Nav{
 		this.showSideNav = this.showSideNav.bind(this);
 		this.hideSideNav = this.hideSideNav.bind(this);
 		this.blockClicks = this.blockClicks.bind(this);
+		/* Buggy :(
 		this.onTouchStart = this.onTouchStart.bind(this);
 		this.onTouchMove = this.onTouchMove.bind(this);
 		this.onTouchEnd = this.onTouchEnd.bind(this);
+		*/
 		this.onTransitionEnd = this.onTransitionEnd.bind(this);
 		this.navContainer.addEventListener("click", this.blockClicks);
+		/* Buggy :(
 		this.navContainer.addEventListener("touchstart", this.onTouchStart);
 		this.navContainer.addEventListener("touchmove", this.onTouchMove);
 		this.navContainer.addEventListener("touchend", this.onTouchEnd);
+		*/
 		this.box.addEventListener("click", this.showSideNav);
+		this.exit.addEventListener("click", this.hideSideNav);
 		this.about.addEventListener("click", this.hideSideNav);
 		this.projects.addEventListener("click", this.hideSideNav);
 		this.contact.addEventListener("click", this.hideSideNav);
@@ -41,6 +47,7 @@ class Nav{
 		this.nav.addEventListener("transitionend", this.onTransitionEnd);
 		this.box.removeEventListener("click", this.showSideNav)
 		this.box.addEventListener("click", this.hideSideNav)
+		this.exit.classList.add('exit-animation');
 	}
 	hideSideNav(){
 		this.bottom.classList.remove('bottomScaled');
@@ -54,10 +61,12 @@ class Nav{
 		this.nav.addEventListener("transitionend", this.onTransitionEnd);
 		this.box.removeEventListener("click", this.hideSideNav)
 		this.box.addEventListener("click", this.showSideNav)
+		this.exit.classList.remove('exit-animation');
 	}
 	blockClicks(event){
 		event.stopPropagation();
 	}
+	/* Buggy :(
 	onTouchStart(event){
 		if (!this.nav.classList.contains("nav--visible"))
 		return
@@ -79,6 +88,7 @@ class Nav{
 			this.hideSideNav();
 		}
 	}
+	*/
 	onTransitionEnd(event){
 		this.nav.classList.remove("nav--animatable");
 		this.nav.removeEventListener("transitionend", this.onTransitionEnd);

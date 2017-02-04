@@ -5,6 +5,9 @@ class Nav{
 		this.nav = document.querySelector(".js-nav");
 		this.navContainer = document.querySelector(".js-nav__container");
 		this.box = document.querySelector(".js-box");
+		this.about = document.querySelector(".js-about");
+		this.projects = document.querySelector(".js-projects");
+		this.contact = document.querySelector(".js-contact");
 		this.middle1 = document.querySelector(".js-middle1");
 		this.middle2 = document.querySelector(".js-middle2");
 		this.stem = document.querySelector(".js-stem");
@@ -21,6 +24,9 @@ class Nav{
 		this.navContainer.addEventListener("touchmove", this.onTouchMove);
 		this.navContainer.addEventListener("touchend", this.onTouchEnd);
 		this.box.addEventListener("click", this.showSideNav);
+		this.about.addEventListener("click", this.hideSideNav);
+		this.projects.addEventListener("click", this.hideSideNav);
+		this.contact.addEventListener("click", this.hideSideNav);
 		this.nav.addEventListener("click", this.hideSideNav);
 		this.startX = 0;
 		this.currentX = 0;
