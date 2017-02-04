@@ -728,7 +728,7 @@
 			</svg>
 			<center><h1 style="color:#2E7D32; letter-spacing:6px;" class="contactTitle">Contact Me</h1></center>
 			<center>
-			<form action="https://formspree.io/dapperaliendesign@gmail.com"
+			<form action=""
 						method="POST" class="contactForm">
 					<textarea onclick="focusTextArea()" type="text" name="message" class="contactMessage" placeholder="Type your transmission here"></textarea>
 					<div class="messageUnderline"></div>

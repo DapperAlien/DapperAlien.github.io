@@ -517,8 +517,10 @@
 			border-radius:4px;
 			box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 			transform:translate(0, 105%);
-		  -webkit-transition: all .33s; /* Safari */
-		  transition: all .33s;
+		  -webkit-transition: all .25s; /* Safari */
+		  transition: all .25s;
+		  -webkit-transition-delay: .25s; /* Safari */
+		  transition-delay: .25s;
 			transition-timing-function: ease-in-out;
 			-webkit-transition-timing-function: ease-in-out;
 		}
@@ -691,8 +693,8 @@
 		 		<circle cx="30" cy="30" r="4" fill="#212121"/>
 				</svg>
 			</div>
-			<div class="left"><img src="left.svg" style="width:100%;"></div>
-			<div class="right"><img src="right.svg" style="width:100%;"></div>
+			<div class="left"><img src="left.svg" style="width:100%;"></img></div>
+			<div class="right"><img src="right.svg" style="width:100%;"></img></div>
 		</div>
 		<a name="Contact"></a>
 		<div class="contact">
@@ -728,7 +730,7 @@
 			</svg>
 			<center><h1 style="color:#2E7D32; letter-spacing:6px;" class="contactTitle">Contact Me</h1></center>
 			<center>
-			<form action=""
+			<form action="https://formspree.io/dapperaliendesign@gmail.com"
 						method="POST" class="contactForm">
 					<textarea onclick="focusTextArea()" type="text" name="message" class="contactMessage" placeholder="Type your transmission here"></textarea>
 					<div class="messageUnderline"></div>
@@ -784,6 +786,7 @@
 		var x = [17,14,29,29,18,31,14,25,22,18,27,17,18,32,22,20,27]
 		function load(){
 			y();
+			route("about");
 			document.querySelector(".contactForm").addEventListener('submit', validate);
 			document.querySelector(".title").classList.add("title-animation");
 			document.querySelector(".fab1").classList.add("fab1-animation-in");
