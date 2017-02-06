@@ -594,7 +594,8 @@
 			display:block;
 			z-index:2;
 		}
-		.menu{
+		.menu1{
+			overflow:auto;
 			position:absolute;
 			top:165px;
 			width:80%;
@@ -614,6 +615,20 @@
 		.menu-animation{
 			opacity:1;
 			transform:scale(1);	
+		}
+		.list-item{
+			width:92%;
+			margin-left:4%;
+			text-align:center;
+			height:56px;
+			margin-top:16px;
+			line-height:2;
+			letter-spacing:2px;
+			display:inline-block;
+		}
+		.list-item a{
+			color: #2196F3;
+			text-decoration:none;
 		}
 		.computer{
 			width:60%;
@@ -693,7 +708,7 @@
 				transform:translate(150px, 0px);
 				top:144px;
 			}
-			.menu{
+			.menu1{
 				top:180px;
 				left:0;
 				right:0;
@@ -849,7 +864,11 @@
 			<div class="project-container">
 				<div class="project1">
 					<img src="more.svg" class="menu-icon-vertical" onclick="more1()"></img>
-					<div class="menu1"></div>
+					<div class="menu1">
+						<div class="list-item"><h4><a href="test.html">The Hitchhiker's Guide to Python</a></h4></div>
+						<div class="list-item"><h4><a href="">Music Theory Lessons</a></h4></div>
+						<div class="list-item"><h4><a href="">Critical Thinking Notes</a></h4></div>
+					</div>
 					<div class="project-description">
 						<h1>Websites</h1>
 					</div>
