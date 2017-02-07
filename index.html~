@@ -2,6 +2,9 @@
 <html>
 	<head>
 	<title>Dapper Alien</title>
+	<!--
+	Welcome to the Source Code for my personal website! Feel free to use any of the animations, layouts, or concepts you see. I created everything from scratch in CSS, JS, and HTML. 100% certified organic, framework free code. May the force be with you!
+	-->
 	<!--Favicons-->
 		<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 		<link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
@@ -14,6 +17,8 @@
 	<!--RESPONSIVE: Make sure viewport is scaled to 1 on mobile devices-->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+
+	<!--PERF: Make sure all animations use composite layers. Anything else will call paint which is expensive...-->
 	<style>
 		html, body{
 			font-family: 'Orbitron', sans-serif;
@@ -156,17 +161,17 @@
 			position:absolute;
 			left:35px;
 			width:2px;
-			height:2px;
-			top:38px;
+			height:10px;
+			top:28px;
 			background:#FAFAFA;
+			transform:scale(0);
 		  -webkit-transition: all .25s; /* For Safari 3.1 to 6.0 */
 		  transition: all .25s;
 			-webkit-transition-timing-function: ease-in-out;
 			transition-timing-function: ease-in-out;
 		}
 		.stemGrown{
-			top:28px;
-			height:10px;
+			transform:scale(1);
 		}
 		.middle1Rotated{
 			-ms-transform: rotate(30deg) translate(-4px, -1px); /* IE 9 */
@@ -600,7 +605,7 @@
 			top:165px;
 			width:80%;
 			left:10%;
-			height:50%;
+			height:60%;
 			background:#FAFAFA;
 			z-index:2;
 			border-radius:4px;
@@ -670,18 +675,64 @@
 			opacity:1;
 			transform:scale(1);	
 		}
-		.list-item{
+		.list-item1{
+			position:relative;
 			width:92%;
-			margin-left:4%;
+			left:4%;
+			padding-top:4%;
+			padding-bottom:4%;
 			text-align:center;
-			height:56px;
-			margin-top:16px;
-			line-height:2;
-			letter-spacing:2px;
 			display:inline-block;
+			border-bottom:solid gray 1px;
 		}
-		.list-item a{
-			color: #2196F3;
+		.list-item1 a{
+			color:#4CAF50;
+			letter-spacing:2px;
+			text-decoration:none;
+		}
+		.list-item2{
+			position:relative;
+			width:92%;
+			left:4%;
+			padding-top:4%;
+			padding-bottom:4%;
+			text-align:center;
+			display:inline-block;
+			border-bottom:solid gray 1px;
+		}
+		.list-item2 a{
+			color:#673AB7;
+			letter-spacing:2px;
+			text-decoration:none;
+		}
+		.list-item3{
+			position:relative;
+			width:92%;
+			left:4%;
+			padding-top:4%;
+			padding-bottom:4%;
+			text-align:center;
+			display:inline-block;
+			border-bottom:solid gray 1px;
+		}
+		.list-item3 a{
+			bcolor:#3F51B5;
+			letter-spacing:2px;
+			text-decoration:none;
+		}
+		.list-item4{
+			position:relative;
+			width:92%;
+			left:4%;
+			padding-top:4%;
+			padding-bottom:4%;
+			text-align:center;
+			display:inline-block;
+			border-bottom:solid gray 1px;
+		}
+		.list-item4 a{
+			color:#03A9F4;
+			letter-spacing:2px;
 			text-decoration:none;
 		}
 		@media screen and (min-width: 400px) {
@@ -701,7 +752,7 @@
 				font-size:100%;
 			}
 			.menu-icon-vertical{
-				transform:translate(150px, 0px);
+				transform:translate(180px, 0px);
 				top:144px;
 			}
 			.menu1{
@@ -753,6 +804,7 @@
 	</style>
 	</head>
 	<body onscroll="scroll()" onload="load()">
+		<!--Nav Drawer-->
 		<aside class="nav js-nav">
 			<nav class="nav__container js-nav__container">
 				<div class="nav-content">
@@ -817,6 +869,8 @@
 				</div>
 			</nav>
 		</aside>
+		<!---->
+		<!--Header-->
 		<div class="header">
 			<div class="box js-box">
 				<div class="box-top"></div>
@@ -849,6 +903,8 @@
 			</svg>
 			<div class="exit js-exit"><img src="exit.svg" style="width:100%;"></img></div>
 		</div>
+		<!---->
+		<!--Banner-->
 		<div class="banner">
 				<svg style="background:#212121; width:100%; height:50%; position:relative; margin-top:15vh;" viewbox="0 0 100 100" class="banner-logo">
 				<path d="M50,47 C0,0 100,0 50,47" fill="#212121"/>
@@ -875,13 +931,18 @@
 			</svg>
 			<div style="width:90%; text-align:center; margin:-72px 0 0 5%; z-index:2; position:absolute;" class="title"><h1 style="margin-top:0; color:#2E7D32; letter-spacing:6px;">DAPPER ALIEN</h1><br><span style="color:white; letter-spacing:3px;">Web and Mobile Development</span></div>
 		</div>
-
+		<!---->
 		<!--Projects-->
 		<div class="projects">
 			<div class="project-container">
 				<div class="project1">
 					<img src="more.svg" class="menu-icon-vertical" onclick="more1()"></img>
 					<div class="menu1">
+						<div class="list-item1"><a href="">Blog</a></div>
+						<div class="list-item1"><a href="">The Hitchhiker's Guide to Python</a></div>
+						<div class="list-item1"><a href="">Music Theory Lessons</a></div>
+						<div class="list-item1"><a href="">Jupyter Notebooks</a></div>
+						<div class="list-item1"><a href="">Critical Thinking Study Guide</a></div>
 					</div>
 					<div class="project-description">
 						<h1>Websites</h1>
@@ -915,6 +976,7 @@
 				<div class="project2 right">
 					<img src="more.svg" class="menu-icon-vertical" onclick="more2()"></img>
 					<div class="menu2">
+						<div class="list-item2"><a href="">JS-Deque-Tab-Animation</a></div>
 					</div>
 					<div class="project-description">
 						<h1>Codepens</h1>
@@ -926,9 +988,10 @@
 				<div class="project3 top">
 					<img src="more.svg" class="menu-icon-vertical" onclick="more3()"></img>
 					<div class="menu3">
+						<div class="list-item3"><a href="">Noted</a></div>
 					</div>
 					<div class="project-description">
-						<h1>Mobile</h1>
+						<h1>Mobile Apps</h1>
 					</div>
 					<div class="project-image">
 						<svg style="width:100%; background:#3F51B5;" height="100%" viewbox="0 0 100 100">
@@ -959,6 +1022,8 @@
 				<div class="project4 left">
 					<img src="more.svg" class="menu-icon-vertical" onclick="more4()"></img>
 					<div class="menu4">
+						<div class="list-item4"><a href="">Dapper Alien</a></div>
+						<div class="list-item4"><a href="">DandroidDeveloper</a></div>
 					</div>
 					<div class="project-description">
 						<h1>Github</h1>
@@ -979,7 +1044,7 @@
 			<div class="buttonRight" onclick="clickRight()"><img src="right.svg" style="width:100%;"></img></div>
 		</div>
 		<!---->
-
+		<!--Contact-->
 		<a name="Contact"></a>
 		<div class="contact">
 			<div class="fab2" onclick="scrollToContact()">
@@ -1026,29 +1091,7 @@
 			</center>
 			<div class="footer">
 				<div class="footerLeft">
-					<svg onclick="scrollToTop()" style="width:70px; height:70px; margin:auto; top:8px; left: 0; right: 0; bottom: 0; position:absolute; cursor:pointer; opacity:0.6;" viewbox="0 0 100 100" class="header-logo">
-						<path d="M50,47 C0,0 100,0 50,47" fill="#FAFAFA"/>
-						<path d="M52,30 C55,15 75,27 52,30" fill="#212121"/>
-						<path d="M48,30 C45,15 25,27 48,30" fill="#212121"/>
-
-						<path d="M60,40 C47,35 47,40 60,40" fill="#212121" stroke="#FAFAFA" stroke-width=".25"/>
-						<path d="M40,40 C53,35 53,40 40,40" fill="#212121" stroke="#FAFAFA" stroke-width=".25"/>
-
-				 		<circle cx="50" cy="49" r="2" fill="#FAFAFA"/>
-						<path d="M48 49 L57 46 L57 52 Z" fill="#FAFAFA"/>
-						<path d="M52 49 L43 46 L43 52 Z" fill="#FAFAFA"/>
-
-				 		<circle cx="57" cy="26" r="6" stroke="#212121" stroke-width=".6" fill="none"/>
-
-						<path d="M42 50 L49.5 80 L35 50 Z" fill="#FAFAFA"/>
-						<path d="M58 50 L50.5 80 L65 50 Z" fill="#FAFAFA"/>
-
-				 		<circle cx="50" cy="53" r="1" fill="#FAFAFA"/>
-				 		<circle cx="50" cy="56" r="1" fill="#FAFAFA"/>
-				 		<circle cx="50" cy="59" r="1" fill="#FAFAFA"/>
-				 		<circle cx="50" cy="62" r="1" fill="#FAFAFA"/>
-				 		<circle cx="50" cy="65" r="1" fill="#FAFAFA"/>
-					</svg>
+					<img onclick="focusEmail()" src="email.svg" width="56px;" style="width:56px; height:56px; margin:auto; top: 0; left: 0; right: 0; bottom: 0; position:absolute; cursor:pointer; opacity:0.6;"></img>
 				</div>
 				<div class="footerRight">
 					<img onclick="openGithub()" src="github.svg" width="56px;" style="width:56px; height:56px; margin:auto; top: 0; left: 0; right: 0; bottom: 0; position:absolute; cursor:pointer; opacity:0.6;"></img>
@@ -1062,16 +1105,25 @@
 				</div>
 			</div>
 		</div>
+		<!---->
 	</body>
+
+	<!--Set up nav drawer-->
 	<script src="./nav.js"></script>
+
+	<!--Local Scripts-->
 	<script>
+
+		/*GLOBAL VARIABLES*/
 		var formClicked = false;
 		var internalRoute = "about";
 		var menuClicked1 = false;
 		var menuClicked2 = false;
 		var menuClicked3 = false;
 		var menuClicked4 = false;
-		var x = [17,14,29,29,18,31,14,25,22,18,27,17,18,32,22,20,27]
+		var x = [17,14,29,29,18,31,14,25,22,18,27,17,18,32,22,20,27];
+
+		/*On load function*/
 		function load(){
 			y();
 			route("about");
@@ -1079,6 +1131,8 @@
 			document.querySelector(".title").classList.add("title-animation");
 			document.querySelector(".fab1").classList.add("fab1-animation-in");
 		}
+
+		/*Scroll functions*/
 		function scroll(){
 			var scroll1 = document.querySelector(".projects").getBoundingClientRect().top;
 			var scroll2 = document.querySelector(".contact").getBoundingClientRect().top;
@@ -1194,6 +1248,8 @@
 		      }
 		  }
 		}
+
+		/*Disable animations if form is clicked*/
 		function focusTextArea(){
 			formClicked = true;
 			document.querySelector(".messageUnderline").classList.add("messageUnderline-animation");
@@ -1210,6 +1266,8 @@
 			document.querySelector(".contact-logo").classList.add("contact-logo-animation");
 			document.querySelector(".contactForm").classList.add("contactForm-animation");
 		}
+
+		/*Navigation functions*/
 		function route(destination){
 			if (destination === "about"){
 				document.getElementById("about").style.background = "#76FF03";
@@ -1233,6 +1291,8 @@
 				scrollToContact();
 			}
 		}
+
+		/*Silly spam preventiont with ROT13 Cypher.*/
 		function y(){
 			var z = "";
 			for (var i = 0; i < x.length; i++){
@@ -1240,6 +1300,8 @@
 			}
 			return z
 		}
+
+		/*Make sure form is filled out*/
 		function validate(evt){
 			var email = document.querySelector(".contactEmail");
 			var form = document.querySelector(".contactForm");
@@ -1257,6 +1319,8 @@
 			win = window.open("https://github.com/dapperalien", "_blank");
 			win.focus();
 		}
+
+		/*Data structure to handle chevron clicks because Computer Science*/
 		var deque = new Deque();
 		deque.pushfront("project1");
 		deque.pushfront("project2");
@@ -1311,6 +1375,8 @@
 			middle = deque.popfront();
 			document.querySelector("."+middle).classList.remove("right");
 		}
+
+		/*Menu functions*/
 		function more1(){
 			if (!menuClicked1){
 				document.querySelector(".menu1").classList.add("menu-animation");
