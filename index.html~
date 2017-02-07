@@ -679,8 +679,8 @@
 			position:relative;
 			width:92%;
 			left:4%;
-			padding-top:4%;
-			padding-bottom:4%;
+			padding-top:8%;
+			padding-bottom:1%;
 			text-align:center;
 			display:inline-block;
 			border-bottom:solid gray 1px;
@@ -694,8 +694,8 @@
 			position:relative;
 			width:92%;
 			left:4%;
-			padding-top:4%;
-			padding-bottom:4%;
+			padding-top:8%;
+			padding-bottom:1%;
 			text-align:center;
 			display:inline-block;
 			border-bottom:solid gray 1px;
@@ -709,14 +709,14 @@
 			position:relative;
 			width:92%;
 			left:4%;
-			padding-top:4%;
-			padding-bottom:4%;
+			padding-top:8%;
+			padding-bottom:1%;
 			text-align:center;
 			display:inline-block;
 			border-bottom:solid gray 1px;
 		}
 		.list-item3 a{
-			bcolor:#3F51B5;
+			color:#3F51B5;
 			letter-spacing:2px;
 			text-decoration:none;
 		}
@@ -724,8 +724,8 @@
 			position:relative;
 			width:92%;
 			left:4%;
-			padding-top:4%;
-			padding-bottom:4%;
+			padding-top:8%;
+			padding-bottom:1%;
 			text-align:center;
 			display:inline-block;
 			border-bottom:solid gray 1px;
@@ -1022,8 +1022,8 @@
 				<div class="project4 left">
 					<img src="more.svg" class="menu-icon-vertical" onclick="more4()"></img>
 					<div class="menu4">
-						<div class="list-item4"><a href="">Dapper Alien</a></div>
-						<div class="list-item4"><a href="">DandroidDeveloper</a></div>
+						<div class="list-item4"><a href="https://github.com/DapperAlien">Dapper Alien</a></div>
+						<div class="list-item4"><a href="https://github.com/DandroidDeveloper">DandroidDeveloper</a></div>
 					</div>
 					<div class="project-description">
 						<h1>Github</h1>
