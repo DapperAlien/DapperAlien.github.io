@@ -213,6 +213,16 @@
 			height:100vh;
 			background:#212121;
 		}
+		.bannerLogo{
+			opacity:0;
+		  -webkit-transition: all .25s; /* Safari */
+		  transition: all .25s;
+			transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
+			-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
+		}
+		.bannerLogo-animation{
+			opacity:1;
+		}
 		.title{
 			opacity:0;
 		  -webkit-transition: all .25s; /* Safari */
@@ -906,7 +916,7 @@
 		<!---->
 		<!--Banner-->
 		<div class="banner">
-				<svg style="background:#212121; width:100%; height:50%; position:relative; margin-top:15vh;" viewbox="0 0 100 100" class="banner-logo">
+				<svg style="background:#212121; width:100%; height:50%; position:relative; margin-top:15vh;" viewbox="0 0 100 100" class="bannerLogo">
 				<path d="M50,47 C0,0 100,0 50,47" fill="#212121"/>
 				<path d="M52,30 C55,15 75,27 52,30" fill="#FAFAFA"/>
 				<path d="M48,30 C45,15 25,27 48,30" fill="#FAFAFA"/>
@@ -1129,6 +1139,7 @@
 			route("about");
 			document.querySelector(".contactForm").addEventListener('submit', validate);
 			document.querySelector(".title").classList.add("title-animation");
+			document.querySelector(".bannerLogo").classList.add("bannerLogo-animation");
 			document.querySelector(".fab1").classList.add("fab1-animation-in");
 		}
 
@@ -1143,6 +1154,7 @@
 			if (scrollTop === 0){
 				document.querySelector(".header").classList.remove("header-animation");
 				document.querySelector(".title").classList.add("title-animation");
+				document.querySelector(".bannerLogo").classList.add("bannerLogo-animation");
 				document.querySelector(".fab1").classList.add("fab1-animation-in");
 				document.querySelector(".fab2").classList.remove("fab2-animation-in");
 				document.getElementById("about").style.background = "#76FF03";
@@ -1155,6 +1167,7 @@
 			if (scrollTop > 100){
 				document.querySelector(".header").classList.add("header-animation");
 				document.querySelector(".title").classList.remove("title-animation");
+				document.querySelector(".bannerLogo").classList.remove("bannerLogo-animation");
 			}
 			if (scroll1 <= 0){
 				document.querySelector(".fab1").classList.remove("fab1-animation-in");

@@ -1136,7 +1136,9 @@
 		function scroll(){
 			var scroll1 = document.querySelector(".projects").getBoundingClientRect().top;
 			var scroll2 = document.querySelector(".contact").getBoundingClientRect().top;
-			var scrollTop = document.body.scrollTop;
+
+			//IE and FF are slow to the game, you have to use documentElement for them to work.
+			var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
 			var height = window.innerHeight;
 			if (scrollTop === 0){
 				document.querySelector(".header").classList.remove("header-animation");
@@ -1186,7 +1188,7 @@
 			}
 		}
 		function scrollToProjects(){
-			var scrollTop = document.body.scrollTop;
+			var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
 		  var pos = scrollTop;
 			var i = 0;
 		  var id = setInterval(frame, 10);
@@ -1195,14 +1197,14 @@
 		      if (scroll1 <= -56) {
 		          clearInterval(id);
 		      } else {
-							i++;
+							i++
 		          pos = pos + Math.pow(i, 2)/i; 
 							window.scrollTo(0, pos);
 		      }
 		  }
 		}
 		function reverseScrollToProjects(){
-			var scrollTop = document.body.scrollTop;
+			var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
 		  var pos = scrollTop;
 			var i = 0;
 		  var id = setInterval(frame, 10);
@@ -1211,14 +1213,14 @@
 		      if (scroll1 >= -56) {
 		          clearInterval(id);
 		      } else {
-							i++;
+							i++
 		          pos = pos - Math.pow(i, 2)/i; 
 							window.scrollTo(0, pos);
 		      }
 		  }
 		}
 		function scrollToContact(){
-			var scrollTop = document.body.scrollTop;
+			var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
 		  var pos = scrollTop;
 			var i = 0;
 		  var id = setInterval(frame, 10);
@@ -1227,14 +1229,14 @@
 		      if (scroll2 <= 0) {
 		          clearInterval(id);
 		      } else {
-							i++;
+							i++
 		          pos = pos + Math.pow(i, 2)/i; 
 							window.scrollTo(0, pos);
 		      }
 		  }
 		}
 		function scrollToTop(){
-			var scrollTop = document.body.scrollTop;
+			var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
 		  var pos = scrollTop;
 			var i = 0;
 		  var id = setInterval(frame, 10);
@@ -1242,7 +1244,7 @@
 		      if (pos <= 0) {
 		          clearInterval(id);
 		      } else {
-							i++;
+							i++
 		          pos = pos - Math.pow(i, 2)/i; 
 							window.scrollTo(0, pos);
 		      }
@@ -1275,7 +1277,7 @@
 				scrollToTop();
 			}
 			if (destination === "projects"){
-				var scrollTop = document.body.scrollTop;
+				var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
 				var scroll1 = document.querySelector(".projects").getBoundingClientRect().top;
 				var scroll2 = document.querySelector(".contact").getBoundingClientRect().top;
 				document.getElementById("projects").style.background = "#76FF03";
@@ -1298,7 +1300,7 @@
 			for (var i = 0; i < x.length; i++){
 				z += String.fromCharCode(((x[i] + 13) % 26) + 96);
 			}
-			return z;
+			return z
 		}
 
 		/*Make sure form is filled out*/
@@ -1345,7 +1347,7 @@
 		}
 		function init(){
 			var temp = deque.popback();
-			return temp;
+			return temp
 		}
 		function clickRight(){
 			document.querySelector("."+middle).classList.add("right");
