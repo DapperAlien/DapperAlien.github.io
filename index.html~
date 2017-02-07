@@ -612,6 +612,60 @@
 			transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
 			-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
 		}
+		.menu2{
+			overflow:auto;
+			position:absolute;
+			top:165px;
+			width:80%;
+			left:10%;
+			height:50%;
+			background:#FAFAFA;
+			z-index:2;
+			border-radius:4px;
+			transform:scale(0);	
+			opacity:0;
+			box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+		  -webkit-transition: all .25s; /* Safari */
+		  transition: all .25s;
+			transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
+			-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
+		}
+		.menu3{
+			overflow:auto;
+			position:absolute;
+			top:165px;
+			width:80%;
+			left:10%;
+			height:50%;
+			background:#FAFAFA;
+			z-index:2;
+			border-radius:4px;
+			transform:scale(0);	
+			opacity:0;
+			box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+		  -webkit-transition: all .25s; /* Safari */
+		  transition: all .25s;
+			transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
+			-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
+		}
+		.menu4{
+			overflow:auto;
+			position:absolute;
+			top:165px;
+			width:80%;
+			left:10%;
+			height:50%;
+			background:#FAFAFA;
+			z-index:2;
+			border-radius:4px;
+			transform:scale(0);	
+			opacity:0;
+			box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+		  -webkit-transition: all .25s; /* Safari */
+		  transition: all .25s;
+			transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
+			-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
+		}
 		.menu-animation{
 			opacity:1;
 			transform:scale(1);	
@@ -651,6 +705,27 @@
 				top:144px;
 			}
 			.menu1{
+				top:180px;
+				left:0;
+				right:0;
+				margin:auto;
+				max-width:500px;
+			}
+			.menu2{
+				top:180px;
+				left:0;
+				right:0;
+				margin:auto;
+				max-width:500px;
+			}
+			.menu3{
+				top:180px;
+				left:0;
+				right:0;
+				margin:auto;
+				max-width:500px;
+			}
+			.menu4{
 				top:180px;
 				left:0;
 				right:0;
@@ -807,9 +882,6 @@
 				<div class="project1">
 					<img src="more.svg" class="menu-icon-vertical" onclick="more1()"></img>
 					<div class="menu1">
-						<div class="list-item"><h4><a href="test.html">The Hitchhiker's Guide to Python</a></h4></div>
-						<div class="list-item"><h4><a href="">Music Theory Lessons</a></h4></div>
-						<div class="list-item"><h4><a href="">Critical Thinking Notes</a></h4></div>
 					</div>
 					<div class="project-description">
 						<h1>Websites</h1>
@@ -841,6 +913,9 @@
 					</div>
 				</div>
 				<div class="project2 right">
+					<img src="more.svg" class="menu-icon-vertical" onclick="more2()"></img>
+					<div class="menu2">
+					</div>
 					<div class="project-description">
 						<h1>Codepens</h1>
 					</div>
@@ -849,6 +924,9 @@
 					</div>
 				</div>
 				<div class="project3 top">
+					<img src="more.svg" class="menu-icon-vertical" onclick="more3()"></img>
+					<div class="menu3">
+					</div>
 					<div class="project-description">
 						<h1>Mobile</h1>
 					</div>
@@ -879,6 +957,9 @@
 					</div>
 				</div>
 				<div class="project4 left">
+					<img src="more.svg" class="menu-icon-vertical" onclick="more4()"></img>
+					<div class="menu4">
+					</div>
 					<div class="project-description">
 						<h1>Github</h1>
 					</div>
@@ -986,7 +1067,10 @@
 	<script>
 		var formClicked = false;
 		var internalRoute = "about";
-		var menuClicked = false;
+		var menuClicked1 = false;
+		var menuClicked2 = false;
+		var menuClicked3 = false;
+		var menuClicked4 = false;
 		var x = [17,14,29,29,18,31,14,25,22,18,27,17,18,32,22,20,27]
 		function load(){
 			y();
@@ -1228,13 +1312,43 @@
 			document.querySelector("."+middle).classList.remove("right");
 		}
 		function more1(){
-			if (!menuClicked){
+			if (!menuClicked1){
 				document.querySelector(".menu1").classList.add("menu-animation");
-				menuClicked = true;
+				menuClicked1 = true;
 			}
 			else{
 				document.querySelector(".menu1").classList.remove("menu-animation");	
-				menuClicked = false;
+				menuClicked1 = false;
+			}
+		}
+		function more2(){
+			if (!menuClicked2){
+				document.querySelector(".menu2").classList.add("menu-animation");
+				menuClicked2 = true;
+			}
+			else{
+				document.querySelector(".menu2").classList.remove("menu-animation");	
+				menuClicked2 = false;
+			}
+		}
+		function more3(){
+			if (!menuClicked3){
+				document.querySelector(".menu3").classList.add("menu-animation");
+				menuClicked3 = true;
+			}
+			else{
+				document.querySelector(".menu3").classList.remove("menu-animation");	
+				menuClicked3 = false;
+			}
+		}
+		function more4(){
+			if (!menuClicked4){
+				document.querySelector(".menu4").classList.add("menu-animation");
+				menuClicked4 = true;
+			}
+			else{
+				document.querySelector(".menu4").classList.remove("menu-animation");	
+				menuClicked4 = false;
 			}
 		}
 	</script>
