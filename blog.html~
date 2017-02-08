@@ -22,7 +22,7 @@
 			font-family: 'Roboto', sans-serif;
 			margin:0;
 			padding:0;
-			background:#212121;
+			background:#FAFAFA;
 		}
 		.header{
 			position:fixed;
@@ -38,7 +38,7 @@
 			height:100%;
 			width:100%;
 			text-align:center;
-			background:#212121;
+			background:#FAFAFA;
 		}
 		.flag{
 			width:100%; 
@@ -206,9 +206,6 @@
 			color:#1E88E5;
 		}
 		@media screen and (min-width: 700px) {
-			html, body{
-				background:#212121;
-			}
 			.flag{
 				position:fixed;
 				left:0;
