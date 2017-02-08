@@ -212,6 +212,7 @@
 			.then(function(myBlob) { 
 				var objectURL = URL.createObjectURL(myBlob); 
 				myImage.src = objectURL; 
+				document.querySelector('.flag').classList.add("flag-animate");
 			})
 			.catch(function(error) {
 				console.log('There has been a problem with your fetch operation: ' + error.message);
