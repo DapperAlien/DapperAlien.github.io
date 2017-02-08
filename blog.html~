@@ -187,6 +187,24 @@
 	<script>
 		function animate(){
 			document.querySelector(".card").classList.add("card-up");
+			var myImage = document.querySelector('.flag');
+			fetch('http://dapperalien.com/schoolOfAthens.png')
+			.then(function(response) {
+				if(response.ok) {
+					console.log(response);
+					return response.blob();
+				}
+				throw new Error('Network response was not ok.');
+			})
+			.then(function(myBlob) { 
+				console.log(myBlob);
+				var objectURL = URL.createObjectURL(myBlob); 
+				console.log(objectURL);
+				myImage.src = objectURL; 
+			})
+			.catch(function(error) {
+				console.log('There has been a problem with your fetch operation: ' + error.message);
+			});
 		}
 	</script>
 </html>
