@@ -22,7 +22,7 @@
 			font-family: 'Roboto', sans-serif;
 			margin:0;
 			padding:0;
-			background:#FAFAFA;
+			background:#212121;
 		}
 		.header{
 			position:fixed;
@@ -55,7 +55,7 @@
 				 height:100px;
 				 margin:30px auto;
 				 position:absolute;
-				 top: 15%;
+				 top: 22.5%;
 				 left: 50%;
 				 margin-left: -50px;
 				 margin-top: -50px;
@@ -362,6 +362,8 @@
 				document.querySelector('.flag').classList.add("flag-animate");
 				document.querySelector('.card').classList.add("card-post-load");
 				document.querySelector('.bar').classList.remove("loading");
+				document.body.style.background = "#FAFAFA";
+				document.querySelector('.container').style.background = "#FAFAFA";
 			})
 			.catch(function(error) {
 				console.log('There has been a problem with your fetch operation: ' + error.message);
