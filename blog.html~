@@ -43,6 +43,14 @@
 			width:100%; 
 			max-width:1500px; 
 			position:relative;
+			opacity:0;
+		  -webkit-transition: all .33s; /* Safari */
+		  transition: all .33s;
+			transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
+			-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
+		}
+		.flag-animate{
+			opacity:1;
 		}
 		.card{
 			margin-top:-5px;
@@ -131,7 +139,7 @@
 			</a>
 		</div>
 		<div class="container">
-			<img src="alien.svg" class="flag"></img>
+			<img src="" class="flag"></img>
 			<div class="card">
 				<h1>Blog...</h1>
 				<h4>Math</h4>
@@ -197,15 +205,12 @@
 			fetch('http://www.dapperalien.com/schoolOfAthens.png', myInit)
 			.then(function(response) {
 				if(response.ok) {
-					console.log(response);
 					return response.blob();
 				}
 				throw new Error('Network response was not ok.');
 			})
 			.then(function(myBlob) { 
-				console.log(myBlob);
 				var objectURL = URL.createObjectURL(myBlob); 
-				console.log(objectURL);
 				myImage.src = objectURL; 
 			})
 			.catch(function(error) {
