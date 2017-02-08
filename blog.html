@@ -197,15 +197,12 @@
 			fetch('http://www.dapperalien.com/schoolOfAthens.png', myInit)
 			.then(function(response) {
 				if(response.ok) {
-					console.log(response);
 					return response.blob();
 				}
 				throw new Error('Network response was not ok.');
 			})
 			.then(function(myBlob) { 
-				console.log(myBlob);
 				var objectURL = URL.createObjectURL(myBlob); 
-				console.log(objectURL);
 				myImage.src = objectURL; 
 			})
 			.catch(function(error) {
