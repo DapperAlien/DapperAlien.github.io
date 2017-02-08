@@ -188,7 +188,13 @@
 		function animate(){
 			document.querySelector(".card").classList.add("card-up");
 			var myImage = document.querySelector('.flag');
-			fetch('http://www.dapperalien.com/schoolOfAthens.png')
+			var myHeaders = new Headers();
+
+			var myInit = { method: 'GET',
+						         headers: myHeaders,
+						         mode: 'cors',
+						         cache: 'default' };
+			fetch('http://www.dapperalien.com/schoolOfAthens.png', myInit)
 			.then(function(response) {
 				if(response.ok) {
 					console.log(response);
