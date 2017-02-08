@@ -53,6 +53,7 @@
 		}
 		.flag-animate{
 			height:;
+			opacity:1;
 		}
 		.loading{
 				 width:100px;
@@ -185,9 +186,6 @@
 				 100%{
 				      opacity:0;
 				 }
-		}
-		.flag-animate{
-			opacity:1;
 		}
 		.card{
 			margin-top:-5px;
