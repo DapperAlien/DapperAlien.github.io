@@ -38,6 +38,7 @@
 			height:100%;
 			width:100%;
 			text-align:center;
+			background:#212121;
 		}
 		.flag{
 			width:100%; 
@@ -189,8 +190,12 @@
 			margin-left:5%;
 			position:relative;
 			width:90%;
+			top:25%;
 			text-align:left;
 			background:#FAFAFA;
+		}
+		.card-post-load{
+			top:0%;
 		}
 		.card h1{
 			opacity:0.8;
@@ -355,6 +360,7 @@
 				var objectURL = URL.createObjectURL(myBlob); 
 				myImage.src = objectURL; 
 				document.querySelector('.flag').classList.add("flag-animate");
+				document.querySelector('.card').classList.add("card-post-load");
 				document.querySelector('.bar').classList.remove("loading");
 			})
 			.catch(function(error) {

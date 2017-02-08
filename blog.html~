@@ -189,6 +189,7 @@
 			margin-left:5%;
 			position:relative;
 			width:90%;
+				top:50%;
 			text-align:left;
 			background:#FAFAFA;
 		}
@@ -355,6 +356,7 @@
 				var objectURL = URL.createObjectURL(myBlob); 
 				myImage.src = objectURL; 
 				document.querySelector('.flag').classList.add("flag-animate");
+				document.querySelector('.bar').classList.remove("loading");
 			})
 			.catch(function(error) {
 				console.log('There has been a problem with your fetch operation: ' + error.message);
