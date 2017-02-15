@@ -52,7 +52,7 @@
 			-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
 		}
 		.flag-animate{
-			height:;
+			height:auto;
 			opacity:1;
 		}
 		.loading{

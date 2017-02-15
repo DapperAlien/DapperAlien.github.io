@@ -1,1346 +1,784 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<title>Dapper Alien</title>
-	<!--
-	Welcome to the Source Code for my personal website! Feel free to use any of the animations, layouts, or concepts you see. I created everything from scratch in CSS, JS, and HTML. 100% certified organic, framework free code. May the force be with you!
-	-->
-	<!--Favicons-->
-		<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-		<link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
-		<link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16">
-		<link rel="manifest" href="manifest.json">
-		<link rel="mask-icon" href="safari-pinned-tab.svg" color="#212121">
-		<meta name="theme-color" content="#ffffff">
-	<!---->
-
-	<!--RESPONSIVE: Make sure viewport is scaled to 1 on mobile devices-->
+	<title>Daniel Marcoux</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
-
-	<!--PERF: Make sure all animations use composite layers. Anything else will call paint which is expensive...-->
+	<link href='https://fonts.googleapis.com/css?family=Orbitron:400,700' rel='stylesheet' type='text/css'>
 	<style>
-		html, body{
-			font-family: 'Orbitron', sans-serif;
-			margin:0;
-			padding:0;
-			background:#FAFAFA;
+	html, body{
+		margin:0;
+		padding:0;
+		font-family: 'Montserrat', sans-serif;
+	}
+	.background {
+		z-index:-1; 
+		height: 100%;
+		width:auto;
+		position: fixed;
+		right: 0;
+		left: 0;
+		margin:auto;
+		-webkit-filter: brightness(50%); /* Safari 6.0 - 9.0 */
+		filter: brightness(50%);
+	}
+	.background-wide{
+		width:100%;
+		height:auto;
+	}
+	.nav{
+		position:fixed;
+		z-index:2;
+		left:0;
+		width:100%;
+		height:100%;
+		overflow:hidden;
+		pointer-events:none;
+	}
+	.nav--visible{
+		pointer-events:auto;
+	}
+	.nav::before{
+		content:"";
+		display:block;
+		position:absolute;
+		left:0;
+		top:0;
+		width:100%;
+		height:100%;
+		background:rgba(0, 0, 0, 0.7);
+		opacity:0;
+		transition: opacity 0.33s cubic-bezier(0, 0, 0.3, 1);
+	}
+	.nav__container{
+		position:relative;
+		width:85%;
+		max-width:400px;
+		background:transparent;
+		height:100%;
+		transform:translate(-102%);
+		transition: transform 0.33s cubic-bezier(0, 0, 0.3, 1);
+	}
+	.nav--animatable .nav__container{
+			transition: transform 0.15s cubic-bezier(0, 0, 0.3, 1);
 		}
-		.nav{
-			position:fixed;
-			z-index:3;
-			left:0;
-			top:56px;
-			width:100%;
-			height:100%;
-			overflow:hidden;
-			pointer-events:none;
+	.nav--visible.nav--animatable .nav__container{
+		transition: transform 0.33s cubic-bezier(0, 0, 0.3, 1);
+	}
+	.nav--visible::before{
+		opacity:1;
+	}
+	.nav--visible .nav__container{
+		transform:none;
+	}
+	.nav-content{
+		margin-top:56px;
+		width:100%;
+		height:100%;
+		background:rgba(0, 0, 0, 0.7);
+		color:white;
+		overflow-x:hidden;
+		overflow-y:auto;
+		-webkit-overflow-scrolling:touch;
+	}
+	.nav-item{
+		height:56px;
+		margin:0;
+		width:100%;
+		padding-left:72px;
+	}
+	.nav-item h1{
+		cursor:pointer;
+	}
+	.header{
+		z-index:3;
+		top:0;
+		position:fixed;
+		width:100%;
+		height:56px;
+		overflow:hidden;
+		background:rgba(0, 0, 0, 0.7);
+		transition: all 0.33s cubic-bezier(0, 0, 0.3, 1);
+	}
+	.header-animated{
+		background:rgba(0, 0, 0, 0.7);
+	}
+	.box{
+		position:absolute;
+		z-index:3;
+		left:8px;
+		top:0;
+		height:56px;
+		width:56px;
+		cursor:pointer;
+		-webkit-transition: all .15s; /* Safari */
+		transition: all .15s;
+		transition-timing-function: ease-in-out;
+		-webkit-transition-timing-function: ease-in-out;
+	}
+	.box-animated{
+		transform:rotate(180deg);	
+	}
+	.top{
+		position:absolute;
+		left:0;
+		right:0;
+		margin:auto;
+		width:32px;
+		height:3px;
+		top:19px;
+		background:white;
+		-webkit-transition: all .15s; /* Safari */
+		transition: all .15s;
+		transition-timing-function: ease-in-out;
+		-webkit-transition-timing-function: ease-in-out;
+	}
+	.middle{
+		position:absolute;
+		left:0;
+		right:0;
+		margin:auto;
+		width:32px;
+		height:3px;
+		top:27px;
+		background:white;
+		-webkit-transition: all .15s; /* Safari */
+		transition: all .15s;
+		transition-timing-function: ease-in-out;
+		-webkit-transition-timing-function: ease-in-out;
+	}
+	.bottom{
+		position:absolute;
+		left:0;
+		right:0;
+		margin:auto;
+		width:32px;
+		height:3px;
+		top:35px;
+		background:white;
+		-webkit-transition: all .15s; /* Safari */
+		transition: all .15s;
+		transition-timing-function: ease-in-out;
+		-webkit-transition-timing-function: ease-in-out;
+	}
+	.top-animated{
+		transform:rotate(30deg) scale(0.5, 1) translate(50%, 0%);
+	}
+	.middle-animated{
+		transform:scale(0.92, 1);
+	}
+	.bottom-animated{
+		transform:rotate(-30deg) scale(0.5, 1) translate(50%, 0%);
+	}
+	.routes{
+		position:relative;
+		display:none;
+		float:right;
+		height:100%;
+		text-align:right;
+	}
+	.routes span{
+		margin-right:56px;
+		font-size:150%;
+		font-weight:400;
+		line-height:3.75;
+		color:white;
+		cursor:pointer;
+	}
+	.about{
+		position:absolute;
+		top:0;
+		width:100%;
+		height:100%;
+		color:white;
+		text-align:center;
+		overflow:hidden;
+	}
+	.intro{
+		position:absolute;
+		margin-left:5%;
+		width:90%;
+		text-align:center;
+		color:white;
+		top:25%;
+		overflow:hidden;
+	}
+	.download{
+		margin-top:32px;
+		width:160px;
+		color:white;
+		padding:16px;
+		border:solid white 2px;
+		border-radius:8px;
+		background:transparent;
+		cursor:pointer;
+	}
+	.download h4{
+		margin:4px 0 0 0;
+	}
+	.download img{
+		float:left;
+		margin:0 0 0 4px;
+	}
+	.download:hover{
+		background:#E91E63;
+	}
+	.down1{
+		z-index:1;
+		position:absolute;
+		bottom:0;
+		left:0;
+		right:0;
+		margin:auto;
+		height:56px;
+		cursor:pointer;
+		opacity:0;
+		transform:translate(0px, 56px);
+		-webkit-transition: all .25s; /* Safari */
+		transition: all .25s;
+		-webkit-transition-timing-function: linear; /* For Safari 3.1 to 6.0 */
+		transition-timing-function: linear;
+	}
+	.down1-animated{
+		opacity:1;
+		transform:translate(0px, 0px);
+	}
+	.portfolio{
+		position:absolute;
+		top:100%;
+		width:100%;
+		height:100vh;
+		overflow:hidden;
+		color:white;
+	}
+	.portfolio h1{
+		position:absolute;
+		bottom:72px;
+		left:0;
+		right:0;
+		margin:auto;
+	}
+	.portfolio a{
+		color:white;
+	}
+	.list1{
+		position:absolute;
+		left:0;
+		right:0;
+		margin:auto;
+		width:100%;
+		max-width:600px;
+		height:80%;
+		bottom:56px;
+	}
+	.list-item1{
+		position:absolute;
+		width:40%;
+		height:40vw;
+		max-width:200px;
+		max-height:200px;
+		bottom:15%;
+		left:5%;
+		background:#212121;
+		overflow:hidden;
+	}
+	.list-item2{
+		position:absolute;
+		width:40%;
+		height:40vw;
+		max-width:200px;
+		max-height:200px;
+		bottom:15%;
+		right:5%;
+		background:#212121;
+		overflow:hidden;
+	}
+	.list-item3{
+		position:absolute;
+		width:40%;
+		height:40vw;
+		max-width:200px;
+		max-height:200px;
+		bottom:60%;
+		left:5%;
+		background:#212121;
+		overflow:hidden;
+	}
+	.list-item4{
+		position:absolute;
+		width:40%;
+		height:40vw;
+		max-width:200px;
+		max-height:200px;
+		bottom:60%;
+		right:5%;
+		background:#212121;
+		overflow:hidden;
+	}
+	.notes{
+		z-index:1;
+		position:absolute;
+		height:100%;
+		opacity:1;
+  	filter: alpha(opacity=100); /* For IE8 and earlier */
+		-webkit-transition: all .25s; /* Safari */
+		transition: all .25s;
+		transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);;
+		-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
 		}
-		.nav--visible{
-			pointer-events:auto;
-		}
-		.nav::before{
-			content:"";
-			display:block;
-			position:absolute;
-			left:0;
-			top:0;
-			width:100%;
-			height:100%;
-			background:rgba(0, 0, 0, 0.4);
-			opacity:0;
-			transition: opacity 0.33s cubic-bezier(0, 0, 0.3, 1);
-		}
-		.nav__container{
-			position:relative;
-			width:85%;
-			max-width:400px;
-			background:#FAFAFA;
-			height:100%;
-			transform:translate(-102%);
-			transition: transform 0.33s cubic-bezier(0, 0, 0.3, 1);
-		}
-		.nav--animatable .nav__container{
-				transition: transform 0.15s cubic-bezier(0, 0, 0.3, 1);
-			}
-		.nav--visible.nav--animatable .nav__container{
-			transition: transform 0.33s cubic-bezier(0, 0, 0.3, 1);
-		}
-		.nav--visible::before{
-			opacity:1;
-		}
-		.nav--visible .nav__container{
-			transform:none;
-		}
-		.nav-content{
-			width:100%;
-			height:100%;
-			background:#212121;
-			overflow-x:hidden;
-			overflow-y:auto;
-			-webkit-overflow-scrolling:touch;
-			color:#FAFAFA;
-		}
-		.navItem{
-			float:left;
-			width:100%;
-			height:56px;
-			margin-top:16px;
-			opacity:0.8;
-			cursor:pointer;
-		}
-		.header{
-			position:fixed;
-			z-index:2;
-			width:100%;
-			height:56px;
-			background:#212121;
-			box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-			transform:translate(0px, -66px);
-		  -webkit-transition: all .25s; /* Safari */
-		  transition: all .25s;
-			transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
-			-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
-		}
-		.header-animation{
-			transform:translate(0px, 0px);
-		}
-		.box{
-			position:absolute;
-			top:0;
-			left:0;
-			width:72px;
-			height:56px;
-			cursor:pointer;
-		}
-		.box-top{
-			position:absolute;
-			left:16px;
-			top:16px;
-			width:40px;
-			height:2px;
-			background:#FAFAFA;
-		}
-		.middle1{
-			position:absolute;
-			left:16px;
-			top:27px;
-			width:20px;
-			height:2px;
-			background:#FAFAFA;
-		  -webkit-transition: all .25s; /* For Safari 3.1 to 6.0 */
-		  transition: all .25s;
-			-webkit-transition-timing-function: ease-in-out;
-			transition-timing-function: ease-in-out;
-		}
-		.middle2{
-			position:absolute;
-			left:36px;
-			top:27px;
-			width:20px;
-			height:2px;
-			background:#FAFAFA;
-		  -webkit-transition: all .25s; /* For Safari 3.1 to 6.0 */
-		  transition: all .25s;
-			-webkit-transition-timing-function: ease-in-out;
-			transition-timing-function: ease-in-out;
-		}
-		.bottom{
-			position:absolute;
-			left:16px;
-			top:38px;
-			width:40px;
-			height:2px;
-			background:#FAFAFA;
-		  -webkit-transition: all .25s; /* For Safari 3.1 to 6.0 */
-		  transition: all .25s;
-			-webkit-transition-timing-function: ease-in-out;
-			transition-timing-function: ease-in-out;
-		}
-		.stem{
-			position:absolute;
-			left:35px;
-			width:2px;
-			height:10px;
-			top:28px;
-			background:#FAFAFA;
-			transform:scale(0);
-		  -webkit-transition: all .25s; /* For Safari 3.1 to 6.0 */
-		  transition: all .25s;
-			-webkit-transition-timing-function: ease-in-out;
-			transition-timing-function: ease-in-out;
-		}
-		.stemGrown{
-			transform:scale(1);
-		}
-		.middle1Rotated{
-			-ms-transform: rotate(30deg) translate(-4px, -1px); /* IE 9 */
-		  -webkit-transform: rotate(30deg) translate(-4px, -1px); /* Chrome, Safari, Opera */
-		  transform: rotate(30deg) translate(-3px, -4px);
-		}
-		.middle2Rotated{
-			-ms-transform: rotate(-30deg) translate(4px, -1px); /* IE 9 */
-		  -webkit-transform: rotate(-30deg) translate(4px, -1px); /* Chrome, Safari, Opera */
-		  transform: rotate(-30deg) translate(3px, -4px);
-		}
-		.bottomScaled{
-			-ms-transform: scale(); /* IE 9 */
-		  -webkit-transform: scale(); /* Chrome, Safari, Opera */
-		  transform: scaleX(.5);
-		}
-		.exit{
-			cursor:default;
-			height:56px;
-			width:56px;
-			text-align:center;
-			position:absolute;
-			right:0px;
-			top:0px;
-			opacity:0;
-		  -webkit-transition: all .25s; /* Safari */
-		  transition: all .25s;
-			transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
-			-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
-		}
-		.exit-animation{
-			cursor:pointer;
-			opacity:1;
-		}
-		.banner{
-			position:fixed;
-			z-index:0;
-			width:100%;
-			height:100vh;
-			background:#212121;
-		}
-		.bannerLogo{
-			opacity:0;
-		  -webkit-transition: all .25s; /* Safari */
-		  transition: all .25s;
-			transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
-			-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
-		}
-		.bannerLogo-animation{
-			opacity:1;
+	.notes:hover{
+		cursor:pointer;
+	  opacity: 0;
+	  filter: alpha(opacity=0); /* For IE8 and earlier */
+	}
+	.blog{
+		background:#FAFAFA;
+		z-index:1;
+		position:absolute;
+		height:100%;
+		opacity:1;
+ 		filter: alpha(opacity=100); /* For IE8 and earlier */
+		-webkit-transition: all .25s; /* Safari */
+		transition: all .25s;
+		transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);;
+		-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
+	}
+	.blog:hover{
+		cursor:pointer;
+	  opacity: 0;
+	  filter: alpha(opacity=0); /* For IE8 and earlier */
+	}
+	.music{
+		background:#FAFAFA;
+		z-index:1;
+		position:absolute;
+		height:100%;
+		opacity:1;
+   	filter: alpha(opacity=100); /* For IE8 and earlier */
+		-webkit-transition: all .25s; /* Safari */
+		transition: all .25s;
+		transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);;
+		-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
+	}
+	.music:hover{
+		cursor:pointer;
+	  opacity: 0;
+	  filter: alpha(opacity=0); /* For IE8 and earlier */
+	}
+	.AI{
+		background:#FAFAFA;
+		z-index:1;
+		position:absolute;
+		height:100%;
+		opacity:1;
+   	filter: alpha(opacity=100); /* For IE8 and earlier */
+		-webkit-transition: all .25s; /* Safari */
+		transition: all .25s;
+		transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);;
+		-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
+	}
+	.AI:hover{
+		cursor:pointer;
+	  opacity: 0;
+	  filter: alpha(opacity=0); /* For IE8 and earlier */
+	}
+	.down2{
+		position:absolute;
+		bottom:16px;
+		left:0;
+		right:0;
+		margin:auto;
+		height:56px;
+		cursor:pointer;
+		opacity:0;
+		transform:translate(0px, 56px);
+		-webkit-transition: all .25s; /* Safari */
+		transition: all .25s;
+		-webkit-transition-timing-function: linear; /* For Safari 3.1 to 6.0 */
+		transition-timing-function: linear;
+	}
+	.down2-animated{
+		opacity:1;
+		transform:translate(0px, 0px);
+	}
+	.buttonLeft{
+		position:absolute;
+		top:100vh;
+		margin-top:-72px;
+		left:20%;
+		height:56px;
+		cursor:pointer;
+	}
+	.buttonRight{
+		position:absolute;
+		top:100vh;
+		margin-top:-72px;
+		right:20%;
+		height:56px;
+		cursor:pointer;
+	}
+	.animate-top{
+		opacity:0;
+		transform:translate(0px, -200px);
+	}
+	.animate-right{
+		opacity:0;
+		transform:translate(200px, 0px);
+	}
+	.animate-left{
+		opacity:0;
+		transform:translate(-200px, 0px);
+	}
+	.page1{
+		position:absolute;
+		left:0;
+		right:0;
+		bottom:0;
+		height:100%;
+		width:100%;
+		-webkit-transition: all .25s; /* Safari */
+		transition: all .25s;
+		transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);;
+		-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
+	}
+	.page2{
+		position:absolute;
+		left:0;
+		right:0;
+		bottom:0;
+		height:100%;
+		width:100%;
+		-webkit-transition: all .25s; /* Safari */
+		transition: all .25s;
+		transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);;
+		-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
+	}
+	.page3{
+		position:absolute;
+		left:0;
+		right:0;
+		bottom:0;
+		height:100%;
+		width:100%;
+		-webkit-transition: all .25s; /* Safari */
+		transition: all .25s;
+		transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);;
+		-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
+	}
+	.page4{
+		position:absolute;
+		left:0;
+		right:0;
+		bottom:0;
+		height:100%;
+		width:100%;
+		-webkit-transition: all .25s; /* Safari */
+		transition: all .25s;
+		transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);;
+		-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
+	}
+	.contact{
+		position:absolute;
+		top:200%;
+		width:100%;
+		height:100vh;
+		overflow:hidden;
+	}
+	.up{
+		position:absolute;
+		bottom:0;
+		left:0;
+		right:0;
+		margin:auto;
+		height:56px;
+		cursor:pointer;
+	}
+	.contactForm{
+		position:absolute;
+		top:56px;
+		width:100%;
+		height:90%;
+		color:white;
+		text-align:center;
+	}
+	.form-text{
+		margin-left:10%;
+		margin-right:10%;
+		margin-top:5%;
+		width:80%;
+		max-width:800px;
+		height:30vh;
+		text-align:center;
+		background:transparent;
+		border: 2px solid #FFF;
+		border-radius:4px;
+		color:#FFF;
+	}
+	.form-text:focus {
+		outline:none;
+		background:rgba(0, 0, 0, 0.7);
+	}
+	.form-text::-webkit-input-placeholder {
+		font-size:150%;
+		color:#FFF;
+	}
+	.form-text:-moz-placeholder { /* Firefox 18- */
+		font-size:150%;
+		color:#FFF;
+	}
+	.form-text::-moz-placeholder {  /* Firefox 19+ */
+		font-size:150%;
+		color:#FFF;
+	}
+	.form-text:-ms-input-placeholder {  
+		font-size:150%;
+		color:#FFF;
+	}
+	.form-email{
+		position:relative;
+		margin-left:10%;
+		margin-right:10%;
+		margin-top:16px;
+		margin-bottom:16px;
+		width:80%;
+		max-width:800px;
+		height:32px;
+		text-align:center;
+		background:transparent;
+		border: 2px solid #FFF;
+		border-radius:4px;
+		color:#FFF;
+	}
+	.form-email:focus {
+		outline:none;
+		background:rgba(0, 0, 0, 0.7);
+	}
+	.form-email::-webkit-input-placeholder {
+		color:#FFF;
+	}
+	.form-email:-moz-placeholder { /* Firefox 18- */
+		color:#FFF;
+	}
+	.form-email::-moz-placeholder {  /* Firefox 19+ */
+		color:#FFF;
+	}
+	.form-email:-ms-input-placeholder {  
+		color:#FFF;
+	}
+	.form-button{
+		width:50px;
+		height:50px;
+		border-radius:50%;
+		background:transparent;
+		border: 2px solid #FFF;
+		cursor:pointer;
+	}
+	.form-button:hover{
+		background:#E91E63;
+	}
+	.form-email-error-animation::-webkit-input-placeholder {
+		color:#FF1744;
+	}
+	.form-email-error-animation:-moz-placeholder { /* Firefox 18- */
+		color:#FF1744;
+	}
+	.form-email-error-animation::-moz-placeholder {  /* Firefox 19+ */
+		color:#FF1744;
+	}
+	.form-email-error-animation:-ms-input-placeholder {  
+		color:#FF1744;
+	}
+	@media screen and (min-width: 316px) {
+		.intro{
+			margin-left:20%;
+			width:60%;
 		}
 		.title{
-			opacity:0;
-		  -webkit-transition: all .25s; /* Safari */
-		  transition: all .25s;
-			transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
-			-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
-		}
-		.title-animation{
-			opacity:1;
-		}
-			.title h1{
-				font-size:200%;
-			}
-			.title p{
-				font-size:100%;
-			}
-		.projects{
-			position:absolute;
-			z-index:1;
-			width:100%;
-			height:100vh;
-			top:100vh;
-			margin-top:-72px;
-		}
-		.fab1{
-			position:relative;
-			margin: auto;
-			width:60px;
-			height:60px;
-			border-radius:30px;
-			background:#212121;
-			cursor:pointer;
-			box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-			transform:translate(40vw, -30px) scale(0);
-		  -webkit-transition: all .25s; /* Safari */
-		  transition: all .25s;
-			transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
-			-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
-		}
-		.fab1-animation-in{
-			transform:translate(0, -30px) scale(1);
-		}
-		.fab1:hover {
-			box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-		}
-		.contact{
-			position:absolute;
-			z-index:1;
-			width:100%;
-			height:100vh;
-			background:#FAFAFA;
-			top:200vh;
-			margin-top:-72px;
-		}
-		.fab2{
-			position:relative;
-			margin: auto;
-			width:60px;
-			height:60px;
-			border-radius:30px;
-			background:#212121;
-			cursor:pointer;
-			box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-			transform:translate(40vw, -30px) scale(0);
-		  -webkit-transition: all .25s; /* Safari */
-		  transition: all .25s;
-			transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
-			-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
-		}
-		.fab2-animation-in{
-			transform:translate(0, -30px) scale(1);
-		}
-		.fab2:hover {
-			box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-		}
-		.footer{
-			position:absolute;
-			width:100%;
-			height:20%;
-			bottom:0;
-			background:#212121;
-		}
-		.footerLeft{
-			position:absolute;
-			top:0;
-			left:0;
-			width:50%;
-			height:100%;
-			text-align:center;
-		}
-		.footerRight{
-			position:absolute;
-			top:0;
-			left:50%;
-			width:50%;
-			height:100%;
-			text-align:center;
-		}
-		.fab3{
-			position:relative;
-			margin: auto;
-			width:60px;
-			height:60px;
-			border-radius:30px;
-			background:#212121;
-			cursor:pointer;
-			transform:translate(40vw, -30px) scale(0) rotate(180deg);
-		  -webkit-transition: all .25s; /* Safari */
-		  transition: all .25s;
-			transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
-			-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
-		}
-		.fab3-animation-in{
-			transform:translate(0, -30px) scale(1) rotate(180deg);
-		}
-		.contact-logo{
-			height:15%;
-			opacity:0;
-		  -webkit-transition: all .33s; /* Safari */
-		  transition: all .33s;
-			transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
-			-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
-		}
-		.contact-logo-animation{
-			opacity:1;
-		}
-		.contactTitle{
-			font-size:150%;
-			opacity:0;
-		  -webkit-transition: all .33s; /* Safari */
-		  transition: all .33s;
-			transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
-			-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
-		}
-		.contactTitle-animation{
-			opacity:1;
-		}
-		.contactForm{
-			width:200px;
-			opacity:0;
-		  -webkit-transition: all .25s; /* Safari */
-		  transition: all .25s;
-			transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
-			-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
-		}
-		.contactForm-animation{
-			opacity:1;
-		}
-		.contactButton{
-			position:relative;
-			z-index:3;
-			border:none;
-			cursor:pointer;
-			background:#4CAF50;
-			margin-top:16px;
-			width:50px;
-			height:50px;
-			border-radius:25px;
-			box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-		}
-		.contactButton:hover {
-			box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-		}
-		.contactMessage{
-			width:100%;
-			text-align:center;
-			border-top:none;
-			border-left:none;
-			border-right:none;
-			border-bottom: 1.5px solid #9E9E9E;
-    	resize: none;
-			background:#FAFAFA;
-		}
-		.contactMessage::-webkit-input-placeholder {
-			font-family: 'Orbitron', sans-serif;
-			letter-spacing:3px;
-		}
-		.contactMessage:-moz-placeholder { /* Firefox 18- */
-			font-family: 'Orbitron', sans-serif;
-			letter-spacing:3px;
-		}
-		.contactMessage::-moz-placeholder {  /* Firefox 19+ */
-			font-family: 'Orbitron', sans-serif;
-			letter-spacing:3px;
-		}
-		.contactMessage:-ms-input-placeholder {  
-			font-family: 'Orbitron', sans-serif;
-			letter-spacing:3px;
-		}
-		.contactMessage:focus {
-			outline:none;
-		}
-		.messageUnderline{
-			width:100%;
-			height:2px;
-			margin-top:-5px;
-			margin-bottom:10px;
-			background:#4CAF50;
-			transform:scale(0, 1);
-		  -webkit-transition: all .25s; /* Safari */
-		  transition: all .25s;
-			transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
-			-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
-		}
-		.messageUnderline-animation{
-			transform:scale(1, 1);
-		}
-		.contactEmail{
-			width:100%;
-			margin-top:16px;
-			text-align:center;
-			border-top:none;
-			border-left:none;
-			border-right:none;
-			border-bottom: 1.5px solid #9E9E9E;
-			background:#FAFAFA;
-		}
-		.contactEmail::-webkit-input-placeholder {
-			font-family: 'Orbitron', sans-serif;
-			letter-spacing:3px;
-		}
-		.contactEmail:-moz-placeholder { /* Firefox 18- */
-			font-family: 'Orbitron', sans-serif;
-			letter-spacing:3px;
-		}
-		.contactEmail::-moz-placeholder {  /* Firefox 19+ */
-			font-family: 'Orbitron', sans-serif;
-			letter-spacing:3px;
-		}
-		.contactEmail:-ms-input-placeholder {  
-			font-family: 'Orbitron', sans-serif;
-			letter-spacing:3px;
-		}
-		.contactEmail:focus {
-			outline:none;
-		}
-		.emailUnderline{
-			width:100%;
-			height:2px;
-			margin-top:-2px;
-			margin-bottom:10px;
-			background:#4CAF50;
-			transform:scale(0, 1);
-		  -webkit-transition: all .25s; /* Safari */
-		  transition: all .25s;
-			transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
-			-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
-		}
-		.emailUnderline-animation{
-			transform:scale(1, 1);
-		}
-		.contactEmail-error-animation{
-
-		}
-		.contactEmail-error-animation::-webkit-input-placeholder {
-			font-family: 'Orbitron', sans-serif;
-			letter-spacing:3px;
-			color:#FF1744;
-		}
-		.contactEmail-error-animation:-moz-placeholder { /* Firefox 18- */
-			font-family: 'Orbitron', sans-serif;
-			letter-spacing:3px;
-			color:#FF1744;
-		}
-		.contactEmail-error-animation::-moz-placeholder {  /* Firefox 19+ */
-			font-family: 'Orbitron', sans-serif;
-			letter-spacing:3px;
-		}
-		.contactEmail-error-animation:-ms-input-placeholder {  
-			font-family: 'Orbitron', sans-serif;
-			letter-spacing:3px;
-			color:#FF1744;
-		}
-		.project-container{
-			position:absolute;
-			width:100%;
-			height:100%;
-			overflow:hidden;
-		}
-		.buttonLeft{
-			cursor:pointer;
-			z-index:1;
-			width:56px;
-			height:56px;
-			position:absolute;
-			bottom:16px;
-			left:20%;	
-		}
-		.buttonRight{
-			cursor:pointer;
-			z-index:1;
-			width:56px;
-			height:56px;
-			position:absolute;
-			bottom:16px;
-			right:20%;	
-		}
-		.top{
-			opacity:0;
-			transform:translate(0px, -100%);
-		}
-		.right{
-			opacity:0;
-			transform:translate(100%, 0px);
-		}
-		.left{
-			opacity:0;
-			transform:translate(-100%, 0px);
-		}
-		.project1{
-			position:absolute;
-			width:100%;
-			height:100%;
-			background:#4CAF50;
-		  -webkit-transition: all .33s; /* Safari */
-		  transition: all .33s;
-			transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
-			-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
-		}
-		.project2{
-			position:absolute;
-			width:100%;
-			height:100%;
-			background:#673AB7;
-		  -webkit-transition: all .33s; /* Safari */
-		  transition: all .33s;
-			transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
-			-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
-		}
-		.project3{
-			position:absolute;
-			width:100%;
-			height:100%;
-			background:#3F51B5;
-		  -webkit-transition: all .33s; /* Safari */
-		  transition: all .33s;
-			transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
-			-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
-		}
-		.project4{
-			position:absolute;
-			width:100%;
-			height:100%;
-			background:#03A9F4;
-		  -webkit-transition: all .33s; /* Safari */
-		  transition: all .33s;
-			transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
-			-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
-		}
-		.project-image{
-			position:absolute;
-			bottom:0px;
-			width:100%;
-			height:60%;
-		}
-		.project-description{
-			position:absolute;
-			top:0px;
-			width:100%;
-			height:40%;
-			text-align:center;
-		}
-		.project-description h1{
-			margin-top:144px;
-			font-size:150%;
-			letter-spacing:4px;
-		}
-		.project-description p{
-			margin-left:16px;
-			margin-right:16px;
-		}
-		.project-description a{
-			letter-spacing:2px;
-		}
-		.menu-icon-vertical{
-			position:absolute; 
-			top:132px; 
-			margin:auto;
-			left:0;
-			right:0;
-			transform:translate(120px, 0px);
-			height:32px; 
-			cursor:pointer; 
-			display:block;
-			z-index:2;
-		}
-		.menu1{
-			overflow:auto;
-			position:absolute;
-			top:165px;
-			width:80%;
-			left:10%;
-			height:60%;
-			background:#FAFAFA;
-			z-index:2;
-			border-radius:4px;
-			transform:scale(0);	
-			opacity:0;
-			box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-		  -webkit-transition: all .25s; /* Safari */
-		  transition: all .25s;
-			transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
-			-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
-		}
-		.menu2{
-			overflow:auto;
-			position:absolute;
-			top:165px;
-			width:80%;
-			left:10%;
-			height:50%;
-			background:#FAFAFA;
-			z-index:2;
-			border-radius:4px;
-			transform:scale(0);	
-			opacity:0;
-			box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-		  -webkit-transition: all .25s; /* Safari */
-		  transition: all .25s;
-			transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
-			-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
-		}
-		.menu3{
-			overflow:auto;
-			position:absolute;
-			top:165px;
-			width:80%;
-			left:10%;
-			height:50%;
-			background:#FAFAFA;
-			z-index:2;
-			border-radius:4px;
-			transform:scale(0);	
-			opacity:0;
-			box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-		  -webkit-transition: all .25s; /* Safari */
-		  transition: all .25s;
-			transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
-			-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
-		}
-		.menu4{
-			overflow:auto;
-			position:absolute;
-			top:165px;
-			width:80%;
-			left:10%;
-			height:50%;
-			background:#FAFAFA;
-			z-index:2;
-			border-radius:4px;
-			transform:scale(0);	
-			opacity:0;
-			box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-		  -webkit-transition: all .25s; /* Safari */
-		  transition: all .25s;
-			transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
-			-webkit-transition-timing-function: cubic-bezier(0.4, 0.0, 0.6, 1);
-		}
-		.menu-animation{
-			opacity:1;
-			transform:scale(1);	
-		}
-		.list-item1{
-			position:relative;
-			width:92%;
-			left:4%;
-			padding-top:8%;
-			padding-bottom:1%;
-			text-align:center;
 			display:inline-block;
-			border-bottom:solid gray 1px;
+			position:absolute;
+			right:16px;
+			top:0;
+			text-align:center;
 		}
-		.list-item1 a{
-			color:#4CAF50;
-			letter-spacing:2px;
-			text-decoration:none;
+		.title span{
+			font-size:150%;
+			font-weight:700;
+			line-height:2.5;
+			color:white;
+		}
+		.about h1{
+			font-size:150%;	
+		}
+	}
+	@media screen and (min-width: 330px) {
+		.title{
+			display:inline-block;
+			position:absolute;
+			right:16px;
+			top:0;
+			text-align:center;
+		}
+		.title span{
+			font-size:150%;
+			font-weight:700;
+			line-height:2.5;
+			color:white;
+		}
+		.about h1{
+			font-size:200%;	
+		}
+	}
+	@media screen and (min-width: 475px) {
+		.title{
+			left:0;
+			top:0;
+			margin:auto;
+		}
+		.box{
+			left:16px;
+		}
+		.about h1{
+			font-size:300%;	
+		}
+	}
+	@media screen and (min-width: 960px) {
+		.title{
+			display:inline-block;
+			text-align:left;
+		}
+		.title span{
+			margin-left:56px;
+			line-height:3.5;
+		}
+		.routes{
+			display:block;
+		}
+		.box{
+			display:none;
+		}
+	}
+	@media screen and (max-height: 575px) and (min-width:400px) {
+		.list-item1{
+			width:30vh;
+			height:30vh;
 		}
 		.list-item2{
-			position:relative;
-			width:92%;
-			left:4%;
-			padding-top:8%;
-			padding-bottom:1%;
-			text-align:center;
-			display:inline-block;
-			border-bottom:solid gray 1px;
-		}
-		.list-item2 a{
-			color:#673AB7;
-			letter-spacing:2px;
-			text-decoration:none;
+			width:30vh;
+			height:30vh;
 		}
 		.list-item3{
-			position:relative;
-			width:92%;
-			left:4%;
-			padding-top:8%;
-			padding-bottom:1%;
-			text-align:center;
-			display:inline-block;
-			border-bottom:solid gray 1px;
-		}
-		.list-item3 a{
-			color:#3F51B5;
-			letter-spacing:2px;
-			text-decoration:none;
+			width:30vh;
+			height:30vh;
 		}
 		.list-item4{
-			position:relative;
-			width:92%;
-			left:4%;
-			padding-top:8%;
-			padding-bottom:1%;
-			text-align:center;
-			display:inline-block;
-			border-bottom:solid gray 1px;
+			width:30vh;
+			height:30vh;
 		}
-		.list-item4 a{
-			color:#03A9F4;
-			letter-spacing:2px;
-			text-decoration:none;
+	}
+	@media screen and (min-height: 600px){
+		.form-text{
+			height:40vh;
 		}
-		@media screen and (min-width: 400px) {
-			.contactForm{
-				width:400px;
-			}
-			.contactEmail{
-				margin-top:16px;
-			}
-			.project-description h1{
-				margin-top:144px;
-				font-size:250%;
-			}
-			.project-description p{
-				margin-left:16px;
-				margin-right:16px;
-				font-size:100%;
-			}
-			.menu-icon-vertical{
-				transform:translate(180px, 0px);
-				top:144px;
-			}
-			.menu1{
-				top:180px;
-				left:0;
-				right:0;
-				margin:auto;
-				max-width:500px;
-			}
-			.menu2{
-				top:180px;
-				left:0;
-				right:0;
-				margin:auto;
-				max-width:500px;
-			}
-			.menu3{
-				top:180px;
-				left:0;
-				right:0;
-				margin:auto;
-				max-width:500px;
-			}
-			.menu4{
-				top:180px;
-				left:0;
-				right:0;
-				margin:auto;
-				max-width:500px;
-			}
-		}
-		@media screen and (min-height: 700px) {
-			.title h1{
-				font-size:250%;
-			}
-			.title p{
-				font-size:150%;
-			}
-			.contact-logo{
-				height:25%;
-			}
-			.contactTitle{
-				font-size:200%;
-			}
-			.contactEmail{
-				margin-top:56px;
-			}
-		}
+	}
 	</style>
 	</head>
-	<body onscroll="scroll()" onload="load()">
-		<!--Nav Drawer-->
+	<body onload="load()">
 		<aside class="nav js-nav">
 			<nav class="nav__container js-nav__container">
 				<div class="nav-content">
-					<svg style="width:100%; background:#FAFAFA;" height="300" viewbox="0 0 100 100">
-						<path d="M50,47 C0,0 100,0 50,47" fill="#212121"/>
-						<path d="M52,30 C55,15 75,27 52,30" fill="#FAFAFA"/>
-						<path d="M48,30 C45,15 25,27 48,30" fill="#FAFAFA"/>
-
-						<path d="M60,40 C47,35 47,40 60,40" fill="#FAFAFA" stroke="#212121" stroke-width=".25"/>
-						<path d="M40,40 C53,35 53,40 40,40" fill="#FAFAFA" stroke="#212121" stroke-width=".25"/>
-
-				 		<circle cx="50" cy="49" r="2" fill="#212121"/>
-						<path d="M48 49 L57 46 L57 52 Z" fill="#212121"/>
-						<path d="M52 49 L43 46 L43 52 Z" fill="#212121"/>
-
-				 		<circle cx="57" cy="26" r="6" stroke="#FAFAFA" stroke-width=".6" fill="none"/>
-
-						<path d="M42 50 L49.5 80 L35 50 Z" fill="#212121"/>
-						<path d="M58 50 L50.5 80 L65 50 Z" fill="#212121"/>
-
-				 		<circle cx="50" cy="53" r="1" fill="#212121"/>
-				 		<circle cx="50" cy="56" r="1" fill="#212121"/>
-				 		<circle cx="50" cy="59" r="1" fill="#212121"/>
-				 		<circle cx="50" cy="62" r="1" fill="#212121"/>
-				 		<circle cx="50" cy="65" r="1" fill="#212121"/>
-					</svg>
-					<div class="navItem js-about" id="about" onclick="route('about')">
-						<svg style="background:transparent; width:56px; height:56px; cursor:pointer; position:relative; float:left; margin-left:16px;" viewbox="0 0 100 100" class="header-logo">
-							<path d="M50,47 C0,0 100,0 50,47" fill="#FAFAFA"/>
-							<path d="M52,30 C55,15 75,27 52,30" fill="#212121"/>
-							<path d="M48,30 C45,15 25,27 48,30" fill="#212121"/>
-
-							<path d="M60,40 C47,35 47,40 60,40" fill="#212121" stroke="#FAFAFA" stroke-width=".25"/>
-							<path d="M40,40 C53,35 53,40 40,40" fill="#212121" stroke="#FAFAFA" stroke-width=".25"/>
-
-					 		<circle cx="50" cy="49" r="2" fill="#FAFAFA"/>
-							<path d="M48 49 L57 46 L57 52 Z" fill="#FAFAFA"/>
-							<path d="M52 49 L43 46 L43 52 Z" fill="#FAFAFA"/>
-
-					 		<circle cx="57" cy="26" r="6" stroke="#212121" stroke-width=".6" fill="none"/>
-
-							<path d="M42 50 L49.5 80 L35 50 Z" fill="#FAFAFA"/>
-							<path d="M58 50 L50.5 80 L65 50 Z" fill="#FAFAFA"/>
-
-					 		<circle cx="50" cy="53" r="1" fill="#FAFAFA"/>
-					 		<circle cx="50" cy="56" r="1" fill="#FAFAFA"/>
-					 		<circle cx="50" cy="59" r="1" fill="#FAFAFA"/>
-					 		<circle cx="50" cy="62" r="1" fill="#FAFAFA"/>
-					 		<circle cx="50" cy="65" r="1" fill="#FAFAFA"/>
-						</svg>
-						<h1 style="position:relative; width:100%; text-align:center; margin-left:-72px;">About</h1>
-					</div>
-					<div class="navItem js-projects" onclick="route('projects')" id="projects">
-						<div style="background:transparent; width:56px; height:56px; cursor:pointer; position:relative; float:left; text-align:center; padding-top:16px; margin-left:16px;"> < / > </div>
-						<h1 style="position:relative; width:100%; text-align:center; margin-left:-72px;">Projects</h1>
-					</div>
-					<div class="navItem js-contact" onclick="route('contact')" id="contact">
-						<div style="background:transparent; width:56px; height:56px; cursor:pointer; position:relative; float:left; text-align:center; padding-top:14px; margin-left:16px;"><img src="email.svg" ></img></div>
-						<h1 style="position:relative; width:100%; text-align:center; margin-left:-72px;">Contact</h1>
-					</div>
-					<div class="navItem"></div>
+					<div class="nav-item"><h1 onclick="scrollToAbout()" class="js-about">About</h1></div>
+					<div class="nav-item"><h1 onclick="scrollToPortfolio()" class="js-portfolio">Portfolio</h1></div>
+					<div class="nav-item"><h1 onclick="scrollToContact()" class="js-contact">Contact</h1></div>
 				</div>
 			</nav>
 		</aside>
-		<!---->
-		<!--Header-->
+		<img class="background" src="background-small.png"></img>
 		<div class="header">
 			<div class="box js-box">
-				<div class="box-top"></div>
-				<div class="middle1 js-middle1"></div><div class="middle2 js-middle2"></div>
+				<div class="top js-top"></div>
+				<div class="middle js-middle"></div>
 				<div class="bottom js-bottom"></div>
-				<div class="stem js-stem"></div>
 			</div>
-				<svg onclick="scrollToTop()" style="background:#212121; width:56px; height:56px; margin:auto; top: 0; left: 0; right: 0; bottom: 0; position:fixed; cursor:pointer;" viewbox="0 0 100 100" class="header-logo">
-				<path d="M50,47 C0,0 100,0 50,47" fill="#FAFAFA"/>
-				<path d="M52,30 C55,15 75,27 52,30" fill="#212121"/>
-				<path d="M48,30 C45,15 25,27 48,30" fill="#212121"/>
-
-				<path d="M60,40 C47,35 47,40 60,40" fill="#212121" stroke="#FAFAFA" stroke-width=".25"/>
-				<path d="M40,40 C53,35 53,40 40,40" fill="#212121" stroke="#FAFAFA" stroke-width=".25"/>
-
-		 		<circle cx="50" cy="49" r="2" fill="#FAFAFA"/>
-				<path d="M48 49 L57 46 L57 52 Z" fill="#FAFAFA"/>
-				<path d="M52 49 L43 46 L43 52 Z" fill="#FAFAFA"/>
-
-		 		<circle cx="57" cy="26" r="6" stroke="#212121" stroke-width=".6" fill="none"/>
-
-				<path d="M42 50 L49.5 80 L35 50 Z" fill="#FAFAFA"/>
-				<path d="M58 50 L50.5 80 L65 50 Z" fill="#FAFAFA"/>
-
-		 		<circle cx="50" cy="53" r="1" fill="#FAFAFA"/>
-		 		<circle cx="50" cy="56" r="1" fill="#FAFAFA"/>
-		 		<circle cx="50" cy="59" r="1" fill="#FAFAFA"/>
-		 		<circle cx="50" cy="62" r="1" fill="#FAFAFA"/>
-		 		<circle cx="50" cy="65" r="1" fill="#FAFAFA"/>
-			</svg>
-			<div class="exit js-exit"><img src="exit.svg" style="width:100%;"></img></div>
+			<div class="title"><span>DANIEL MARCOUX</span></div>
+			<div class="routes"><span onclick="scrollToAbout()" class="route1">ABOUT</span><span onclick="scrollToPortfolio()" class="route2">PORTFOLIO</span><span onclick="scrollToContact()" class="route3">CONTACT</span></div>
 		</div>
-		<!---->
-		<!--Banner-->
-		<div class="banner">
-				<svg style="background:#212121; width:100%; height:50%; position:relative; margin-top:15vh;" viewbox="0 0 100 100" class="bannerLogo">
-				<path d="M50,47 C0,0 100,0 50,47" fill="#212121"/>
-				<path d="M52,30 C55,15 75,27 52,30" fill="#FAFAFA"/>
-				<path d="M48,30 C45,15 25,27 48,30" fill="#FAFAFA"/>
-
-				<path d="M60,40 C47,35 47,40 60,40" fill="#FAFAFA" stroke="#212121" stroke-width=".25"/>
-				<path d="M40,40 C53,35 53,40 40,40" fill="#FAFAFA" stroke="#212121" stroke-width=".25"/>
-
-		 		<circle cx="50" cy="49" r="2" fill="#212121"/>
-				<path d="M48 49 L57 46 L57 52 Z" fill="#212121"/>
-				<path d="M52 49 L43 46 L43 52 Z" fill="#212121"/>
-
-		 		<circle cx="57" cy="26" r="6" stroke="#FAFAFA" stroke-width=".6" fill="none"/>
-
-				<path d="M42 50 L49.5 80 L35 50 Z" fill="#212121"/>
-				<path d="M58 50 L50.5 80 L65 50 Z" fill="#212121"/>
-
-		 		<circle cx="50" cy="53" r="1" fill="#212121"/>
-		 		<circle cx="50" cy="56" r="1" fill="#212121"/>
-		 		<circle cx="50" cy="59" r="1" fill="#212121"/>
-		 		<circle cx="50" cy="62" r="1" fill="#212121"/>
-		 		<circle cx="50" cy="65" r="1" fill="#212121"/>
-			</svg>
-			<div style="width:90%; text-align:center; margin:-72px 0 0 5%; z-index:2; position:absolute;" class="title"><h1 style="margin-top:0; color:#2E7D32; letter-spacing:6px;">DAPPER ALIEN</h1><br><span style="color:white; letter-spacing:3px;">Web and Mobile Development</span></div>
-		</div>
-		<!---->
-		<!--Projects-->
-		<div class="projects">
-			<div class="project-container">
-				<div class="project1">
-					<img src="more.svg" class="menu-icon-vertical" onclick="more1()"></img>
-					<div class="menu1">
-						<div class="list-item1"><a href="">Blog</a></div>
-						<div class="list-item1"><a href="">The Hitchhiker's Guide to Python</a></div>
-						<div class="list-item1"><a href="">Music Theory Lessons</a></div>
-						<div class="list-item1"><a href="">Jupyter Notebooks</a></div>
-						<div class="list-item1"><a href="">Critical Thinking Study Guide</a></div>
-					</div>
-					<div class="project-description">
-						<h1>Websites</h1>
-					</div>
-					<div class="project-image">
-						<svg style="width:100%; background:#4CAF50;" height="100%" viewbox="0 0 100 100">
-								<path d="M50,47 C0,0 100,0 50,47" fill="#212121"/>
-								<path d="M52,30 C55,15 75,27 52,30" fill="#FAFAFA"/>
-								<path d="M48,30 C45,15 25,27 48,30" fill="#FAFAFA"/>
-
-								<path d="M60,40 C47,35 47,40 60,40" fill="#FAFAFA" stroke="#212121" stroke-width=".25"/>
-								<path d="M40,40 C53,35 53,40 40,40" fill="#FAFAFA" stroke="#212121" stroke-width=".25"/>
-
-								<circle cx="50" cy="49" r="2" fill="#212121"/>
-								<path d="M48 49 L57 46 L57 52 Z" fill="#212121"/>
-								<path d="M52 49 L43 46 L43 52 Z" fill="#212121"/>
-
-						 		<circle cx="57" cy="26" r="6" stroke="#FAFAFA" stroke-width=".6" fill="none"/>
-
-								<path d="M42 50 L49.5 80 L35 50 Z" fill="#212121"/>
-								<path d="M58 50 L50.5 80 L65 50 Z" fill="#212121"/>
-
-						 		<circle cx="50" cy="53" r="1" fill="#212121"/>
-						 		<circle cx="50" cy="56" r="1" fill="#212121"/>
-						 		<circle cx="50" cy="59" r="1" fill="#212121"/>
-								<circle cx="50" cy="62" r="1" fill="#212121"/>
-							 	<circle cx="50" cy="65" r="1" fill="#212121"/>
-							</svg>
-					</div>
-				</div>
-				<div class="project2 right">
-					<img src="more.svg" class="menu-icon-vertical" onclick="more2()"></img>
-					<div class="menu2">
-						<div class="list-item2"><a href="">JS-Deque-Tab-Animation</a></div>
-					</div>
-					<div class="project-description">
-						<h1>Codepens</h1>
-					</div>
-					<div class="project-image">
-						<img src="codepen.png" style="height:75%; max-height:665px; position:absolute; left:0; right:0; margin:auto;"></img>
-					</div>
-				</div>
-				<div class="project3 top">
-					<img src="more.svg" class="menu-icon-vertical" onclick="more3()"></img>
-					<div class="menu3">
-						<div class="list-item3"><a href="">Noted</a></div>
-					</div>
-					<div class="project-description">
-						<h1>Mobile Apps</h1>
-					</div>
-					<div class="project-image">
-						<svg style="width:100%; background:#3F51B5;" height="100%" viewbox="0 0 100 100">
-								<path d="M50,47 C0,0 100,0 50,47" fill="#212121"/>
-								<path d="M52,30 C55,15 75,27 52,30" fill="#FAFAFA"/>
-								<path d="M48,30 C45,15 25,27 48,30" fill="#FAFAFA"/>
-
-								<path d="M60,40 C47,35 47,40 60,40" fill="#FAFAFA" stroke="#212121" stroke-width=".25"/>
-								<path d="M40,40 C53,35 53,40 40,40" fill="#FAFAFA" stroke="#212121" stroke-width=".25"/>
-
-								<circle cx="50" cy="49" r="2" fill="#212121"/>
-								<path d="M48 49 L57 46 L57 52 Z" fill="#212121"/>
-								<path d="M52 49 L43 46 L43 52 Z" fill="#212121"/>
-
-						 		<circle cx="57" cy="26" r="6" stroke="#FAFAFA" stroke-width=".6" fill="none"/>
-
-								<path d="M42 50 L49.5 80 L35 50 Z" fill="#212121"/>
-								<path d="M58 50 L50.5 80 L65 50 Z" fill="#212121"/>
-
-						 		<circle cx="50" cy="53" r="1" fill="#212121"/>
-						 		<circle cx="50" cy="56" r="1" fill="#212121"/>
-						 		<circle cx="50" cy="59" r="1" fill="#212121"/>
-								<circle cx="50" cy="62" r="1" fill="#212121"/>
-							 	<circle cx="50" cy="65" r="1" fill="#212121"/>
-							</svg>
-					</div>
-				</div>
-				<div class="project4 left">
-					<img src="more.svg" class="menu-icon-vertical" onclick="more4()"></img>
-					<div class="menu4">
-						<div class="list-item4"><a href="https://github.com/DapperAlien">Dapper Alien</a></div>
-						<div class="list-item4"><a href="https://github.com/DandroidDeveloper">DandroidDeveloper</a></div>
-					</div>
-					<div class="project-description">
-						<h1>Github</h1>
-					</div>
-					<div class="project-image">
-						<img src="github.png" style="height:75%; max-height:665px; position:absolute; left:0; right:0; margin:auto;"></img>
-					</div>
-				</div>
+		<div class="about">
+			<div class="intro">
+				<h1>Hi, my name is Dan.</h1>
+				<h3>I enjoy developing software.</h3>
+				<a href="http://localhost:8000/resume.pdf" download="resume.pdf"><button class="download"><img src="download.svg"></img><h4>My Resume</h4></button></a>
 			</div>
-			<div class="fab1" onclick="scrollToProjects()">
-				<svg width="60" height="60">
-		 		<circle cx="30" cy="30" r="29" stroke="#FAFAFA" stroke-width="2" fill="#212121"/>
-				<path d="M12.5 17.5 L47.5 17.55 L30 50 Z" fill="#FAFAFA"/>
-		 		<circle cx="30" cy="30" r="4" fill="#212121"/>
-				</svg>
-			</div>
-			<div class="buttonLeft" onclick="clickLeft()"><img src="left.svg" style="width:100%;"></img></div>
-			<div class="buttonRight" onclick="clickRight()"><img src="right.svg" style="width:100%;"></img></div>
+			<img src="down.svg" class="down1" onclick="scrollToPortfolio()"></img>
 		</div>
-		<!---->
-		<!--Contact-->
-		<a name="Contact"></a>
+		<div class="portfolio">
+			<div class="page1">
+					<div class="list1">
+						<div class="list-item1"><img src="acorn.gif" class="AI"></img><center><h1>A I</h1></center></div>
+						<div class="list-item2"><img src="music.svg" class="music"></img><center><h1 style="position:absolute; top:20%;">Music <br>Theory</h1></center></div>
+						<a href="http://danmarcoux.me/blog"><div class="list-item3"><img src="alien.svg" class="blog"></img><center><h1>Blog</h1></center></div></a>
+						<div class="list-item4"><img src="schoolOfAthens-scaled.png" class="notes"></img><center><h1>Notes</h1></center></div>
+					</div>
+				<center><h1>Websites</h1></center>	
+			</div>
+			<div class="page2 animate-right">
+				<center><h1>Codepen</h1></center>	
+			</div>
+			<div class="page3 animate-top">
+				<center><h1>Mobile Apps</h1></center>	
+			</div>
+			<div class="page4 animate-left">
+				<center><h1>Github</h1></center>	
+			</div>
+			<img src="left.svg" class="buttonLeft" onclick="clickLeft()"></img>
+			<img src="right.svg" class="buttonRight" onclick="clickRight()"></img>
+			<img src="down.svg" class="down2" onclick="scrollToContact()"></img>
+		</div>
 		<div class="contact">
-			<div class="fab2" onclick="scrollToContact()">
-				<svg width="60" height="60">
-		 		<circle cx="30" cy="30" r="29" stroke="#FAFAFA" stroke-width="2" fill="#212121"/>
-				<path d="M12.5 17.5 L47.5 17.55 L30 50 Z" fill="#FAFAFA"/>
-		 		<circle cx="30" cy="30" r="4" fill="#212121"/>
-				</svg>
-			</div>
-			<svg style="width:100%; position:relative; margin-top:0;" viewbox="0 0 100 100" class="contact-logo">
-				<path d="M50,47 C0,0 100,0 50,47" fill="#212121"/>
-				<path d="M52,30 C55,15 75,27 52,30" fill="#FAFAFA"/>
-				<path d="M48,30 C45,15 25,27 48,30" fill="#FAFAFA"/>
-
-				<path d="M60,40 C47,35 47,40 60,40" fill="#FAFAFA" stroke="#212121" stroke-width=".25"/>
-				<path d="M40,40 C53,35 53,40 40,40" fill="#FAFAFA" stroke="#212121" stroke-width=".25"/>
-
-		 		<circle cx="50" cy="49" r="2" fill="#212121"/>
-				<path d="M48 49 L57 46 L57 52 Z" fill="#212121"/>
-				<path d="M52 49 L43 46 L43 52 Z" fill="#212121"/>
-
-		 		<circle cx="57" cy="26" r="6" stroke="#FAFAFA" stroke-width=".6" fill="none"/>
-
-				<path d="M42 50 L49.5 80 L35 50 Z" fill="#212121"/>
-				<path d="M58 50 L50.5 80 L65 50 Z" fill="#212121"/>
-
-		 		<circle cx="50" cy="53" r="1" fill="#212121"/>
-		 		<circle cx="50" cy="56" r="1" fill="#212121"/>
-		 		<circle cx="50" cy="59" r="1" fill="#212121"/>
-		 		<circle cx="50" cy="62" r="1" fill="#212121"/>
-		 		<circle cx="50" cy="65" r="1" fill="#212121"/>
-			</svg>
-			<center><h1 style="color:#2E7D32; letter-spacing:6px;" class="contactTitle">Contact</h1></center>
-			<center>
-			<form action="https://formspree.io/dapperaliendesign@gmail.com"
-						method="POST" class="contactForm">
-					<textarea onclick="focusTextArea()" type="text" name="message" class="contactMessage" placeholder="Type your transmission here"></textarea>
-					<div class="messageUnderline"></div>
-					<input onclick="focusEmail()" type="email" name="_replyto" placeholder="email address" class="contactEmail">
-					<div class="emailUnderline"></div>
-					<button type="submit" value="Send" class="contactButton"><img src="email.svg"></img></button>
-					<input type="text" name="_gotcha" style="display:none" />
+			<div class="contactForm">
+			<h1>CONTACT</h1>
+			<form action=""
+				  method="POST" class="contact-form">
+				<textarea type="text" name="name" class="form-text" placeholder="Message"></textarea>
+				<input type="email" name="_replyto" class="form-email" placeholder="Email"></input>
+				<br>
+				<button type="submit" value="Send" class="form-button"><img src="email.svg"></img></button>
+				<input type="text" name="_gotcha" style="display:none" />
 			</form>
-			</center>
-			<div class="footer">
-				<div class="footerLeft">
-					<img onclick="focusEmail()" src="email.svg" width="56px;" style="width:56px; height:56px; margin:auto; top: 0; left: 0; right: 0; bottom: 0; position:absolute; cursor:pointer; opacity:0.6;"></img>
-				</div>
-				<div class="footerRight">
-					<img onclick="openGithub()" src="github.svg" width="56px;" style="width:56px; height:56px; margin:auto; top: 0; left: 0; right: 0; bottom: 0; position:absolute; cursor:pointer; opacity:0.6;"></img>
-				</div>
-				<div class="fab3" onclick="scrollToTop()">
-					<svg width="60" height="60">
-			 		<circle cx="30" cy="30" r="29" stroke="#FAFAFA" stroke-width="2" fill="#212121"/>
-					<path d="M12.5 17.5 L47.5 17.55 L30 50 Z" fill="#FAFAFA"/>
-			 		<circle cx="30" cy="30" r="4" fill="#212121"/>
-					</svg>
-				</div>
 			</div>
+			<img src="up.svg" class="up" onclick="scrollToAbout()"></img>
 		</div>
-		<!---->
 	</body>
-
-	<!--Set up nav drawer-->
-	<script src="./nav.js"></script>
-
-	<!--Local Scripts-->
+	<script src="./nav2.js" async></script>
 	<script>
+		//variables for debouncing scroll and resize, because PERF MATTERS!
+		var latestKnownHeight = 0;
+		var latestKnownWidth = 0;
+		var resizing = false;
+		var latestKnownScrollY = 0;
 
-		/*GLOBAL VARIABLES*/
-		var formClicked = false;
-		var internalRoute = "about";
-		var menuClicked1 = false;
-		var menuClicked2 = false;
-		var menuClicked3 = false;
-		var menuClicked4 = false;
 		var x = [17,14,29,29,18,31,14,25,22,18,27,17,18,32,22,20,27];
+		var aboutTop = document.querySelector(".about").getBoundingClientRect().top;
+		var aboutBottom = document.querySelector(".about").getBoundingClientRect().bottom;
+		var portfolioTop = document.querySelector(".portfolio").getBoundingClientRect().top;
+		var contactTop = document.querySelector(".contact").getBoundingClientRect().top;
+		var contactBottom = document.querySelector(".contact").getBoundingClientRect().bottom;
+		var ticking = false;
+		////////////////////
 
-		/*On load function*/
+		//Load function
 		function load(){
 			y();
-			route("about");
-			document.querySelector(".contactForm").addEventListener('submit', validate);
-			document.querySelector(".title").classList.add("title-animation");
-			document.querySelector(".bannerLogo").classList.add("bannerLogo-animation");
-			document.querySelector(".fab1").classList.add("fab1-animation-in");
+			document.querySelector(".contact-form").addEventListener('submit', validate);
+			onResize();
+			onScroll();
+			loadImage();
 		}
-
-		/*Scroll functions*/
-		function scroll(){
-			var scroll1 = document.querySelector(".projects").getBoundingClientRect().top;
-			var scroll2 = document.querySelector(".contact").getBoundingClientRect().top;
-
-			//IE and FF are slow to the game, you have to use documentElement for them to work.
-			var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-			var height = window.innerHeight;
-			if (scrollTop === 0){
-				document.querySelector(".header").classList.remove("header-animation");
-				document.querySelector(".title").classList.add("title-animation");
-				document.querySelector(".bannerLogo").classList.add("bannerLogo-animation");
-				document.querySelector(".fab1").classList.add("fab1-animation-in");
-				document.querySelector(".fab2").classList.remove("fab2-animation-in");
-				document.getElementById("about").style.background = "#76FF03";
-				document.getElementById("about").style.color = "#212121";
-				document.getElementById("projects").style.color = "#FAFAFA";
-				document.getElementById("projects").style.background = "transparent";
-				document.getElementById("contact").style.background = "transparent";
-				document.getElementById("contact").style.color = "#FAFAFA";
-			}
-			if (scrollTop > 100){
-				document.querySelector(".header").classList.add("header-animation");
-				document.querySelector(".title").classList.remove("title-animation");
-				document.querySelector(".bannerLogo").classList.remove("bannerLogo-animation");
-			}
-			if (scroll1 <= 0){
-				document.querySelector(".fab1").classList.remove("fab1-animation-in");
-				document.getElementById("about").style.background = "transparent";
-				document.getElementById("about").style.color = "#FAFAFA";
-				document.getElementById("contact").style.background = "transparent";
-				document.getElementById("contact").style.color = "#FAFAFA";
-				document.getElementById("projects").style.background = "#76FF03";
-				document.getElementById("projects").style.color = "#212121";
-			}
-			if (scroll2 == 0){
-				document.querySelector(".fab2").classList.remove("fab2-animation-in");
-				document.querySelector(".fab3").classList.add("fab3-animation-in");
-				document.querySelector(".contactTitle").classList.add("contactTitle-animation");
-				document.querySelector(".contact-logo").classList.add("contact-logo-animation");
-				document.querySelector(".contactForm").classList.add("contactForm-animation");
-				document.getElementById("about").style.background = "transparent";
-				document.getElementById("projects").style.background = "transparent";
-				document.getElementById("projects").style.color = "#FAFAFA";
-				document.getElementById("contact").style.background = "#76FF03";
-				document.getElementById("contact").style.color = "#212121";
-			}
-			if ((scrollTop >= (height-56)) && (scroll2 >= 56)){
-				document.querySelector(".fab2").classList.add("fab2-animation-in");
-				document.querySelector(".fab3").classList.remove("fab3-animation-in");
-				if (!formClicked){
-					document.querySelector(".contactTitle").classList.remove("contactTitle-animation");
-					document.querySelector(".contact-logo").classList.remove("contact-logo-animation");
-					document.querySelector(".contactForm").classList.remove("contactForm-animation");
-				}
-			}
-		}
-		function scrollToProjects(){
-			var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-		  var pos = scrollTop;
-			var i = 0;
-		  var id = setInterval(frame, 10);
-		  function frame() {
-					var scroll1 = document.querySelector(".projects").getBoundingClientRect().top;
-		      if (scroll1 <= -56) {
-		          clearInterval(id);
-		      } else {
-							i++
-		          pos = pos + Math.pow(i, 2)/i; 
-							window.scrollTo(0, pos);
-		      }
-		  }
-		}
-		function reverseScrollToProjects(){
-			var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-		  var pos = scrollTop;
-			var i = 0;
-		  var id = setInterval(frame, 10);
-		  function frame() {
-					var scroll1 = document.querySelector(".projects").getBoundingClientRect().top;
-		      if (scroll1 >= -56) {
-		          clearInterval(id);
-		      } else {
-							i++
-		          pos = pos - Math.pow(i, 2)/i; 
-							window.scrollTo(0, pos);
-		      }
-		  }
-		}
-		function scrollToContact(){
-			var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-		  var pos = scrollTop;
-			var i = 0;
-		  var id = setInterval(frame, 10);
-		  function frame() {
-					var scroll2 = document.querySelector(".contact").getBoundingClientRect().top;
-		      if (scroll2 <= 0) {
-		          clearInterval(id);
-		      } else {
-							i++
-		          pos = pos + Math.pow(i, 2)/i; 
-							window.scrollTo(0, pos);
-		      }
-		  }
-		}
-		function scrollToTop(){
-			var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-		  var pos = scrollTop;
-			var i = 0;
-		  var id = setInterval(frame, 10);
-		  function frame() {
-		      if (pos <= 0) {
-		          clearInterval(id);
-		      } else {
-							i++
-		          pos = pos - Math.pow(i, 2)/i; 
-							window.scrollTo(0, pos);
-		      }
-		  }
-		}
-
-		/*Disable animations if form is clicked*/
-		function focusTextArea(){
-			formClicked = true;
-			document.querySelector(".messageUnderline").classList.add("messageUnderline-animation");
-			document.querySelector(".emailUnderline").classList.remove("emailUnderline-animation");
-			document.querySelector(".contactTitle").classList.add("contactTitle-animation");
-			document.querySelector(".contact-logo").classList.add("contact-logo-animation");
-			document.querySelector(".contactForm").classList.add("contactForm-animation");
-		}
-		function focusEmail(){
-			formClicked = true;
-			document.querySelector(".emailUnderline").classList.add("emailUnderline-animation");
-			document.querySelector(".messageUnderline").classList.remove("messageUnderline-animation");
-			document.querySelector(".contactTitle").classList.add("contactTitle-animation");
-			document.querySelector(".contact-logo").classList.add("contact-logo-animation");
-			document.querySelector(".contactForm").classList.add("contactForm-animation");
-		}
-
-		/*Navigation functions*/
-		function route(destination){
-			if (destination === "about"){
-				document.getElementById("about").style.background = "#76FF03";
-				document.getElementById("about").style.color = "#212121";
-				scrollToTop();
-			}
-			if (destination === "projects"){
-				var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-				var scroll1 = document.querySelector(".projects").getBoundingClientRect().top;
-				var scroll2 = document.querySelector(".contact").getBoundingClientRect().top;
-				document.getElementById("projects").style.background = "#76FF03";
-				document.getElementById("projects").style.color = "#212121";
-				scrollToProjects();
-				if (scroll1 < 0){
-					reverseScrollToProjects();
-				}
-			}
-			if (destination === "contact"){
-				document.getElementById("contact").style.background = "#76FF03";
-				document.getElementById("contact").style.color = "#212121";
-				scrollToContact();
-			}
-		}
-
-		/*Silly spam preventiont with ROT13 Cypher.*/
-		function y(){
-			var z = "";
-			for (var i = 0; i < x.length; i++){
-				z += String.fromCharCode(((x[i] + 13) % 26) + 96);
-			}
-			return z
-		}
-
-		/*Make sure form is filled out*/
-		function validate(evt){
-			var email = document.querySelector(".contactEmail");
-			var form = document.querySelector(".contactForm");
-			if (email.value === ""){
-  			evt.preventDefault(); 
-				document.querySelector(".contactEmail").classList.add("contactEmail-error-animation");
-			}
-			else{
-				var string = "https://formspree.io/"+y()+"@gmail.com";
-				form.action=string;
-			}
-		}
-		function openGithub(){
-			//Navigate to Github
-			win = window.open("https://github.com/dapperalien", "_blank");
-			win.focus();
-		}
-
-		/*Data structure to handle chevron clicks because Computer Science*/
+		////////////////////
+		//Deque
 		var deque = new Deque();
-		deque.pushfront("project1");
-		deque.pushfront("project2");
-		deque.pushfront("project3");
-		deque.pushfront("project4");
+		deque.pushfront("page1");
+		deque.pushfront("page2");
+		deque.pushfront("page3");
+		deque.pushfront("page4");
 		var middle = init();
 		function Deque()
 		{
@@ -1363,73 +801,213 @@
 			return temp
 		}
 		function clickRight(){
-			document.querySelector("."+middle).classList.add("right");
+			document.querySelector("."+middle).classList.add("animate-right");
 			deque.pushfront(middle);
 			var right = deque.popback();
-			document.querySelector("."+right).classList.remove("right");
-			document.querySelector("."+right).classList.add("top");
+			document.querySelector("."+right).classList.remove("animate-right");
+			document.querySelector("."+right).classList.add("animate-top");
 			deque.pushfront(right);
 			var left = deque.popback();
-			document.querySelector("."+left).classList.remove("top");
-			document.querySelector("."+left).classList.add("left");
+			document.querySelector("."+left).classList.remove("animate-top");
+			document.querySelector("."+left).classList.add("animate-left");
 			deque.pushfront(left);
 			middle = deque.popback();
-			document.querySelector("."+middle).classList.remove("left");
+			document.querySelector("."+middle).classList.remove("animate-left");
 		}
 		function clickLeft(){
-			document.querySelector("."+middle).classList.add("left");
+			document.querySelector("."+middle).classList.add("animate-left");
 			deque.pushback(middle);
 			var left = deque.popfront();
-			document.querySelector("."+left).classList.remove("left");
-			document.querySelector("."+left).classList.add("top");
+			document.querySelector("."+left).classList.remove("animate-left");
+			document.querySelector("."+left).classList.add("animate-top");
 			deque.pushback(left);
 			var right = deque.popfront();
-			document.querySelector("."+right).classList.remove("top");
-			document.querySelector("."+right).classList.add("right");
+			document.querySelector("."+right).classList.remove("animate-top");
+			document.querySelector("."+right).classList.add("animate-right");
 			deque.pushback(right);
 			middle = deque.popfront();
-			document.querySelector("."+middle).classList.remove("right");
+			document.querySelector("."+middle).classList.remove("animate-right");
 		}
 
-		/*Menu functions*/
-		function more1(){
-			if (!menuClicked1){
-				document.querySelector(".menu1").classList.add("menu-animation");
-				menuClicked1 = true;
+		function onResize(){
+			latestKnownHeight = window.innerHeight;
+			latestKnownWidth = window.innerWidth;
+			requestResize();
+		}
+		function requestResize(){
+			if(!resizing){
+				requestAnimationFrame(updateResize);
+			}
+			resizing = true;
+		}
+		function updateResize(){
+			resizing = false;
+			var height = latestKnownHeight * 1.5;
+			var width = latestKnownWidth;
+			if (width >= height){
+				document.querySelector(".background").classList.add("background-wide");
 			}
 			else{
-				document.querySelector(".menu1").classList.remove("menu-animation");	
-				menuClicked1 = false;
+				document.querySelector(".background").classList.remove("background-wide");
 			}
 		}
-		function more2(){
-			if (!menuClicked2){
-				document.querySelector(".menu2").classList.add("menu-animation");
-				menuClicked2 = true;
+		function loadImage(){
+			var myImage = document.querySelector('.background');
+			fetch('http://localhost:8000/background.png')
+			.then(function(response) {
+				if(response.ok) {
+					return response.blob();
+				}
+				throw new Error('Network response was not ok.');
+			})
+			.then(function(myBlob) { 
+				setTimeout(function(){
+				var objectURL = URL.createObjectURL(myBlob); 
+				myImage.src= objectURL; 
+				}, 3000);
+			})
+			.catch(function(error) {
+				console.log('Error: ' + error.message);
+			});
+		}
+		function scrollToPortfolio(){
+			if (portfolioTop < latestKnownScrollY){
+				var start = null;
+					function step(timestamp) {
+						if (!start) start = timestamp;
+						var progress = (timestamp - start);
+						progress = portfolioTop - Math.min(Math.pow(progress, 2.5) / 250, portfolioTop);
+						window.scrollTo(0, progress);
+						if (progress < portfolioTop) {
+							window.requestAnimationFrame(step);
+						}
+					}
+				window.requestAnimationFrame(step);
 			}
 			else{
-				document.querySelector(".menu2").classList.remove("menu-animation");	
-				menuClicked2 = false;
+				var start = null;
+					function step(timestamp) {
+						if (!start) start = timestamp;
+						var progress = (timestamp - start);
+						progress = Math.min(Math.pow(progress, 2.5) / 250, portfolioTop);
+						window.scrollTo(0, progress);
+						if (progress < portfolioTop) {
+							window.requestAnimationFrame(step);
+						}
+					}
+				window.requestAnimationFrame(step);
 			}
 		}
-		function more3(){
-			if (!menuClicked3){
-				document.querySelector(".menu3").classList.add("menu-animation");
-				menuClicked3 = true;
+		function scrollToContact(){
+			var start = null;
+				function step(timestamp) {
+					if (!start) start = timestamp;
+					var progress = (timestamp - start);
+					progress = Math.min((Math.pow(progress, 2.5) / 250), contactBottom);
+					window.scrollTo(0, (progress + latestKnownScrollY));
+					if (progress < contactBottom) {
+						window.requestAnimationFrame(step);
+					}
+				}
+			window.requestAnimationFrame(step);
+		}
+		function scrollToAbout(){
+			if (aboutTop <= latestKnownScrollY){
+				var start = null;
+					function step(timestamp) {
+						if (!start) start = timestamp;
+						var progress = (timestamp - start);
+						progress = latestKnownScrollY - Math.min((Math.pow(progress, 2.5) / 250), latestKnownScrollY);
+						window.scrollTo(0, progress);
+						if (progress > 0) {
+							window.requestAnimationFrame(step);
+						}
+					}
+				window.requestAnimationFrame(step);
 			}
 			else{
-				document.querySelector(".menu3").classList.remove("menu-animation");	
-				menuClicked3 = false;
+				console.log("!");
+				contactBottom = document.querySelector(".contact").getBoundingClientRect().bottom;
+				var start = null;
+					function step(timestamp) {
+						if (!start) start = timestamp;
+						var progress = (timestamp - start);
+						progress = (contactBottom * 2) - Math.min((Math.pow(progress, 2.5) / 250), contactBottom*2);
+						window.scrollTo(0, progress);
+						if (progress > 0) {
+							window.requestAnimationFrame(step);
+						}
+					}
+				window.requestAnimationFrame(step);
 			}
 		}
-		function more4(){
-			if (!menuClicked4){
-				document.querySelector(".menu4").classList.add("menu-animation");
-				menuClicked4 = true;
+		function requestTick() {
+			if(!ticking) {
+				requestAnimationFrame(updateScroll);
+			}
+			ticking = true;
+		}
+		function updateScroll() {
+			ticking = false;
+			var currentScrollY = latestKnownScrollY;
+			if (currentScrollY <= 0){
+				document.querySelector(".down1").classList.add("down1-animated");
+				document.querySelector(".down2").classList.remove("down2-animated");
+				document.querySelector(".route1").style.color = "#E91E63";
+				document.querySelector(".route2").style.color = "#FFF";
+				document.querySelector(".route3").style.color = "#FFF";
+				document.querySelector(".js-about").style.color = "#E91E63";
+				document.querySelector(".js-portfolio").style.color = "#FFF";
+				document.querySelector(".js-contact").style.color = "#FFF";
+			}
+			if (currentScrollY > 0){
+				document.querySelector(".down1").classList.remove("down1-animated");
+			}
+			if (currentScrollY >= portfolioTop){
+				document.querySelector(".down2").classList.add("down2-animated");
+				document.querySelector(".route1").style.color = "#FFF";
+				document.querySelector(".route3").style.color = "#FFF";
+				document.querySelector(".route2").style.color = "#E91E63";
+				document.querySelector(".js-about").style.color = "#FFF";
+				document.querySelector(".js-portfolio").style.color = "#E91E63";
+				document.querySelector(".js-contact").style.color = "#FFF";
+			}
+			if (currentScrollY >= contactTop){
+				document.querySelector(".route1").style.color = "#FFF";
+				document.querySelector(".route2").style.color = "#FFF";
+				document.querySelector(".route3").style.color = "#E91E63";
+				document.querySelector(".js-about").style.color = "#FFF";
+				document.querySelector(".js-portfolio").style.color = "#FFF";
+				document.querySelector(".js-contact").style.color = "#E91E63";
+			}
+		}
+		function onScroll() {
+			latestKnownScrollY = document.documentElement.scrollTop || document.body.scrollTop;
+			requestTick();
+		}
+		window.addEventListener('scroll', onScroll, false);
+		window.addEventListener('resize', onResize, false);
+
+		/*Silly spam preventiont with ROT13 Cypher.*/
+		function y(){
+			var z = "";
+			for (var i = 0; i < x.length; i++){
+				z += String.fromCharCode(((x[i] + 13) % 26) + 96);
+			}
+			return z
+		}
+
+		/*Make sure form is filled out*/
+		function validate(evt){
+			var email = document.querySelector(".form-email");
+			var form = document.querySelector(".contact-form");
+			if (email.value === ""){
+  			evt.preventDefault(); 
+				document.querySelector(".form-email").classList.add("form-email-error-animation");
 			}
 			else{
-				document.querySelector(".menu4").classList.remove("menu-animation");	
-				menuClicked4 = false;
+				var string = "https://formspree.io/"+y()+"@gmail.com";
+				form.action=string;
 			}
 		}
 	</script>
