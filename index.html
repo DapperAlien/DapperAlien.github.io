@@ -864,7 +864,13 @@
 		}
 		function loadImage(){
 			var myImage = document.querySelector('.background');
-			fetch('http://localhost:8000/background.png')
+			var myHeaders = new Headers();
+
+			var myInit = { method: 'GET',
+						         headers: myHeaders,
+						         mode: 'cors',
+						         cache: 'default' };
+			fetch('http://www.danmarcoux.me/background.png', myInit)
 			.then(function(response) {
 				if(response.ok) {
 					return response.blob();
