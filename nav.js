@@ -16,18 +16,8 @@ class Nav{
 		this.showSideNav = this.showSideNav.bind(this);
 		this.hideSideNav = this.hideSideNav.bind(this);
 		this.blockClicks = this.blockClicks.bind(this);
-		/* Buggy :(
-		this.onTouchStart = this.onTouchStart.bind(this);
-		this.onTouchMove = this.onTouchMove.bind(this);
-		this.onTouchEnd = this.onTouchEnd.bind(this);
-		*/
 		this.onTransitionEnd = this.onTransitionEnd.bind(this);
 		this.navContainer.addEventListener("click", this.blockClicks);
-		/* Buggy :(
-		this.navContainer.addEventListener("touchstart", this.onTouchStart);
-		this.navContainer.addEventListener("touchmove", this.onTouchMove);
-		this.navContainer.addEventListener("touchend", this.onTouchEnd);
-		*/
 		this.box.addEventListener("click", this.showSideNav);
 		this.exit.addEventListener("click", this.hideSideNav);
 		this.about.addEventListener("click", this.hideSideNav);
@@ -66,29 +56,6 @@ class Nav{
 	blockClicks(event){
 		event.stopPropagation();
 	}
-	/* Buggy :(
-	onTouchStart(event){
-		if (!this.nav.classList.contains("nav--visible"))
-		return
-		this.startX = event.touches[0].pageX;
-		this.currentX = this.startX;
-	}
-	onTouchMove(event){
-		this.currentX = event.touches[0].pageX;
-		const translateX = Math.min(0, this.currentX - this.startX);
-		if (this.translateX < 0){
-			event.preventDefault();
-		}
-		this.navContainer.style.transform = "translateX("+translateX + "px)";
-	}
-	onTouchEnd(event){
-		const translateX = Math.min(0, this.currentX - this.startX);
-		if (translateX < 0){
-			this.navContainer.style.transform = "";
-			this.hideSideNav();
-		}
-	}
-	*/
 	onTransitionEnd(event){
 		this.nav.classList.remove("nav--animatable");
 		this.nav.removeEventListener("transitionend", this.onTransitionEnd);
