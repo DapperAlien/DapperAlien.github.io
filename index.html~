@@ -816,7 +816,7 @@
 			</svg>
 			<div class="exit js-exit"><img src="exit.svg" style="width:100%;"></img></div>
 		</div>
-		<img class="background1" id="background1" src="galaxySmall.png">
+		<img class="background1" src="galaxySmall.png">
 			<div class="button1" onClick="scrollToPortfolio()">
 				<svg width="60" height="60">
 					<circle cx="30" cy="30" r="29" stroke="#FAFAFA" stroke-width="2" fill="black"/>
@@ -1025,14 +1025,33 @@
 			y()
 			document.querySelector(".contactForm").addEventListener('submit', validate);
 			document.querySelector(".button1").classList.add("button1-animated");
-			var myDiv = document.getElementById('background1');
-
-			var myHeaders = new Headers();
-			var myInit = { method: 'GET',
-						         headers: myHeaders,
-						         mode: 'cors',
-						         cache: 'default' };
-			fetch('http://www.dapperalien.com/galaxyBig.gif' , myInit)
+			var myDiv = document.querySelector('.background1');
+			var ua = navigator.userAgent.toLowerCase(); 
+			if (ua.indexOf('safari') != -1) { 
+				if (ua.indexOf('chrome') > -1) {
+					console.log("Chrome fetch");
+					fetch('http://localhost:8000/galaxyBig.gif')
+					.then(function(response) {
+						if(response.ok) {
+							return response.blob();
+						}
+						throw new Error('Network response was not ok.');
+					})
+					.then(function(myBlob) { 
+						var objectURL = URL.createObjectURL(myBlob); 
+						myDiv.src = objectURL;
+					})
+					.catch(function(error) {
+						console.log('Error: ' + error.message);
+					});
+				} else {
+					myDiv.src = "galaxyBig.gif";
+				}
+			}
+			else{
+			console.log("other fetch");
+			var myDiv = document.querySelector('.background1');
+			fetch('http://localhost:8000/galaxyBig.gif')
 			.then(function(response) {
 				if(response.ok) {
 					return response.blob();
@@ -1046,6 +1065,7 @@
 			.catch(function(error) {
 				console.log('Error: ' + error.message);
 			});
+			}
 		}
 		/*Disable animations if form is clicked*/
 		function focusTextArea(){
