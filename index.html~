@@ -1022,15 +1022,16 @@
 		}
 		//http://dunun-koken.dunun.com/
 		function loadImage(){
+			y()
+			document.querySelector(".contactForm").addEventListener('submit', validate);
+			document.querySelector(".button1").classList.add("button1-animated");
+			var myDiv = document.querySelector('.background1');
+
 			var myHeaders = new Headers();
 			var myInit = { method: 'GET',
 						         headers: myHeaders,
 						         mode: 'cors',
 						         cache: 'default' };
-			y()
-			document.querySelector(".contactForm").addEventListener('submit', validate);
-			document.querySelector(".button1").classList.add("button1-animated");
-			var myDiv = document.querySelector('.background1');
 			fetch('http://www.dapperalien.com/galaxyBig.gif' , myInit)
 			.then(function(response) {
 				if(response.ok) {
