@@ -1056,8 +1056,8 @@
 			}
 			else{
 			console.log("other fetch");
-			var myDiv = document.querySelector('.background1', myInit);
-			fetch('http://localhost:8000/galaxyBig.gif')
+			var myDiv = document.querySelector('.background1');
+			fetch('http://localhost:8000/galaxyBig.gif', myInit)
 			.then(function(response) {
 				if(response.ok) {
 					return response.blob();
