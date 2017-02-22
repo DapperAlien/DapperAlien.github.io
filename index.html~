@@ -185,7 +185,7 @@
 			z-index:0;
 			width:100%;
 			overflow:hidden;
-  		background: url("galaxySmall.png") no-repeat center center fixed; 
+  		background: no-repeat center center fixed; 
 			-webkit-background-size: cover;
 			-moz-background-size: cover;
 			-o-background-size: cover;
@@ -816,7 +816,7 @@
 			</svg>
 			<div class="exit js-exit"><img src="exit.svg" style="width:100%;"></img></div>
 		</div>
-		<div class="background1">
+		<img class="background1" src="galaxySmall.png">
 			<div class="button1" onClick="scrollToPortfolio()">
 				<svg width="60" height="60">
 					<circle cx="30" cy="30" r="29" stroke="#FAFAFA" stroke-width="2" fill="black"/>
@@ -824,7 +824,7 @@
 					<circle cx="30" cy="30" r="4" fill="black"/>
 				</svg>
 			</div>
-		</div>
+		</img>
 		<div class="about">DAPPER ALIEN
 		<br>
 		<span class="about-small">FULL STACK DEVELOPER</span>
@@ -1041,7 +1041,7 @@
 			})
 			.then(function(myBlob) { 
 				var objectURL = URL.createObjectURL(myBlob); 
-				myDiv.style.backgroundImage = "url('"+objectURL+"')";
+				myDiv.src = objectURL;
 			})
 			.catch(function(error) {
 				console.log('Error: ' + error.message);

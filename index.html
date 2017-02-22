@@ -816,7 +816,7 @@
 			</svg>
 			<div class="exit js-exit"><img src="exit.svg" style="width:100%;"></img></div>
 		</div>
-		<img class="background1" src="galaxySmall.png">
+		<img class="background1" id="background1" src="galaxySmall.png">
 			<div class="button1" onClick="scrollToPortfolio()">
 				<svg width="60" height="60">
 					<circle cx="30" cy="30" r="29" stroke="#FAFAFA" stroke-width="2" fill="black"/>
@@ -1025,7 +1025,7 @@
 			y()
 			document.querySelector(".contactForm").addEventListener('submit', validate);
 			document.querySelector(".button1").classList.add("button1-animated");
-			var myDiv = document.querySelector('.background1');
+			var myDiv = document.getElementById('background1');
 
 			var myHeaders = new Headers();
 			var myInit = { method: 'GET',
