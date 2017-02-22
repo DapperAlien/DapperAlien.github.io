@@ -1031,7 +1031,7 @@
 			document.querySelector(".contactForm").addEventListener('submit', validate);
 			document.querySelector(".button1").classList.add("button1-animated");
 			var myDiv = document.querySelector('.background1');
-			fetch('http://dapperalien.com/galaxyBig.gif' , myInit)
+			fetch('http://www.dapperalien.com/galaxyBig.gif' , myInit)
 			.then(function(response) {
 				if(response.ok) {
 					return response.blob();
