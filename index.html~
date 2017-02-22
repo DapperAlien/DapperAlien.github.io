@@ -1021,7 +1021,6 @@
 			}
 		}
 		//http://dunun-koken.dunun.com/
-
 		function loadImage(){
 			var myHeaders = new Headers();
 			var myInit = { method: 'GET',

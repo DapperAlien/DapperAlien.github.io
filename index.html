@@ -1022,55 +1022,11 @@
 		}
 		//http://dunun-koken.dunun.com/
 		function loadImage(){
-			var myHeaders = new Headers();
-			var myInit = { method: 'GET',
-						         headers: myHeaders,
-						         mode: 'cors',
-						         cache: 'default' };
 			y()
 			document.querySelector(".contactForm").addEventListener('submit', validate);
 			document.querySelector(".button1").classList.add("button1-animated");
 			var myDiv = document.querySelector('.background1');
-			var ua = navigator.userAgent.toLowerCase(); 
-			if (ua.indexOf('safari') != -1) { 
-				if (ua.indexOf('chrome') > -1) {
-					console.log("Chrome fetch");
-					fetch('http://www.dapperalien.com/galaxyBig.gif', myInit)
-					.then(function(response) {
-						if(response.ok) {
-							return response.blob();
-						}
-						throw new Error('Network response was not ok.');
-					})
-					.then(function(myBlob) { 
-						var objectURL = URL.createObjectURL(myBlob); 
-						myDiv.src = objectURL;
-					})
-					.catch(function(error) {
-						console.log('Error: ' + error.message);
-					});
-				} else {
-					myDiv.src = "galaxyBig.gif";
-				}
-			}
-			else{
-			console.log("other fetch");
-			var myDiv = document.querySelector('.background1');
-			fetch('http://www.dapperalien.com/galaxyBig.gif', myInit)
-			.then(function(response) {
-				if(response.ok) {
-					return response.blob();
-				}
-				throw new Error('Network response was not ok.');
-			})
-			.then(function(myBlob) { 
-				var objectURL = URL.createObjectURL(myBlob); 
-				myDiv.src = objectURL;
-			})
-			.catch(function(error) {
-				console.log('Error: ' + error.message);
-			});
-			}
+			myDiv.src = "galaxyBig.gif";
 		}
 		/*Disable animations if form is clicked*/
 		function focusTextArea(){
