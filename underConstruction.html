@@ -29,10 +29,10 @@
 			font-family: 'Lato', sans-serif;
 			margin:0;
 			padding:0;
-			background:#FAFAFA;
 		}
 		body::-webkit-scrollbar {
 			width: 8px;
+			background:white;
 		}
 		body::-webkit-scrollbar-thumb {
 		  background: #4CAF50; /* For browsers that do not support gradients */
@@ -40,6 +40,10 @@
 			background: -o-linear-gradient(#4CAF50, #1B5E20); /* For Opera 11.1 to 12.0 */
 			background: -moz-linear-gradient(#4CAF50, #1B5E20); /* For Firefox 3.6 to 15 */
 			background: linear-gradient(#4CAF50 , #1B5E20); /* Standard syntax */
+		}
+		a{
+			text-decoration:none;
+			color:#2196F3;
 		}
 		.menu{
 			position:fixed;
@@ -100,16 +104,6 @@
 		}
 		.menu-text{
 			pointer-events:none;
-		}
-		.active{
-			color: #4CAF50; 
-		  background: #4CAF50; /* For browsers that do not support gradients */
-			background: -webkit-linear-gradient(left, #4CAF50 , #1B5E20); /* For Safari 5.1 to 6.0 */
-			background: -o-linear-gradient(right, #4CAF50, #1B5E20); /* For Opera 11.1 to 12.0 */
-			background: -moz-linear-gradient(right, #4CAF50, #1B5E20); /* For Firefox 3.6 to 15 */
-			background: linear-gradient(to right, #4CAF50 , #1B5E20); /* Standard syntax */
-			-webkit-background-clip: text;
-			-webkit-text-fill-color: transparent;
 		}
 		.header{
 			min-width:285px;
@@ -329,6 +323,7 @@
 			-o-transform:translate(0, 0) scale(.5, 1);
 		}
 		.ripple-button{
+			box-sizing:border-box;
 			position:relative;
 			display:inline-block;
 			padding:20px 40px;
@@ -337,7 +332,7 @@
 			cursor:pointer;
 			overflow:hidden;
 			color:#757575;
-			margin:40px;
+			margin:40px 40px 0 40px;
 		}
 		.splash{
 			position:absolute;
@@ -392,312 +387,64 @@
 				from {opacity:0.5;}
 				to {opacity:0;}
 		}
-		.watermark{
-			display:none;
-			z-index:0;
-			position:fixed;
+		.heading{
+			box-sizing:border-box;
 			width:100%;
-			max-width:700px;
-			left:0;
-			right:0;
-			top:100px;
-			margin:auto;
-			opacity:0.1;
-		}
-		.intro{
-			z-index:1;
-			position:relative;
-			display:inline-block;
-			width:100%;
-			padding-top:60px;
-			background:white;
-			overflow:hidden;
-			box-sizing: border-box;
-		}
-		.intro-row{
-			width:100%;
-			text-align:left;
-			padding:10px 40px 0px 40px;
-			box-sizing: border-box;
-		}
-		.intro-tagline{
-			font-size:200%;
-			color: #4CAF50; 
-		  background: #4CAF50; /* For browsers that do not support gradients */
-			background: -webkit-linear-gradient(left, #4CAF50 , #1B5E20); /* For Safari 5.1 to 6.0 */
-			background: -o-linear-gradient(right, #4CAF50, #1B5E20); /* For Opera 11.1 to 12.0 */
-			background: -moz-linear-gradient(right, #4CAF50, #1B5E20); /* For Firefox 3.6 to 15 */
-			background: linear-gradient(to right, #4CAF50 , #1B5E20); /* Standard syntax */
-			-webkit-background-clip: text;
-			-webkit-text-fill-color: transparent;
-		}
-		.intro-occupation{
-			font-size:250%;		
-			font-weight:900;	
-			opacity:0.65;	
-		}
-		.intro-information{
-			display:inline-block;
-			margin-top:30px;
-			font-weight:400;	
-			font-size:150%;		
-			line-height:2;
-			opacity:0.7;
-		}
-		.scroll-portfolio-button{
-			display:none;
-			position:absolute;
-			bottom:0px;
-			right:0;
-			height:80px;
-			width:80px;
-			cursor:pointer;
-			margin:0;
-			padding:0;
-			border:none;
-		}
-		.chevron1{
-			pointer-events:none;
-			position:absolute;
-			left:0;
-			right:0;
-			margin:auto;
-			width:50px;
-		  animation-name: chevron1;
-		  animation-duration: 4s;
-    	animation-iteration-count: infinite;
-
-		  -webkit-animation-name: chevron1;
-		  -webkit-animation-duration: 4s;
-    	-webkit-animation-iteration-count: infinite;
-
-		  -moz-animation-name: chevron1;
-		  -moz-animation-duration: 4s;
-    	-moz-animation-iteration-count: infinite;
-
-		  -o-animation-name: chevron1;
-		  -o-animation-duration: 4s;
-    	-o-animation-iteration-count: infinite;
-		}
-		.chevron2{
-			pointer-events:none;
-			position:absolute;
-			top:20px;
-			left:0;
-			right:0;
-			margin:auto;
-			width:50px;
-		  animation-name: chevron2;
-		  animation-duration: 4s;
-    	animation-delay: .2s;
-    	animation-iteration-count: infinite;
-
-		  -webkit-animation-name: chevron2;
-		  -webkit-animation-duration: 4s;
-    	-webkit-animation-delay: .2s;
-    	-webkit-animation-iteration-count: infinite;
-
-		  -moz-animation-name: chevron2;
-		  -moz-animation-duration: 4s;
-    	-moz-animation-delay: .2s;
-    	-moz-animation-iteration-count: infinite;
-
-		  -o-animation-name: chevron2;
-		  -o-animation-duration: 4s;
-    	-o-animation-delay: .2s;
-    	-o-animation-iteration-count: infinite;
-		}
-		@keyframes chevron1 {
-				from {opacity: 0;}
-				to {opacity: 1;}
-		}
-
-		@-webkit-keyframes chevron1 {
-				from {opacity: 0;}
-				to {opacity: 1;}
-		}
-
-		@-moz-keyframes chevron1 {
-				from {opacity: 0;}
-				to {opacity: 1;}
-		}
-
-		@-o-keyframes chevron1 {
-				from {opacity: 0;}
-				to {opacity: 1;}
-		}
-
-		@keyframes chevron2 {
-				from {opacity: 0;}
-				to {opacity: 1;}
-		}
-
-		@-webkit-keyframes chevron2 {
-				from {opacity: 0;}
-				to {opacity: 1;}
-		}
-
-		@-moz-keyframes chevron2 {
-				from {opacity: 0;}
-				to {opacity: 1;}
-		}
-
-		@-o-keyframes chevron2 {
-				from {opacity: 0;}
-				to {opacity: 1;}
-		}
-		.portfolio-item{
-			z-index:1;
-			position:relative;
-			width:100%;
-			background:white;
-			display:inline-block;
+			padding-top:40px;
+			padding-bottom:40px;
 			text-align:center;
 		}
-		.portfolio-backdrop{
-			width:100%;
-			margin-top:40px;
-			margin-bottom:40px;
-			text-align:center;
-			font-size:400%;
-			font-weight:700;
-			opacity:0.1;
-		}
-		.web-title{
-			width:100%;
-			margin:0;
-			position:absolute;
-			top:80px;
-			text-align:center;
+		.backdrop{
+			font-weight:900;
 			font-size:350%;
-			font-weight:700;
-			opacity:0.7;			
+			opacity:0.075;
 		}
-		.phone{
-			width:100%;
-			-webkit-filter: drop-shadow(5px 5px 5px #BDBDBD);
-			filter: drop-shadow(5px 5px 5px #BDBDBD);
-			cursor:pointer;
+		.title{
+			font-weight:900;
+			font-size:250%;
+			opacity:0.65;
+			margin-top:-40px;
 		}
-		.computer{
-			left:0;
-			right:0;
-			margin:100px auto 0px auto;
-			display:none;
-			width:100%;
-			max-width:1000px;
-			-webkit-filter: drop-shadow(5px 5px 5px #BDBDBD);
-			filter: drop-shadow(5px 5px 5px #BDBDBD);
-			cursor:pointer;
-		}
-		.computer-button{
-			display:none;
-		}
-		.footer-text{
+		.construction{
 			position:relative;
-			z-index:1;
 			top:60px;
 			width:100%;
 			text-align:center;
-			color:white;
-			font-size:125%;
-		}
-		.footer-button{
-			position:relative;
-			top:100px;
-			display:inline-block;
-			padding:20px 40px;
-			font-size:125%;
-			border:1px solid white;
-			cursor:pointer;
 			overflow:hidden;
-			color:white;
 		}
-		.footer-button:hover{
-			background:black;
-		}
-		.portfolio-bottom{
-			z-index:1;
-			position:relative;
-			display:inline-block;
-			text-align:center;
+		.construction-logo{
 			width:100%;
-			background:white;
-			margin-bottom:260px;
-			box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-			-webkit-box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-			-moz-box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-		}
-		.footer{
-			z-index:0;
-			position:fixed;
-			bottom:0;
-			height:260px;
-			width:100%;
-			overflow:hidden;
 			text-align:center;
-		  background: #4CAF50; /* For browsers that do not support gradients */
-			background: -webkit-linear-gradient(left, #4CAF50 , #1B5E20); /* For Safari 5.1 to 6.0 */
-			background: -o-linear-gradient(right, #4CAF50, #1B5E20); /* For Opera 11.1 to 12.0 */
-			background: -moz-linear-gradient(right, #4CAF50, #1B5E20); /* For Firefox 3.6 to 15 */
-			background: linear-gradient(to right, #4CAF50 , #1B5E20); /* Standard syntax */	
 		}
-		.footer-img{
+		.construction-backdrop{
+			width:60%;
+			max-width:600px;
+		}
+		.hat{
 			position:absolute;
+			width:25%;
+			max-width:250px;
 			left:0;
 			right:0;
-			bottom:0;
 			margin:auto;
-			height:100%;
+			transform:translate(-8%, -19%);
 		}
-		@media only screen and (min-width:420px){
-			.footer{
-				height:300px;
-			}
-			.footer-text{
-				top:100px;
-				font-size:175%;
-			}
-			.footer-button{
-				top:140px;
-			}
-			.computer{
-				display:block;	
-			}
-			.phone{
-				display:none;
-			}
-			.phone-button{
-				display:none;
-			}
-			.computer-button{
-				display:inline-block;
-			}
+		.list{
+			position:relative;
+			box-sizing:border-box;
+			padding:40px;
+			width:100%;
+			max-width:800px;
+			margin:auto;
+			text-align:left;
+			font-size:125%;
+			line-height:1.5;
+			opacity:0.5;
 		}
-		@media only screen and (min-width: 450px) {
-			.watermark{
-				display:block;
-			}
-			.intro{
-				background:#FAFAFA;
-				height:100vh;
-			}
-			.intro-occupation{
-				font-size:350%;
-			}
-			.scroll-portfolio-button{
-				display:block;
-			}
-		}
-		@media only screen and (min-width: 350px) {
-			.footer-img{
-				height:auto;
-				width:100%;
-			}
-		}
-		@media only screen and (max-height: 450px) {
-			.intro{
-				height:auto;
+		@media only screen and (min-width: 495px) {
+			.list{
+				font-size:150%;
+				line-height:2;
 			}
 		}
 		@media only screen and (min-width: 768px) {
@@ -714,20 +461,38 @@
 				-moz-transform:translate(100%, 0);
 				-o-transform:translate(100%, 0);
 			}
+			.backdrop{
+				font-size:450%;
+			}
+			.title{
+				font-size:350%;
+				margin-top:-50px;
+			}
+		}
+		@media only screen and (min-width: 1200px) {
+			.backdrop{
+				font-size:550%;
+			}
+			.title{
+				font-size:450%;
+				margin-top:-60px;
+			}
 		}
 	</style>
 	</head>
 	<body>
 		<div class="menu">
 			<div class="links">
-				<div class="ripple-button link-button" onclick="menuAnimation()">
-					<span class="menu-text active">
+				<a href="http://dapperalien.com">
+				<div class="ripple-button link-button">
+					<span class="menu-text">
 						Portfolio
 					</span>
 				</div>	
+				</a>	
 				<a href="http://dapperalien.com/about">
 				<div class="ripple-button link-button">
-					<span class="menu-text">
+					<span class="menu-text active">
 						About & Contact
 					</span>
 				</div>
@@ -753,59 +518,30 @@
 				<div class="hamburger-bottom"></div>
 			</div>
 		</div>
-		<div class="intro">
-		<img class="watermark" src="alien.svg"></img>
-			<div class="intro-row" style="margin-top: 40px;">
-				<span class="intro-tagline">Designer</span>
+		<div class="construction">
+			<div class="heading">
+				<div class="backdrop">				
+					Under Construction
+				</div>
+				<div class="title">				
+					Coming soon
+				</div>
 			</div>
-			<div class="intro-row">
-				<span class="intro-occupation">Front-end Developer</span>
+			<div class="construction-logo">
+				<img src="constructionHat.svg" class="hat"></img>
+				<img src="alien.svg" class="construction-backdrop"></img>
 			</div>
-			<div class="intro-row">
-				<span class="intro-information">Hi, I am Dapper Alien. I like to program web and mobile applications.</span>
+			<div class="title" style="margin-top:0px;">Temporary Project Directory</div>
+			<div class="list">
+				<li><a href="https://github.com/DandroidDeveloper">Github</a></li>
+				<li><a href="http://dandroiddeveloper.github.io/code.html#scroll-tab-2">Independent Study: AI</a></li>
+				<li><a href="http://dandroiddeveloper.github.io/theHitchhikersGuideToPython">Hitchhiker's Guide to Python</a></li>
+				<li><a href="http://dandroiddeveloper.github.io/Notebook">Python Notes</a></li>
+				<li><a href="http://dandroiddeveloper.github.io/Project/MusicTheory.html">Music Theory Notes</a></li>
+				<li><a href="https://github.com/DandroidDeveloper/List">Android List Application</a></li>
+				<li><a href="https://github.com/Dmarcoux111/OpenGLPrograms">OpenGL Trackball Controls</a></li>
+				<li><a href="https://github.com/Dmarcoux111/ProjectEulerProblems">Java Project Euler Problems</a></li>
 			</div>
-			<a href="http://dapperalien.com/about">
-			<div class="ripple-button">About & Contact</div>
-			</a>
-			<div class="scroll-portfolio-button ripple-button" onclick="scrollToPortfolio()">
-				<img src="down.svg" class="chevron1"></img>
-				<img src="down.svg" class="chevron2"></img>
-			</div>
-		</div>
-		<div class="portfolio-item" style="margin-top:-4px;">
-			<div class="portfolio-backdrop">Portfolio</div>
-			<div class="web-title">Websites</div>
-			<a href="http://dapperalien.com/underConstruction">
-			<img src="blog.png" class="phone">
-			<div class="ripple-button phone-button">View Project</div>
-			</img>
-			</a>
-			<a href="http://dapperalien.com/underConstruction">
-			<img src="blogComputerClipped.png" class="computer">
-			<div class="ripple-button computer-button" style="margin-bottom:300px;">View Project</div>
-			</img>
-			</a>
-		</div>
-		<div class="portfolio-bottom">
-			<div class="portfolio-backdrop">Portfolio</div>
-			<div class="web-title">Mobile</div>
-			<a href="http://dapperalien.com/underConstruction">
-			<img src="habit.png" class="phone">
-			<div class="ripple-button phone-button">View Project</div>
-			</img>
-			</a>
-			<a href="http://dapperalien.com/underConstruction">
-			<img src="habitComputerClipped.png" class="computer">
-			<div class="ripple-button computer-button" style="margin-bottom:300px;">View Project</div>
-			</img>
-			</a>
-		</div>
-		<div class="footer">
-			<img class="footer-img" src="galaxyBig.gif"></img>
-			<div class="footer-text">Want to know more about me?</div>
-			<a href="http://dapperalien.com/about">
-			<div class="footer-button">About & Contact</div>
-			</a>
 		</div>
 	</body>
 	<script>
@@ -905,43 +641,5 @@
 			}, 2000);
 		}
 		///////////////////////////////////////////////////////////////////////////////////
-		///////////////////////////////////////////////////////////////////////////////////
-
-		//Scroll Animationz
-		window.addEventListener('scroll', onScroll, false);
-		function onScroll() {
-			latestKnownScrollY = document.documentElement.scrollTop || document.body.scrollTop;
-			requestTick();
-		}
-		function requestTick() {
-			if(!ticking) {
-				requestAnimationFrame(updateScroll);
-			}
-			ticking = true;
-		}
-		//Animation handler for clicks, can you say DEBOUNCE (boots n pants n boots n pants)
-		var portfolioTop = document.querySelector(".intro").getBoundingClientRect().bottom;
-		var latestKnownHeight = 0;
-		var latestKnownScrollY = 0;
-		var ticking = false;
-		function updateScroll() {
-			ticking = false;
-			var currentScrollY = latestKnownScrollY;
-		}
-		function scrollToPortfolio(){
-			var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-			var i = scrollTop;
-			var start = null;
-			function scroll(timestamp) {
-			if (!start) start = timestamp;
-				var progress = timestamp - start;
-				i += progress;
-				window.scrollTo(0, Math.min(i, portfolioTop));
-				if (i < (portfolioTop - 60)) {
-					window.requestAnimationFrame(scroll);
-				}
-			}
-			window.requestAnimationFrame(scroll);
-		}
 	</script>
 </html>

@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg width="140" height="140" xmlns="http://www.w3.org/2000/svg">
-<path d="M70 10 L 30 50 L 70 90 L 110 50 Z" stroke="black" stroke-width="4" fill="transparent"/>
-<path d="M10 70 L 20 60 L 30 70 L 20 80 Z" stroke="black" stroke-width="4" fill="transparent"/>			  <path d="M70 30 L 30 70 L 70 110 L 110 70 Z" stroke="black" stroke-width="4" fill="transparent"/>
-<path d="M110 70 L 120 60 L 130 70 L 120 80 Z" stroke="black" stroke-width="4" fill="transparent"/>
-<path d="M70 50 L 30 90 L 70 130 L 110 90 Z" stroke="black" stroke-width="4" fill="transparent"/>
-</svg>
