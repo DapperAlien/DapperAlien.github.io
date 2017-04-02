@@ -2,750 +2,72 @@
 <html>
 	<head>
 	<title>Dapper Alien</title>
-	<!--TODO Add prefixes to splash animations-->
+	<!--Welcome to the Source Code for my personal website! Feel free to use any of the animations, layouts, or concepts you see. I created everything from scratch in CSS, JS, and HTML. 100% certified organic, framework free code. May the force be with you!
+
+        D A P P E R  A L | E N     .---._
+                                  /==----\_
+                 |\              |8=---()-\|   |\
+         /|      ::\             |8=-/|\(_)>_   \\
+         |:\     `::\_            \=/:\= (_)\|   |\
+         `::|     |::::.            \;:\=\(_)>_  |\\
+          |b\\_,_ \`::::\             \:\=\( \/  \_(
+          `\88b`\|/|'`:::\   .-----   :8:\=|`=>_  [d[
+           \;\88b.\=|///::`-/::;;;;:\ |8;|=\( )/   [8[
+      __    ||/`888b.\_\/\:/:;/'/-\::\/( \|=(=)>_  [d|
+     //):.. `::|/|\"96.\|//;/|'| /-\::+\|-\=(. )/  [8[
+    |(/88e::.. `'.|| "min;/\\/8|\.-|::|8|||=|`='_  `[d|
+     `-|8888ee::,,,`\/88utes8P//8|-|::|8||\=|( )/   ]8[
+      |:`"|####b:::/8pq8e/::'`;q8|/::dP'|\|=|`='_   [d|
+ .=-. \::..`""##Gst:q| e|:/..\:|8|.:/|'/\/|/|(_)/   ]8[
+/(,:;:, \::::.\#/88q;`;'\||.:/-//.;/<8\\\^\||./>    `]d[
+`8888b::,,_ ::/88q;.`;|d8/`-.]/|./  |8|\|:|;/.d|     [8|
+  `"88###n::-/d8P.\e/-|d/ _//;;|/   |8(|::(/).8/     ]d[
+    `"###o2:1dP;`q./=/d/_//|8888\   ;8|^\/`-'8/      [8\
+       `"v7|9q8e;./=/d//=/\|eeeb|  /dP= =<ee8/       ]d-
+          \|9; qe/-d/ .|/=/888|:\ `--=- =88p'        [8[
+          (d5b;,/ d/.|/=-\Oo88|:/                   ,8_\
+         _|\q88| d/ /'=q8|888/:/                    ]d|
+        _\\\/q8/|8\_""/////eb|/_                    [8_\
+        \|\\<==_(;d888b,.////////--._               ]8|
+       _/\\\/888p |=""";;;;`eee.////.;-._          ,8p\
+      /,\\\/88p\ /==/8/.'88`""""88888eeee`.        ]8|
+    .d||8,\/p   /-dp_d8|:8:.d\=\    `""""|=\\     .[8_\
+    |8||8||8.-/'d88/8p/|:8:|8b\=\        /|\\|    ]8p|
+    |8||8||8b''d.='8p//|:8:'`88b`\       |||||)   [8'\
+    `8b:qb.\888:e8P/'/P'8:|:8:`888|      |'\||'  /8p|
+     q8q\\qe---_P;'.'P|:8:|:8:|`q/\\     '_///  /8p_\
+     _|88b-:==:-d6/P' |8::'|8:| ,|\||    '-=' .d8p/
+    |__8Pdb-q888P-'  .:8:| |8:| |/\||\     .-e8p/\|
+     .-\888b.__      |:8/' |8:| \ _|;|,-eee8\8\|
+     \.-\'88/88/e.e.e|8/|\_--.-.-e8|8|88\8p\|
+       .'`-;88]88|8|/':|:\ `q|8|8|8'-\| \|
+        `' || || |_/(/|;\)`-\\`--,\|
+              `' /v"""' `""""""vVV\
+	-->
 	<!--Favicons-->
-		<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-		<link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
-		<link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16">
-		<link rel="manifest" href="manifest.json">
-		<link rel="mask-icon" href="safari-pinned-tab.svg" color="#212121">
+		<link rel="apple-touch-icon" sizes="180x180" href="./favicons/apple-touch-icon.png">
+		<link rel="icon" type="image/png" href="./favicons/favicon-32x32.png" sizes="32x32">
+		<link rel="icon" type="image/png" href="./favicons/favicon-16x16.png" sizes="16x16">
+		<link rel="manifest" href="./favicons/manifest.json">
+		<link rel="mask-icon" href="./favicons/safari-pinned-tab.svg" color="#212121">
 		<meta name="theme-color" content="#ffffff">
 	<!---->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
-	<style>
-		@font-face {
-			font-family: 'FuturaPT-Medium';
-			src: url('FuturaPT-Medium.eot');
-			src: url('FuturaPT-Medium.woff2') format('woff2'),
-				   url('FuturaPT-Medium.woff') format('woff'),
-				   url('FuturaPT-Medium.ttf') format('truetype'),
-				   url('FuturaPT-Medium.svg#FuturaPT-Medium') format('svg'),
-				   url('FuturaPT-Medium.eot?#iefix') format('embedded-opentype');
-			font-weight: normal;
-			font-style: normal;
-		}
-		html, body{
-			font-family: 'Lato', sans-serif;
-			margin:0;
-			padding:0;
-			background:#FAFAFA;
-		}
-		body::-webkit-scrollbar {
-			width: 8px;
-		}
-		body::-webkit-scrollbar-thumb {
-		  background: #4CAF50; /* For browsers that do not support gradients */
-			background: -webkit-linear-gradient(#4CAF50 , #1B5E20); /* For Safari 5.1 to 6.0 */
-			background: -o-linear-gradient(#4CAF50, #1B5E20); /* For Opera 11.1 to 12.0 */
-			background: -moz-linear-gradient(#4CAF50, #1B5E20); /* For Firefox 3.6 to 15 */
-			background: linear-gradient(#4CAF50 , #1B5E20); /* Standard syntax */
-		}
-		.menu{
-			position:fixed;
-			z-index:2;
-			width:100%;
-			height:100vh;
-			top:0;
-			background:white;
-			box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-			-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-			-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-
-			transform:translate(0, -100%);
-		  -webkit-transform:translate(0, -100%);
-		  -moz-transform:translate(0, -100%);
-		  -o-transform:translate(0, -100%);
-
-			transition: transform .5s;
-		  -webkit-transition: transform .5s;
-		  -moz-transition: transform .5s;
-		  -o-transition: transform .5s;
-
-			transition-timing-function: ease-in-out;
-			-webkit-transition-timing-function: ease-in-out;
-			-moz-transition-timing-function: ease-in-out;
-			-o-transition-timing-function: ease-in-out;
-		}
-		.menu-animation{
-			transform:translate(0, 0);
-			-webkit-transform:translate(0, 0);
-			-moz-transform:translate(0, 0);
-			-o-transform:translate(0, 0);
-		}
-		.links{
-			position:absolute;
-			display:inline-block;
-			top:35%;
-			width:100%;
-		}
-		.link-button{
-			width:100vw !important;
-			margin:0 !important;
-			padding-left:0 !important;
-			padding-right:0 !important;
-			text-align:center !important;
-			font-size:175% !important;
-			border:none !important;
-		}
-		.link-button:hover{
-			color: #4CAF50; 
-		  background: #4CAF50; /* For browsers that do not support gradients */
-			background: -webkit-linear-gradient(left, #4CAF50 , #1B5E20); /* For Safari 5.1 to 6.0 */
-			background: -o-linear-gradient(right, #4CAF50, #1B5E20); /* For Opera 11.1 to 12.0 */
-			background: -moz-linear-gradient(right, #4CAF50, #1B5E20); /* For Firefox 3.6 to 15 */
-			background: linear-gradient(to right, #4CAF50 , #1B5E20); /* Standard syntax */
-			-webkit-background-clip: text;
-			-webkit-text-fill-color: transparent;
-		}
-		.menu-text{
-			pointer-events:none;
-		}
-		.active{
-			color: #4CAF50; 
-		  background: #4CAF50; /* For browsers that do not support gradients */
-			background: -webkit-linear-gradient(left, #4CAF50 , #1B5E20); /* For Safari 5.1 to 6.0 */
-			background: -o-linear-gradient(right, #4CAF50, #1B5E20); /* For Opera 11.1 to 12.0 */
-			background: -moz-linear-gradient(right, #4CAF50, #1B5E20); /* For Firefox 3.6 to 15 */
-			background: linear-gradient(to right, #4CAF50 , #1B5E20); /* Standard syntax */
-			-webkit-background-clip: text;
-			-webkit-text-fill-color: transparent;
-		}
-		.header{
-			min-width:285px;
-			position:fixed;
-			top:0;
-			z-index:3;
-			width:100%;
-			height:60px;
-			background:white;
-			box-shadow:0 3px 40px rgba(0,0,0,0.1);
-			-webkit-box-shadow:0 3px 40px rgba(0,0,0,0.1);
-			-moz-box-shadow:0 3px 40px rgba(0,0,0,0.1);
-		}
-		.header-title{
-			float:left !important;
-			margin:0 !important;
-			padding:0 20px 0 20px !important;
-			border:none !important;
-			color:black !important;
-			height:60px;
-			font-size:150% !important;
-			line-height:2.25 !important;
-			font-weight:300 !important;
-		  transition: transform .25s;
-		  -webkit-transition: transform .25s;
-			-moz-transition: transform .25s;
-			-o-transition: transform .25s;
-
-			transition-timing-function: ease-in-out;
-			-webkit-transition-timing-function: ease-in-out;
-			-moz-transition-timing-function: ease-in-out;
-			-o-transition-timing-function: ease-in-out;
-		}
-		.header-logo{
-			position:absolute;
-			left:90px;
-			top:11px;
-			height:60px;
-			pointer-events:none;
-		}
-		.dapper{
-			color: #4CAF50; 
-		  background: #4CAF50; /* For browsers that do not support gradients */
-			background: -webkit-linear-gradient(left, #4CAF50 , #1B5E20); /* For Safari 5.1 to 6.0 */
-			background: -o-linear-gradient(right, #4CAF50, #1B5E20); /* For Opera 11.1 to 12.0 */
-			background: -moz-linear-gradient(right, #4CAF50, #1B5E20); /* For Firefox 3.6 to 15 */
-			background: linear-gradient(to right, #4CAF50 , #1B5E20); /* Standard syntax */
-			-webkit-background-clip: text;
-			-webkit-text-fill-color: transparent;
-			pointer-events:none; 
-			margin-right:10px;
-		}
-		.menu-button{
-			position:relative;
-			float:right !important;
-			height:60px !important;
-			width:60px !important;
-			padding:0 !important;
-			margin:0 !important;
-			border: none !important;
-			cursor:pointer;
-		  transition: transform .25s;
-		  -webkit-transition: transform .25s;
-			-moz-transition: transform .25s;
-			-o-transition: transform .25s;
-
-			transition-timing-function: ease-in-out;
-			-webkit-transition-timing-function: ease-in-out;
-			-moz-transition-timing-function: ease-in-out;
-			-o-transition-timing-function: ease-in-out;
-		}
-		.stem{
-			pointer-events:none;
-			position:absolute;
-			top:27px;
-			right:29px;
-			width:2px;
-			height:12px;
-		  background: #4CAF50;
-			transform: translate(0, -50%) scale(1, 0);
-		  -webkit-transform: translate(0, -50%) scale(1, 0);
-		  -moz-transform: translate(0, -50%) scale(1, 0);
-		  -o-transform: translate(0, -50%) scale(1, 0);
-
-			transition: transform .25s;
-		  -webkit-transition: transform .25s;
-		  -moz-transition: transform .25s;
-		  -o-transition: transform .25s;
-
-			transition-timing-function: ease-in-out;
-			-webkit-transition-timing-function: ease-in-out;
-			-moz-transition-timing-function: ease-in-out;
-			-o-transition-timing-function: ease-in-out;
-		}
-		.stem-animation{
-			transform: translate(0, 0) scale(1, 1);	
-			-webkit-transform: translate(0, 0) scale(1, 1);	
-			-moz-transform: translate(0, 0) scale(1, 1);	
-			-o-transform: translate(0, 0) scale(1, 1);		
-		}
-		.hamburger-top{
-			pointer-events:none;
-			position:absolute;
-			top:19px;
-			right:15px;
-			width:30px;
-			height:2px;
-		  background: #4CAF50;
-
-			transition: transform .25s;
-		  -webkit-transition: transform .25s;
-		  -moz-transition: transform .25s;
-		  -o-transition: transform .25s;
-
-			transition-timing-function: ease-in-out;
-			-webkit-transition-timing-function: ease-in-out;
-			-moz-transition-timing-function: ease-in-out;
-			-o-transition-timing-function: ease-in-out;
-		}
-		.hamburger-top-animation1{
-			transform:translate(0, 10px) scale(0, 1);
-			-webkit-transform:translate(0, 10px) scale(0, 1);
-			-moz-transform:translate(0, 10px) scale(0, 1);
-			-o-transform:translate(0, 10px) scale(0, 1);
-		}
-		.hamburger-middle-right{
-			pointer-events:none;
-			position:absolute;
-			top:29px;
-			right:15px;
-			width:15px;
-			height:2px;
-		  background: #4CAF50;
-
-			transition: transform .25s;
-		  -webkit-transition: transform .25s;
-		  -moz-transition: transform .25s;
-		  -o-transition: transform .25s;
-
-			transition-timing-function: ease-in-out;
-			-webkit-transition-timing-function: ease-in-out;
-			-moz-transition-timing-function: ease-in-out;
-			-o-transition-timing-function: ease-in-out;
-		}
-		.hamburger-middleRight-animation1{
-			transform:translate(-50%, 0) scale(0, 1) rotate(0deg);
-			-webkit-transform:translate(-50%, 0) scale(0, 1) rotate(0deg);
-			-moz-transform:translate(-50%, 0) scale(0, 1) rotate(0deg);
-			-o-transform:translate(-50%, 0) scale(0, 1) rotate(0deg);
-		}
-		.hamburger-middleRight-animation2{
-			transform:translate(0, -6px) scale(1, 1) rotate(-30deg);
-			-webkit-transform:translate(0, -6px) scale(1, 1) rotate(-30deg);
-			-moz-transform:translate(0, -6px) scale(1, 1) rotate(-30deg);
-			-o-transform:translate(0, -6px) scale(1, 1) rotate(-30deg);
-		}
-		.hamburger-middle-left{
-			pointer-events:none;
-			position:absolute;
-			top:29px;
-			right:30px;
-			width:15px;
-			height:2px;
-		  background: #4CAF50;
-
-			transition: transform .25s;
-		  -webkit-transition: transform .25s;
-		  -moz-transition: transform .25s;
-		  -o-transition: transform .25s;
-
-			transition-timing-function: ease-in-out;
-			-webkit-transition-timing-function: ease-in-out;
-			-moz-transition-timing-function: ease-in-out;
-			-o-transition-timing-function: ease-in-out;
-		}
-		.hamburger-middleLeft-animation1{
-			transform:translate(50%, 0) scale(0, 1) rotate(0deg);
-			-webkit-transform:translate(50%, 0) scale(0, 1) rotate(0deg);
-			-moz-transform:translate(50%, 0) scale(0, 1) rotate(0deg);
-			-o-transform:translate(50%, 0) scale(0, 1) rotate(0deg);
-		}
-		.hamburger-middleLeft-animation2{
-			transform:translate(0, -6px) scale(1, 1) rotate(30deg);
-			-webkit-transform:translate(0, -6px) scale(1, 1) rotate(30deg);
-			-moz-transform:translate(0, -6px) scale(1, 1) rotate(30deg);
-			-o-transform:translate(0, -6px) scale(1, 1) rotate(30deg);
-		}
-		.hamburger-bottom{
-			pointer-events:none;
-			position:absolute;
-			top:39px;
-			right:15px;
-			width:30px;
-			height:2px;
-		  background: #4CAF50;
-
-			transition: transform .25s;
-		  -webkit-transition: transform .25s;
-		  -moz-transition: transform .25s;
-		  -o-transition: transform .25s;
-
-			transition-timing-function: ease-in-out;
-			-webkit-transition-timing-function: ease-in-out;
-			-moz-transition-timing-function: ease-in-out;
-			-o-transition-timing-function: ease-in-out;
-		}
-		.hamburger-bottom-animation1{
-			transform:translate(0, -10px) scale(0, 1);
-			-webkit-transform:translate(0, -10px) scale(0, 1);
-			-moz-transform:translate(0, -10px) scale(0, 1);
-			-o-transform:translate(0, -10px) scale(0, 1);
-		}
-		.hamburger-bottom-animation2{
-			transform:translate(0, 0) scale(.5, 1);
-			-webkit-transform:translate(0, 0) scale(.5, 1);
-			-moz-transform:translate(0, 0) scale(.5, 1);
-			-o-transform:translate(0, 0) scale(.5, 1);
-		}
-		.ripple-button{
-			position:relative;
-			display:inline-block;
-			padding:20px 40px;
-			font-size:125%;
-			border:1px solid #BDBDBD;
-			cursor:pointer;
-			overflow:hidden;
-			color:#757575;
-			margin:40px;
-		}
-		.splash{
-			position:absolute;
-			background:#9E9E9E;
-			border-radius:50%;
-			opacity:0.5;
-			pointer-events:none;
-			transform: scale(0,0);
-			animation: splash 1s, fade 1.5s;
-
-			-webkit-transform: scale(0,0);
-			-webkit-animation: splash 1s, fade 1.5s;
-
-			-moz-transform: scale(0,0);
-			-moz-animation: splash 1s, fade 1.5s;
-
-			-o-transform: scale(0,0);
-			-o-animation: splash 1s, fade 1.5s;
-		}
-		@keyframes splash {
-				from {transform: scale(0,0);}
-				to {transform: scale(1,1);}
-		}
-		@keyframes fade {
-				from {opacity:0.5;}
-				to {opacity:0;}
-		}
-
-		@-webkit-keyframes splash {
-				from {transform: scale(0,0);}
-				to {transform: scale(1,1);}
-		}
-		@-webkit-keyframes fade {
-				from {opacity:0.5;}
-				to {opacity:0;}
-		}
-
-		@-moz-keyframes splash {
-				from {transform: scale(0,0);}
-				to {transform: scale(1,1);}
-		}
-		@-moz-keyframes fade {
-				from {opacity:0.5;}
-				to {opacity:0;}
-		}
-
-		@-o-keyframes splash {
-				from {transform: scale(0,0);}
-				to {transform: scale(1,1);}
-		}
-		@-o-keyframes fade {
-				from {opacity:0.5;}
-				to {opacity:0;}
-		}
-		.watermark{
-			display:none;
-			z-index:0;
-			position:fixed;
-			width:100%;
-			max-width:700px;
-			left:0;
-			right:0;
-			top:100px;
-			margin:auto;
-			opacity:0.1;
-		}
-		.intro{
-			z-index:1;
-			position:relative;
-			display:inline-block;
-			width:100%;
-			padding-top:60px;
-			background:white;
-			overflow:hidden;
-			box-sizing: border-box;
-		}
-		.intro-row{
-			width:100%;
-			text-align:left;
-			padding:10px 40px 0px 40px;
-			box-sizing: border-box;
-		}
-		.intro-tagline{
-			font-size:200%;
-			color: #4CAF50; 
-		  background: #4CAF50; /* For browsers that do not support gradients */
-			background: -webkit-linear-gradient(left, #4CAF50 , #1B5E20); /* For Safari 5.1 to 6.0 */
-			background: -o-linear-gradient(right, #4CAF50, #1B5E20); /* For Opera 11.1 to 12.0 */
-			background: -moz-linear-gradient(right, #4CAF50, #1B5E20); /* For Firefox 3.6 to 15 */
-			background: linear-gradient(to right, #4CAF50 , #1B5E20); /* Standard syntax */
-			-webkit-background-clip: text;
-			-webkit-text-fill-color: transparent;
-		}
-		.intro-occupation{
-			font-size:250%;		
-			font-weight:900;	
-			opacity:0.65;	
-		}
-		.intro-information{
-			display:inline-block;
-			margin-top:30px;
-			font-weight:400;	
-			font-size:150%;		
-			line-height:2;
-			opacity:0.7;
-		}
-		.scroll-portfolio-button{
-			display:none;
-			position:absolute;
-			bottom:0px;
-			right:0;
-			height:80px;
-			width:80px;
-			cursor:pointer;
-			margin:0;
-			padding:0;
-			border:none;
-		}
-		.chevron1{
-			pointer-events:none;
-			position:absolute;
-			left:0;
-			right:0;
-			margin:auto;
-			width:50px;
-		  animation-name: chevron1;
-		  animation-duration: 4s;
-    	animation-iteration-count: infinite;
-
-		  -webkit-animation-name: chevron1;
-		  -webkit-animation-duration: 4s;
-    	-webkit-animation-iteration-count: infinite;
-
-		  -moz-animation-name: chevron1;
-		  -moz-animation-duration: 4s;
-    	-moz-animation-iteration-count: infinite;
-
-		  -o-animation-name: chevron1;
-		  -o-animation-duration: 4s;
-    	-o-animation-iteration-count: infinite;
-		}
-		.chevron2{
-			pointer-events:none;
-			position:absolute;
-			top:20px;
-			left:0;
-			right:0;
-			margin:auto;
-			width:50px;
-		  animation-name: chevron2;
-		  animation-duration: 4s;
-    	animation-delay: .2s;
-    	animation-iteration-count: infinite;
-
-		  -webkit-animation-name: chevron2;
-		  -webkit-animation-duration: 4s;
-    	-webkit-animation-delay: .2s;
-    	-webkit-animation-iteration-count: infinite;
-
-		  -moz-animation-name: chevron2;
-		  -moz-animation-duration: 4s;
-    	-moz-animation-delay: .2s;
-    	-moz-animation-iteration-count: infinite;
-
-		  -o-animation-name: chevron2;
-		  -o-animation-duration: 4s;
-    	-o-animation-delay: .2s;
-    	-o-animation-iteration-count: infinite;
-		}
-		@keyframes chevron1 {
-				from {opacity: 0;}
-				to {opacity: 1;}
-		}
-
-		@-webkit-keyframes chevron1 {
-				from {opacity: 0;}
-				to {opacity: 1;}
-		}
-
-		@-moz-keyframes chevron1 {
-				from {opacity: 0;}
-				to {opacity: 1;}
-		}
-
-		@-o-keyframes chevron1 {
-				from {opacity: 0;}
-				to {opacity: 1;}
-		}
-
-		@keyframes chevron2 {
-				from {opacity: 0;}
-				to {opacity: 1;}
-		}
-
-		@-webkit-keyframes chevron2 {
-				from {opacity: 0;}
-				to {opacity: 1;}
-		}
-
-		@-moz-keyframes chevron2 {
-				from {opacity: 0;}
-				to {opacity: 1;}
-		}
-
-		@-o-keyframes chevron2 {
-				from {opacity: 0;}
-				to {opacity: 1;}
-		}
-		.portfolio-item{
-			z-index:1;
-			position:relative;
-			width:100%;
-			background:white;
-			display:inline-block;
-			text-align:center;
-		}
-		.portfolio-backdrop{
-			width:100%;
-			margin-top:40px;
-			margin-bottom:40px;
-			text-align:center;
-			font-size:400%;
-			font-weight:700;
-			opacity:0.1;
-		}
-		.web-title{
-			width:100%;
-			margin:0;
-			position:absolute;
-			top:80px;
-			text-align:center;
-			font-size:350%;
-			font-weight:700;
-			opacity:0.7;			
-		}
-		.phone{
-			width:100%;
-			-webkit-filter: drop-shadow(5px 5px 5px #BDBDBD);
-			filter: drop-shadow(5px 5px 5px #BDBDBD);
-			cursor:pointer;
-		}
-		.computer{
-			left:0;
-			right:0;
-			margin:100px auto 0px auto;
-			display:none;
-			width:100%;
-			max-width:1000px;
-			-webkit-filter: drop-shadow(5px 5px 5px #BDBDBD);
-			filter: drop-shadow(5px 5px 5px #BDBDBD);
-			cursor:pointer;
-		}
-		.computer-button{
-			display:none;
-		}
-		.footer-text{
-			position:relative;
-			z-index:1;
-			top:60px;
-			width:100%;
-			text-align:center;
-			color:white;
-			font-size:125%;
-		}
-		.footer-button{
-			position:relative;
-			top:100px;
-			display:inline-block;
-			padding:20px 40px;
-			font-size:125%;
-			border:1px solid white;
-			cursor:pointer;
-			overflow:hidden;
-			color:white;
-		}
-		.footer-button:hover{
-			background:black;
-		}
-		.portfolio-bottom{
-			z-index:1;
-			position:relative;
-			display:inline-block;
-			text-align:center;
-			width:100%;
-			background:white;
-			margin-bottom:260px;
-			box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-			-webkit-box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-			-moz-box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-		}
-		.footer{
-			z-index:0;
-			position:fixed;
-			bottom:0;
-			height:260px;
-			width:100%;
-			overflow:hidden;
-			text-align:center;
-		  background: #4CAF50; /* For browsers that do not support gradients */
-			background: -webkit-linear-gradient(left, #4CAF50 , #1B5E20); /* For Safari 5.1 to 6.0 */
-			background: -o-linear-gradient(right, #4CAF50, #1B5E20); /* For Opera 11.1 to 12.0 */
-			background: -moz-linear-gradient(right, #4CAF50, #1B5E20); /* For Firefox 3.6 to 15 */
-			background: linear-gradient(to right, #4CAF50 , #1B5E20); /* Standard syntax */	
-		}
-		.footer-img{
-			position:absolute;
-			left:0;
-			right:0;
-			bottom:0;
-			margin:auto;
-			height:100%;
-		}
-		@media only screen and (min-width:420px){
-			.footer{
-				height:300px;
-			}
-			.footer-text{
-				top:100px;
-				font-size:175%;
-			}
-			.footer-button{
-				top:140px;
-			}
-			.computer{
-				display:block;	
-			}
-			.phone{
-				display:none;
-			}
-			.phone-button{
-				display:none;
-			}
-			.computer-button{
-				display:inline-block;
-			}
-		}
-		@media only screen and (min-width: 450px) {
-			.watermark{
-				display:block;
-			}
-			.intro{
-				background:#FAFAFA;
-				height:100vh;
-			}
-			.intro-occupation{
-				font-size:350%;
-			}
-			.scroll-portfolio-button{
-				display:block;
-			}
-		}
-		@media only screen and (min-width: 350px) {
-			.footer-img{
-				height:auto;
-				width:100%;
-			}
-		}
-		@media only screen and (max-height: 450px) {
-			.intro{
-				height:auto;
-			}
-		}
-		@media only screen and (min-width: 768px) {
-			.header-title{
-				left:50%;
-				transform:translate(-50%, 0);
-				-webkit-transform:translate(-50%, 0);
-				-moz-transform:translate(-50%, 0);
-				-o-transform:translate(-50%, 0);
-			}
-			.menu-button{
-				transform:translate(100%, 0);
-				-webkit-transform:translate(100%, 0);
-				-moz-transform:translate(100%, 0);
-				-o-transform:translate(100%, 0);
-			}
-		}
-	</style>
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,900" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="styles.css">
 	</head>
 	<body>
 		<div class="menu">
-			<div class="links">
-				<div class="ripple-button link-button" onclick="menuAnimation()">
-					<span class="menu-text active">
-						Portfolio
-					</span>
-				</div>	
-				<a href="http://dapperalien.com/about">
-				<div class="ripple-button link-button">
-					<span class="menu-text">
-						About & Contact
-					</span>
-				</div>
-				</a>
-			</div>
+			<div class="menu-button ripple-button" onclick="menuAnimation()">Portfolio</div>
+			<a href="http://dapperalien.com/about"><div class="menu-button ripple-button">About & Contact</div></a>
 		</div>
 		<div class="header">
 			<div class="header-title ripple-button" onclick="menuAnimation()">
-				<img src="alien.svg" class="header-logo">
-				</img>
-				<span class="dapper">
-					DAPPER 
-				</span>
-				<span style="font-family: 'FuturaPT-Medium'; font-size:125%; opacity:0.8; pointer-events:none;">
-					ALIEN
-				</span>
+				<span class="dapper">DAPPER</span>
+				<img src="./images/alien.svg" class="header-title-logo"></img>
+				<span class="alien">ALIEN</span>
 			</div>
-			<div class="menu-button ripple-button" onclick="menuAnimation()">
+			<div class="hamburger-button ripple-button" onclick="menuAnimation()">
 				<div class="stem"></div>
 				<div class="hamburger-top"></div>
 				<div class="hamburger-middle-right"></div>
@@ -753,195 +75,42 @@
 				<div class="hamburger-bottom"></div>
 			</div>
 		</div>
-		<div class="intro">
-		<img class="watermark" src="alien.svg"></img>
-			<div class="intro-row" style="margin-top: 40px;">
-				<span class="intro-tagline">Designer</span>
-			</div>
-			<div class="intro-row">
-				<span class="intro-occupation">Front-end Developer</span>
-			</div>
-			<div class="intro-row">
-				<span class="intro-information">Hi, I am Dapper Alien. I like to program web and mobile applications.</span>
-			</div>
-			<a href="http://dapperalien.com/about">
-			<div class="ripple-button">About & Contact</div>
-			</a>
-			<div class="scroll-portfolio-button ripple-button" onclick="scrollToPortfolio()">
-				<img src="down.svg" class="chevron1"></img>
-				<img src="down.svg" class="chevron2"></img>
+		<div class="portfolio-page-1">
+			<img class="watermark" src="./images/alien.svg"></img>
+			<div class="tagline">Designer</div>
+			<div class="occupation">Front-end Developer</div>
+			<div class="intro">Hi, I am Dapper Alien, I like to program web and mobile applications.</div>
+			<a href="http://dapperalien.com/about"><div class="generic-button ripple-button">About & Contact</div></a>
+			<div class="scroll-button ripple-button" onclick="scrollToPortfolio()">
+				<img src="./images/down.svg" class="chevron1"></img>
+				<img src="./images/down.svg" class="chevron2"></img>
 			</div>
 		</div>
-		<div class="portfolio-item" style="margin-top:-4px;">
-			<div class="portfolio-backdrop">Portfolio</div>
-			<div class="web-title">Websites</div>
-			<a href="http://dapperalien.com/underConstruction">
-			<img src="blog.png" class="phone">
-			<div class="ripple-button phone-button">View Project</div>
-			</img>
-			</a>
-			<a href="http://dapperalien.com/underConstruction">
-			<img src="blogComputerClipped.png" class="computer">
-			<div class="ripple-button computer-button" style="margin-bottom:300px;">View Project</div>
-			</img>
-			</a>
-		</div>
-		<div class="portfolio-bottom">
-			<div class="portfolio-backdrop">Portfolio</div>
-			<div class="web-title">Mobile</div>
-			<a href="http://dapperalien.com/underConstruction">
-			<img src="habit.png" class="phone">
-			<div class="ripple-button phone-button">View Project</div>
-			</img>
-			</a>
-			<a href="http://dapperalien.com/underConstruction">
-			<img src="habitComputerClipped.png" class="computer">
-			<div class="ripple-button computer-button" style="margin-bottom:300px;">View Project</div>
-			</img>
-			</a>
+		<div class="portfolio-page-2">
+			<div class="backdrop">Notebooks</div>
+			<div class="heading">Python</div>
+			<img src="./images/jupyter-phone.png" class="phone"></img>
+			<img src="./images/jupyter-tablet.png" class="tablet"></img>
+			<img src="./images/jupyter-laptop.png" class="laptop"></img>
+			<a href="http://dapperalien.com/notebooks/tableOfContents"><div class="generic-button ripple-button">View Project</div></a>
+			<div class="backdrop">Portfolio</div>
+			<div class="heading">Websites</div>
+			<img src="./images/under-construction-phone.png" class="phone"></img>
+			<img src="./images/under-construction-tablet.png" class="tablet"></img>
+			<img src="./images/under-construction-laptop.png" class="laptop"></img>
+			<a href="http://dapperalien.com/underConstruction"><div class="generic-button ripple-button">View Project</div></a>
+			<div class="backdrop">Portfolio</div>
+			<div class="heading">Mobile</div>
+			<img src="./images/habit-phone.png" class="phone"></img>
+			<img src="./images/habit-tablet.png" class="tablet"></img>
+			<img src="./images/habit-laptop.png" class="laptop"></img>
+			<a href="http://dapperalien.com/notebooks/tableOfContents"><div class="generic-button ripple-button">View Project</div></a>
 		</div>
 		<div class="footer">
-			<img class="footer-img" src="galaxyBig.gif"></img>
+			<img src="./images/galaxy.gif" class="footer-img"></img>
 			<div class="footer-text">Want to know more about me?</div>
-			<a href="http://dapperalien.com/about">
-			<div class="footer-button">About & Contact</div>
-			</a>
+			<a href="http://dapperalien.com/about"><div class="footer-button ripple-button">About & Contact</div></a>
 		</div>
 	</body>
-	<script>
-		//Header and Menu
-		var menuFlag = false;
-		function menuAnimation(){
-			var top = document.querySelector(".hamburger-top");
-			var middleLeft = document.querySelector(".hamburger-middle-left");
-			var middleRight = document.querySelector(".hamburger-middle-right");
-			var bottom = document.querySelector(".hamburger-bottom");
-			var stem = document.querySelector(".stem");
-			if (!menuFlag){
-				top.addEventListener('transitionend', martiniOpen);
-				requestAnimationFrame(function() {
-					top.classList.add("hamburger-top-animation1");
-					bottom.classList.add("hamburger-bottom-animation1");
-					middleLeft.classList.add("hamburger-middleLeft-animation1");
-					middleRight.classList.add("hamburger-middleRight-animation1");
-				});
-			}
-			else{
-				top.addEventListener('transitionend', martiniClose);
-				requestAnimationFrame(function() {
-					top.classList.add("hamburger-top-animation1");
-					bottom.classList.remove("hamburger-bottom-animation2");
-					stem.classList.remove("stem-animation");
-					middleLeft.classList.remove("hamburger-middleLeft-animation2");
-					middleRight.classList.remove("hamburger-middleRight-animation2");
-				});
-			}
-		}
-		function martiniOpen(){
-			var top = document.querySelector(".hamburger-top");
-			var middleLeft = document.querySelector(".hamburger-middle-left");
-			var middleRight = document.querySelector(".hamburger-middle-right");
-			var bottom = document.querySelector(".hamburger-bottom");
-			var stem = document.querySelector(".stem");
-			var menu = document.querySelector(".menu");
-				requestAnimationFrame(function() {
-					stem.classList.add("stem-animation");
-					top.classList.remove("hamburger-top-animation1");
-					bottom.classList.add("hamburger-bottom-animation2");
-					middleLeft.classList.add("hamburger-middleLeft-animation2");
-					middleRight.classList.add("hamburger-middleRight-animation2");
-					menu.classList.add("menu-animation");
-				});
-			menuFlag = true;
-			top.removeEventListener('transitionend', martiniOpen);
-		}
-
-		function martiniClose(){
-			var top = document.querySelector(".hamburger-top");
-			var middleLeft = document.querySelector(".hamburger-middle-left");
-			var middleRight = document.querySelector(".hamburger-middle-right");
-			var bottom = document.querySelector(".hamburger-bottom");
-			var stem = document.querySelector(".stem");
-			var menu = document.querySelector(".menu");
-			top.removeEventListener('transitionend', martiniClose);
-				requestAnimationFrame(function() {
-					top.classList.remove("hamburger-top-animation1");
-					bottom.classList.remove("hamburger-bottom-animation1");
-					middleLeft.classList.remove("hamburger-middleLeft-animation1");
-					middleRight.classList.remove("hamburger-middleRight-animation1");
-					menu.classList.remove("menu-animation");
-				});
-			menuFlag = false;
-		}
-		//////////////////////////////////////////////////////////////////////////
-
-		//Splash
-		var buttons = document.querySelectorAll(".ripple-button");
-		for (var i = 0; i < buttons.length; i++){
-			buttons[i].addEventListener("mouseover", rippleEffect);
-		}
-		function rippleEffect(e){
-			var tempDiv = e.toElement;
-			var parentWidth = tempDiv.getBoundingClientRect().width;
-			var parentHeight = tempDiv.getBoundingClientRect().height;
-			var parentLeft = tempDiv.getBoundingClientRect().left;
-			var parentTop = tempDiv.getBoundingClientRect().top;
-			var x = e.clientX - parentLeft;
-			var y = e.clientY - parentTop;
-			var radius = Math.sqrt((parentWidth*parentWidth)+(parentHeight*parentHeight));
-			var width = radius*2;
-			var height = radius*2;
-			var splash = document.createElement("div");
-			splash.style.width = width + "px";
-			splash.style.height = height + "px";
-			splash.style.top = (y - radius)+"px";
-			splash.style.left = (x - radius)+"px";
-			splash.classList.add("splash");
-				requestAnimationFrame(function() {
-					tempDiv.appendChild(splash);
-				});	
-			setTimeout(function(){
-				splash.remove();
-			}, 2000);
-		}
-		///////////////////////////////////////////////////////////////////////////////////
-		///////////////////////////////////////////////////////////////////////////////////
-
-		//Scroll Animationz
-		window.addEventListener('scroll', onScroll, false);
-		function onScroll() {
-			latestKnownScrollY = document.documentElement.scrollTop || document.body.scrollTop;
-			requestTick();
-		}
-		function requestTick() {
-			if(!ticking) {
-				requestAnimationFrame(updateScroll);
-			}
-			ticking = true;
-		}
-		//Animation handler for clicks, can you say DEBOUNCE (boots n pants n boots n pants)
-		var portfolioTop = document.querySelector(".intro").getBoundingClientRect().bottom;
-		var latestKnownHeight = 0;
-		var latestKnownScrollY = 0;
-		var ticking = false;
-		function updateScroll() {
-			ticking = false;
-			var currentScrollY = latestKnownScrollY;
-		}
-		function scrollToPortfolio(){
-			var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-			var i = scrollTop;
-			var start = null;
-			function scroll(timestamp) {
-			if (!start) start = timestamp;
-				var progress = timestamp - start;
-				i += progress;
-				window.scrollTo(0, Math.min(i, portfolioTop));
-				if (i < (portfolioTop - 60)) {
-					window.requestAnimationFrame(scroll);
-				}
-			}
-			window.requestAnimationFrame(scroll);
-		}
-	</script>
+	<script src="actions.js"></script>
 </html>

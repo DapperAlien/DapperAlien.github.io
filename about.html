@@ -16,12 +16,12 @@
 	<style>
 		@font-face {
 			font-family: 'FuturaPT-Medium';
-			src: url('FuturaPT-Medium.eot');
-			src: url('FuturaPT-Medium.woff2') format('woff2'),
-				   url('FuturaPT-Medium.woff') format('woff'),
-				   url('FuturaPT-Medium.ttf') format('truetype'),
-				   url('FuturaPT-Medium.svg#FuturaPT-Medium') format('svg'),
-				   url('FuturaPT-Medium.eot?#iefix') format('embedded-opentype');
+			src: url('./fonts/FuturaPT-Medium.eot');
+			src: url('./fonts/FuturaPT-Medium.woff2') format('woff2'),
+				   url('./fonts/FuturaPT-Medium.woff') format('woff'),
+				   url('./fonts/FuturaPT-Medium.ttf') format('truetype'),
+				   url('./fonts/FuturaPT-Medium.svg#FuturaPT-Medium') format('svg'),
+				   url('./fonts/FuturaPT-Medium.eot?#iefix') format('embedded-opentype');
 			font-weight: normal;
 			font-style: normal;
 		}
@@ -412,7 +412,7 @@
 		  -moz-background-size: auto 100%;
 		  -o-background-size: auto 100%;
 
-			background-image:url('me.png');
+			background-image:url('./images/me.png');
 
     	-webkit-filter:brightness(200%) contrast(60%); /* Safari 6.0 - 9.0 */
     	filter:brightness(200%) contrast(60%);
@@ -748,7 +748,7 @@
 		</div>
 		<div class="header">
 			<div class="header-title ripple-button" onclick="menuAnimation()">
-				<img src="alien.svg" class="header-logo">
+				<img src="./images/alien.svg" class="header-logo">
 				</img>
 				<span class="dapper">
 					DAPPER 
@@ -775,17 +775,17 @@
 				</div>
 			</div>
 			<div class="description">
-				Hi, I am Daniel Marcoux, an aspiring front-end developer and designer based in Pennsylvania. I love Mathematics and recently graduated with a degree in Computer Science. Feel free to download my <a href="http://www.dapperalien.com/resume.pdf" download="resume.pdf">resume</a> or check out my <a href="http://dapperalien.com">portfolio</a> if you would like to know more about me!
+				Hi, I am Daniel Marcoux, an aspiring front-end developer and designer based in Pennsylvania. I love Mathematics and recently graduated with a degree in Computer Science. Feel free to download my <a href="http://www.dapperalien.com/DanielMarcouxResume2017.pdf" download="DanielMarcouxResume2017.pdf">resume</a> or check out my <a href="http://dapperalien.com">portfolio</a> if you would like to know more about me!
 			</div>
 			<div class="button-row">
-				<a href="http://www.dapperalien.com/resume.pdf" download="resume.pdf">
+				<a href="http://www.dapperalien.com/DanielMarcouxResume2017.pdf" download="DanielMarcouxResume2017.pdf">
 				<div class="ripple-button">
-					<img src="download.svg" class="button-image"></img>Resume
+					<img src="./images/download.svg" class="button-image"></img>Resume
 				</div>
 				</a>
 				<a href="http://dapperalien.com">
 				<div class="ripple-button">
-					<img src="code.svg" class="button-image"></img>Portfolio
+					<img src="./images/code.svg" class="button-image"></img>Portfolio
 				</div>
 				</a>
 			</div>
@@ -801,19 +801,19 @@
 					Contact
 				</div>
 			</div>
-			<div class="contact-logo"><img src="alien.svg" class="contact-backdrop"></img></div>
+			<div class="contact-logo"><img src="./images/alien.svg" class="contact-backdrop"></img></div>
 			<form action="" method="POST" class="contact-form">
 				<textarea onclick="focusTextArea()" type="text" name="message" class="contact-message" placeholder="Type your transmission here"></textarea>
 				<div class="message-underline"></div>
 				<input onclick="focusEmail()" type="email" name="_replyto" placeholder="Email address" class="contact-email">
 				<div class="email-underline"></div>
-				<button type="submit" value="Send" class="contact-button ripple-button"><img src="email.svg" class="button-image"></img>Email</button>
+				<button type="submit" value="Send" class="contact-button ripple-button"><img src="./images/email.svg" class="button-image"></img>Email</button>
 				<input type="text" name="_gotcha" style="display:none" />
 			</form>
 			<div class="how-its-made">Made with HTML, CSS, JS, and Love by <a href="https://github.com/DandroidDeveloper">Daniel Marcoux</a></div>
 		</div>
 		<div class="footer">
-			<img class="footer-img" src="galaxyBig.gif"></img>
+			<img class="footer-img" src="./images/galaxy.gif"></img>
 			<div class="footer-text">Let's create something awesome</div>
 		</div>
 	</body>
