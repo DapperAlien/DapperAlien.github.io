@@ -222,11 +222,15 @@ document.querySelector(".root").appendChild( renderer.domElement );
 
 var orbit = new THREE.OrbitControls( camera, renderer.domElement );
 orbit.enableZoom = true;
+//Inertia for mobile smoothness :)
+orbit.enableDamping = true;
+orbit.dampingFactor = 0.25;
 
 var prevFog = false;
 var render = function () {
 	renderer.render( scene, camera );
 	requestAnimationFrame( render );
+orbit.update();
 };
 document.querySelector(".root").addEventListener( 'mousedown', onDocumentMouseDown );
 window.addEventListener( 'resize', function () {
