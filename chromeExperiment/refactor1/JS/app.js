@@ -224,7 +224,7 @@ var orbit = new THREE.OrbitControls( camera, renderer.domElement );
 orbit.enableZoom = true;
 //Inertia for mobile smoothness :)
 orbit.enableDamping = true;
-orbit.dampingFactor = 0.25;
+orbit.dampingFactor = 0.1;
 
 var prevFog = false;
 var render = function () {
