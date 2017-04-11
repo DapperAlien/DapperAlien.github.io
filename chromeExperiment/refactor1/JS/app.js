@@ -1,6 +1,7 @@
 //Check for WebGL
 function checkForWebGL(){
 	if (Detector.webgl) {
+			showInitModal()
 			generateGraph();
 	} else {
 		  showErrorModal();
@@ -12,6 +13,13 @@ function showErrorModal(){
 }
 function closeErrorModal(){
 	document.querySelector(".errorModal").classList.remove("errorModal_animation");
+}
+
+function showInitModal(){
+	document.querySelector(".initModal").classList.add("initModal_animation");
+}
+function closeInitModal(){
+	document.querySelector(".initModal").classList.remove("initModal_animation");
 }
 
 //Custom Array Comparison////////////////////////////////////////////////////////////////////////////
@@ -46,30 +54,32 @@ Array.prototype.equals = function (array) {
 Object.defineProperty(Array.prototype, "equals", {enumerable: false});
 /////////////////////////////////////////////////////////////////////////////////////////////////
 		
-//Raycasting function
-function onDocumentMouseDown( event ) {    
-	event.preventDefault();
-	var mouse3D = new THREE.Vector3( ( event.clientX / window.innerWidth ) * 2 - 1,   
-		                                  -( event.clientY / window.innerHeight ) * 2 + 1,  
-		                                  0.5 );     
-	var raycaster =  new THREE.Raycaster();                                        
-	raycaster.setFromCamera( mouse3D, camera );
-	var intersects = raycaster.intersectObjects( scene.children, true );
-		if (intersects.length > 0){
-		console.log(intersects[0].object.parent.name);
-	}
-}
 //Generate Graph
-function generateGraph(numberOfNodes = 100, sparseness = 50){
+function generateGraph(){
+	//Clear scene
+	while(scene.children.length > 0){ 
+		  scene.remove(scene.children[0]); 
+	}
+	//Add lights
+	var lights = [];
+	lights[ 0 ] = new THREE.PointLight( 0xffffff, 1, 0 );
+	lights[ 1 ] = new THREE.PointLight( 0xffffff, 1, 0 );
+	lights[ 2 ] = new THREE.PointLight( 0xffffff, 1, 0 );
+
+	lights[ 0 ].position.set( 0, 200, 0 );
+	lights[ 1 ].position.set( 100, 200, 100 );
+	lights[ 2 ].position.set( - 100, - 200, - 100 );
+
+	scene.add( lights[ 0 ] );
+	scene.add( lights[ 1 ] );
+	scene.add( lights[ 2 ] );
+	//Setup constants and grab data from controller to initialize scene
 	var numberOfNodes = 2;
 	var algorithm = getPathfindingAlgorithm();
 	var numNodesValue = document.getElementById("nodes").innerHTML;
 	var sparsenessValue = document.getElementById("sparseness").innerHTML;
-
 	numNodesValue = numNodesValue.replace('%','');
 	sparsenessValue = sparsenessValue.replace('%','');
-
-
 	if (numNodesValue == "Random"){
 		numberOfNodes = getRandomInt(2, 100);
 	}
@@ -87,12 +97,11 @@ function generateGraph(numberOfNodes = 100, sparseness = 50){
 	else{
 		sparseness = parseInt(maxSparseness * (sparsenessValue/100));
 	}
-	//Clear scene
-	while(scene.children.length > 0){ 
-		  scene.remove(scene.children[0]); 
-	}
+
 	console.log("Generating graph");
 	var g = new Graph();
+
+	//Connect graph and ensure that each node has atleast 1 edge.
 	g.addVertex(0);
 	var nodes = [0];
 	var coordinates = [generateRandomCoordinate()];
@@ -107,6 +116,7 @@ function generateGraph(numberOfNodes = 100, sparseness = 50){
 		nodes.push(i);
 	}
 	
+	//Add random edges based on sparseness
 	var initialEdges = [];
 	for (var i = 0; i < g.numVertices; i++){
 		for (var key in g.adjacencyList[i].getAdj()){
@@ -192,46 +202,50 @@ function drawGraph(g, coordinates){
 	}
 }
 
+//Raycasting function
+function onDocumentMouseDown( event ) {  
+	event.preventDefault();
+	var mouse3D = new THREE.Vector3( ( event.clientX / window.innerWidth ) * 2 - 1,   
+		                                  -( event.clientY / window.innerHeight ) * 2 + 1,  
+		                                  0.5 );     
+	var raycaster =  new THREE.Raycaster();                                        
+	raycaster.setFromCamera( mouse3D, camera );
+	var intersects = raycaster.intersectObjects( scene.children, true );
+		if (intersects.length > 0){
+		console.log(intersects[0].object.parent.name);
+	}
+}
+
 //Setup scene
 scene = new THREE.Scene();
 scene.background = new THREE.Color( 0xfafafa );
 
-//Add lights
-var lights = [];
-lights[ 0 ] = new THREE.PointLight( 0xffffff, 1, 0 );
-lights[ 1 ] = new THREE.PointLight( 0xffffff, 1, 0 );
-lights[ 2 ] = new THREE.PointLight( 0xffffff, 1, 0 );
-
-lights[ 0 ].position.set( 0, 200, 0 );
-lights[ 1 ].position.set( 100, 200, 100 );
-lights[ 2 ].position.set( - 100, - 200, - 100 );
-
-scene.add( lights[ 0 ] );
-scene.add( lights[ 1 ] );
-scene.add( lights[ 2 ] );
-
+//Setup camera
 var camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1500 );
 camera.position.z = 700;
 camera.position.y = 250;
 
+//Initialize renderer
 var renderer = new THREE.WebGLRenderer( { antialias: true } );
 renderer.setPixelRatio( window.devicePixelRatio );
 renderer.setSize( window.innerWidth, window.innerHeight );
 renderer.setClearColor( 0x000000, 1 );
 document.querySelector(".root").appendChild( renderer.domElement );
 
-var controls;
-				controls = new THREE.TrackballControls( camera, renderer.domElement );
-				controls.rotateSpeed = 5;
-				controls.minDistance = 0;
-				controls.maxDistance = 1500;
+//Set up trackball controls
+var controls = new THREE.TrackballControls( camera, renderer.domElement);
+controls.rotateSpeed = 5;
+controls.minDistance = 0.1;
+controls.maxDistance = 1500;
 
-var prevFog = false;
+//Render function
 var render = function () {
 	renderer.render( scene, camera );
 	requestAnimationFrame( render );
-controls.update();
+	controls.update();
 };
+
+//Handle resize
 document.querySelector(".root").addEventListener( 'mousedown', onDocumentMouseDown );
 window.addEventListener( 'resize', function () {
 	camera.aspect = window.innerWidth / window.innerHeight;
@@ -239,6 +253,8 @@ window.addEventListener( 'resize', function () {
 	renderer.setSize( window.innerWidth, window.innerHeight );
 }, false );
 
+
+//Test code
 function getObject(){
 		console.log(scene.getObjectByName('sphere10', true));
 		scene.getObjectByName('sphere10', true).children[1].material.color.setHex(0x9C27B0);

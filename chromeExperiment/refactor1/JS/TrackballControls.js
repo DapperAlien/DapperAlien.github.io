@@ -395,7 +395,8 @@ THREE.TrackballControls = function ( object, domElement ) {
 		if ( _this.enabled === false ) return;
 
 		event.preventDefault();
-		event.stopPropagation();
+		//Needs to be commented out for picking to work with raycaster for some reason.... not going down that rabbit hole today.
+		//event.stopPropagation();
 
 		if ( _state === STATE.NONE ) {
 

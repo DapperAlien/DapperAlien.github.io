@@ -22,6 +22,7 @@ function openInNewTab(url) {
 
 //Number of Nodes Slider
 function updateNodes(value){
+	event.preventDefault();
 	if (value == 0){
 		document.getElementById("nodes").innerHTML = "Random";
 	}
