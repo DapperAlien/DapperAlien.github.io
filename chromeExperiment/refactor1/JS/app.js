@@ -220,17 +220,17 @@ renderer.setSize( window.innerWidth, window.innerHeight );
 renderer.setClearColor( 0x000000, 1 );
 document.querySelector(".root").appendChild( renderer.domElement );
 
-var orbit = new THREE.OrbitControls( camera, renderer.domElement );
-orbit.enableZoom = true;
-//Inertia for mobile smoothness :)
-orbit.enableDamping = true;
-orbit.dampingFactor = 0.1;
+var controls;
+				controls = new THREE.TrackballControls( camera, renderer.domElement );
+				controls.rotateSpeed = 5;
+				controls.minDistance = 0;
+				controls.maxDistance = 1500;
 
 var prevFog = false;
 var render = function () {
 	renderer.render( scene, camera );
 	requestAnimationFrame( render );
-orbit.update();
+controls.update();
 };
 document.querySelector(".root").addEventListener( 'mousedown', onDocumentMouseDown );
 window.addEventListener( 'resize', function () {
