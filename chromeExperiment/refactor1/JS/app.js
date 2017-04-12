@@ -222,7 +222,7 @@ function drawGraph(g, coordinates){
 		    cylinder.up = new THREE.Vector3(0, 1, 0);//Z axis up
 		    cylinder.lookAt(focalPoint);
 				cylinder.geometry.translate( 0, 0, length / 2 );	
-				cylinder.name = 100 + count;	
+				cylinder.name = "edge"+i+"to"+parseInt(key);
 		    scene.add(cylinder);		
 			}
 		}
@@ -250,7 +250,7 @@ function onDocumentMouseDown( event ) {
 	var intersects = raycaster.intersectObjects( scene.children, true );
 	if (intersects.length > 0){
 		console.log(intersects[0].object.name || intersects[0].object.parent.name);
-		if (!(intersects[0].object.name >= 100) && (nodesArray.length < 2)){
+		if (!(intersects[0].object.name.includes("edge")) && (nodesArray.length < 2)){
 			if (intersects[0].object.parent.name !== nodesArray[0]){
 				nodesArray.push(intersects[0].object.parent.name);
 				scene.getObjectByName(intersects[0].object.parent.name, true).children[1].material.color.setHex(0x9C27B0);
@@ -310,12 +310,21 @@ function traverseBFS(list, start, end){
 		scene.getObjectByName(list[i], true).children[1].material.color.setHex(0x388E3C);
 		scene.getObjectByName(list[i], true).children[1].material.emissive.setHex(0x4CAF50);
 	}
-	console.log(g.getVertex(end).getBFSPredecessor());
 	start = g.getVertex(end);
 	while (start.getBFSPredecessor()){
 			scene.getObjectByName(start.id, true).children[1].material.color.setHex(0x9C27B0);
 			scene.getObjectByName(start.id, true).children[1].material.emissive.setHex(0xE040FB);
-			start = start.getBFSPredecessor()
+			var edge = "edge"+start.id+"to"+start.getBFSPredecessor().id;
+			var edgeReverse = "edge"+start.getBFSPredecessor().id+"to"+start.id;
+			if (scene.getObjectByName(edge, true)){
+				scene.getObjectByName(edge, true).material.color.setHex(0x9C27B0);
+				scene.getObjectByName(edge, true).material.emissive.setHex(0xE040FB);
+			}
+			if (scene.getObjectByName(edgeReverse, true)){
+				scene.getObjectByName(edgeReverse, true).material.color.setHex(0x9C27B0);
+				scene.getObjectByName(edgeReverse, true).material.emissive.setHex(0xE040FB);
+			}
+			start = start.getBFSPredecessor();
 	}
 	scene.getObjectByName(start.id, true).children[1].material.color.setHex(0x9C27B0);
 	scene.getObjectByName(start.id, true).children[1].material.emissive.setHex(0xE040FB);
