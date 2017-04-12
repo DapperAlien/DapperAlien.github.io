@@ -151,7 +151,10 @@ canvas{
 	height:100%;
 }
 .errorModal-middle{
+	box-sizing:border-box;
 	text-align:center;
+	padding-left:16px;
+	padding-right:16px;
 }
 .errorModal-button{
 	display:inline-block;
@@ -230,7 +233,10 @@ canvas{
 	height:100%;
 }
 .initModal-middle{
+	box-sizing:border-box;
 	text-align:center;
+	padding-left:16px;
+	padding-right:16px;
 }
 .initModal-button{
 	display:inline-block;
