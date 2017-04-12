@@ -2,8 +2,8 @@
 function Vertex(key){
 	this.id = key;
 	this.adj = {};
-	this.bfsDiscovered = false;
-	this.bfsPredecessor = null;
+	this.discovered = false;
+	this.predecessor = null;
 
 	this.addNeighbor = function(nbr, weight=0){
 		this.adj[nbr] = weight;
@@ -20,11 +20,11 @@ function Vertex(key){
 	this.getWeight = function(nbr){
 		return this.adj[nbr];
 	}
-	this.setBFSPredecessor = function(pred){
-		this.bfsPredecessor = pred;
+	this.setPredecessor = function(pred){
+		this.predecessor = pred;
 	}
-	this.getBFSPredecessor = function(){
-		return this.bfsPredecessor
+	this.getPredecessor = function(){
+		return this.predecessor;
 	}
 }
 

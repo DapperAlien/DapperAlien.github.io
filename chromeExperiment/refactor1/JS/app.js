@@ -270,7 +270,7 @@ function findPath(algorithm, start, end){
 	}
 	if (algorithm == 'bfs'){
 		var tempList = [];
-		console.log(algorithm, start, end);
+		console.log(algorithm);
 		start = g.getVertex(start);
 		var q = [];
 		q.push(start);
@@ -279,22 +279,41 @@ function findPath(algorithm, start, end){
 			var keys = [];
 			for (k in g.adjacencyList[current.getId()].adj) keys.push(k);
 			for (var i = 0; i < keys.length; i++){
-				if (!(g.getVertex(parseInt(keys[i])).bfsDiscovered)){
-					g.getVertex(parseInt(keys[i])).bfsDiscovered = true;
-					g.getVertex(parseInt(keys[i])).setBFSPredecessor(current);
+				if (!(g.getVertex(parseInt(keys[i])).discovered)){
+					g.getVertex(parseInt(keys[i])).discovered = true;
+					g.getVertex(parseInt(keys[i])).setPredecessor(current);
 					q.push(g.getVertex(parseInt(keys[i])));
 				}
 			}
 			tempList.push(current.id);
-			current.bfsDiscovered = true;
+			current.discovered = true;
 		}
-		colorBFS(tempList, start, end, traverseBFS);
+		color(tempList, start, end, traverse);
 	}
 	if (algorithm == 'dfs'){
 		console.log(algorithm);
+		var tempList = [];
+		start = g.getVertex(start);
+		var s = [];
+		s.push(start);
+		while (s.length > 0){
+			var current = s.pop();
+			var keys = [];
+			for (k in g.adjacencyList[current.getId()].adj) keys.push(k);
+			for (var i = 0; i < keys.length; i++){
+				if (!(g.getVertex(parseInt(keys[i])).discovered)){
+					g.getVertex(parseInt(keys[i])).discovered = true;
+					g.getVertex(parseInt(keys[i])).setPredecessor(current);
+					s.push(g.getVertex(parseInt(keys[i])));
+				}
+			}
+			tempList.push(current.id);
+			current.discovered = true;
+		}
+		color(tempList, start, end, traverse);
 	}
 }
-function colorBFS(list, start, end, callback){
+function color(list, start, end, callback){
 	for (var x = 0, ln = list.length; x < ln; x++) {
 		setTimeout(function(y) {    
 			scene.getObjectByName(list[y], true).children[1].material.color.setHex(0x9C27B0);
@@ -305,17 +324,17 @@ function colorBFS(list, start, end, callback){
 		}, x * 100, x);
 	}
 }
-function traverseBFS(list, start, end){
+function traverse(list, start, end){
 	for (var i = list.length-1; i >= 0; i--){
 		scene.getObjectByName(list[i], true).children[1].material.color.setHex(0x388E3C);
 		scene.getObjectByName(list[i], true).children[1].material.emissive.setHex(0x4CAF50);
 	}
 	start = g.getVertex(end);
-	while (start.getBFSPredecessor()){
+	while (start.getPredecessor()){
 			scene.getObjectByName(start.id, true).children[1].material.color.setHex(0x9C27B0);
 			scene.getObjectByName(start.id, true).children[1].material.emissive.setHex(0xE040FB);
-			var edge = "edge"+start.id+"to"+start.getBFSPredecessor().id;
-			var edgeReverse = "edge"+start.getBFSPredecessor().id+"to"+start.id;
+			var edge = "edge"+start.id+"to"+start.getPredecessor().id;
+			var edgeReverse = "edge"+start.getPredecessor().id+"to"+start.id;
 			if (scene.getObjectByName(edge, true)){
 				scene.getObjectByName(edge, true).material.color.setHex(0x9C27B0);
 				scene.getObjectByName(edge, true).material.emissive.setHex(0xE040FB);
@@ -324,7 +343,7 @@ function traverseBFS(list, start, end){
 				scene.getObjectByName(edgeReverse, true).material.color.setHex(0x9C27B0);
 				scene.getObjectByName(edgeReverse, true).material.emissive.setHex(0xE040FB);
 			}
-			start = start.getBFSPredecessor();
+			start = start.getPredecessor();
 	}
 	scene.getObjectByName(start.id, true).children[1].material.color.setHex(0x9C27B0);
 	scene.getObjectByName(start.id, true).children[1].material.emissive.setHex(0xE040FB);
