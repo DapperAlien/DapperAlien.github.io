@@ -2,6 +2,8 @@
 function Vertex(key){
 	this.id = key;
 	this.adj = {};
+	this.bfsDiscovered = false;
+	this.bfsPredecessor = null;
 
 	this.addNeighbor = function(nbr, weight=0){
 		this.adj[nbr] = weight;
@@ -17,6 +19,12 @@ function Vertex(key){
 	}
 	this.getWeight = function(nbr){
 		return this.adj[nbr];
+	}
+	this.setBFSPredecessor = function(pred){
+		this.bfsPredecessor = pred;
+	}
+	this.getBFSPredecessor = function(){
+		return this.bfsPredecessor
 	}
 }
 
@@ -47,6 +55,7 @@ function Graph(){
 			this.addVertex(vertex2);
 		}
 		this.adjacencyList[vertex1].addNeighbor(vertex2, weight);
+		this.adjacencyList[vertex2].addNeighbor(vertex1, weight);
 	}
 	this.removeEdge = function(vertex1, vertex2){
 		this.adjacencyList[vertex1].removeNeighbor(vertex2);

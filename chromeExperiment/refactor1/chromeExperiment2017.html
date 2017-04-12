@@ -16,14 +16,15 @@
 <script src="./JS/menu.js"></script>
 </head>
 <body onload="checkForWebGL()">
+	<div class="mdl-spinner mdl-spinner--single-color mdl-js-spinner loader" id="spinner"></div>
 	<div class="header">
-		<div class="back ripple-button" onclick="getObject()"><img src="./Images/back.svg"></img></div>
+		<div class="back ripple-button"><img src="./Images/back.svg"></img></div>
 		<div class="logo"><img src="./Images/alien.svg"></img></div>
 		<div class="menu ripple-button" onclick="controlsAnimation()"><img src="./Images/expand.svg"></img></div>
 	</div>
 	<div class="controls">
 		<div class="controls-container">
-			<h5>Controls</h5>
+			<h5>Algorithm</h5>
 			<div class="option">
 				<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
 					<input type="radio" id="option-1" class="mdl-radio__button" name="options" value="1" checked>
