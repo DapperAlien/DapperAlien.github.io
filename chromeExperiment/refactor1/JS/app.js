@@ -53,17 +53,22 @@ Array.prototype.equals = function (array) {
 // Hide method from for-in loops
 Object.defineProperty(Array.prototype, "equals", {enumerable: false});
 /////////////////////////////////////////////////////////////////////////////////////////////////
+
+//Spinner functionality
 function show(){
 	document.getElementById("spinner").classList.add("is-active");
 }
 function hide(){
 	document.getElementById("spinner").classList.remove("is-active");
 }
+
 //Initialize Graph
 var g = new Graph();
-//Initialize start and end node
+
+//Initialize start and end node and algorithm
 var nodesArray = [];
 var algorithm = getPathfindingAlgorithm();
+
 //Generate Graph
 function generateGraph(){
 	show();
@@ -183,6 +188,7 @@ function generateGraph(){
 	}, 1);
 }
 
+//Draw nodes and edges
 function drawGraph(g, coordinates){
 	var drawn = [];
 	var count = 0;
@@ -313,6 +319,7 @@ function findPath(algorithm, start, end){
 		color(tempList, start, end, traverse);
 	}
 }
+//Color algorithm for BFS and DFS
 function color(list, start, end, callback){
 	for (var x = 0, ln = list.length; x < ln; x++) {
 		setTimeout(function(y) {    
@@ -324,6 +331,7 @@ function color(list, start, end, callback){
 		}, x * 100, x);
 	}
 }
+//Traversal algorithm for BFS and DFS
 function traverse(list, start, end){
 	for (var i = list.length-1; i >= 0; i--){
 		scene.getObjectByName(list[i], true).children[1].material.color.setHex(0x388E3C);

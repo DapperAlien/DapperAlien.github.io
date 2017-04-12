@@ -155,6 +155,7 @@ canvas{
 	text-align:center;
 	padding-left:16px;
 	padding-right:16px;
+	opacity:0.65;
 }
 .errorModal-button{
 	display:inline-block;
@@ -237,6 +238,7 @@ canvas{
 	text-align:center;
 	padding-left:16px;
 	padding-right:16px;
+	opacity:0.65;
 }
 .initModal-button{
 	display:inline-block;

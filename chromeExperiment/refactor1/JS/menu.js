@@ -37,6 +37,12 @@ function updateSparseness(value){
 		document.getElementById("sparseness").innerHTML = "Random";
 	}
 	else{
+		if (value >= 30){
+			document.getElementById("sparseness").style.color = "red";
+		}
+		if (value < 30){
+			document.getElementById("sparseness").style.color = "black";
+		}
 		document.getElementById("sparseness").innerHTML = value + "%";
 	}
 }
