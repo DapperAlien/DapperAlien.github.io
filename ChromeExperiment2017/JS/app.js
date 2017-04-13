@@ -160,11 +160,9 @@ function generateGraph(){
 				var backward = [randomEdge[1], randomEdge[0]];
 				for (var j = 0; j < initialEdges.length; j++){
 					if (forward.equals(initialEdges[j])){	
-						//console.log("FORWARD",forward, initialEdges[j]);
 						compareFlag = false;
 					}
 					if (backward.equals(initialEdges[j])){
-						//console.log("BACKWARD:",backward, initialEdges[j]);
 						compareFlag = false;
 					}
 				}
@@ -272,11 +270,17 @@ function onDocumentMouseDown( event ) {
 //Pathfinding algorithms
 function findPath(algorithm, start, end){
 	if (algorithm == 'dijkstra'){
-		console.log(algorithm);
+		var g2 = translateGraph(g);
+		start = String(g.getVertex(start).getId());
+		end = String(g.getVertex(end).getId());
+		var results = dijkstra2(g2, start, end);
+		var path = results[0];
+		path.push(start);
+		var visitedArray = results[1];
+		colorDijkstraNodes(visitedArray, path, colorDijkstraPath);
 	}
 	if (algorithm == 'bfs'){
 		var tempList = [];
-		console.log(algorithm);
 		start = g.getVertex(start);
 		var q = [];
 		q.push(start);
@@ -297,7 +301,6 @@ function findPath(algorithm, start, end){
 		color(tempList, start, end, traverse);
 	}
 	if (algorithm == 'dfs'){
-		console.log(algorithm);
 		var tempList = [];
 		start = g.getVertex(start);
 		var s = [];
@@ -356,6 +359,56 @@ function traverse(list, start, end){
 	scene.getObjectByName(start.id, true).children[1].material.color.setHex(0x9C27B0);
 	scene.getObjectByName(start.id, true).children[1].material.emissive.setHex(0xE040FB);
 }
+
+//Prettify Graph
+function translateGraph(graph){
+	var returnGraph = {};
+	for (var key in g.adjacencyList){
+		returnGraph[g.adjacencyList[key].getId()] = {};
+		for (var w in g.adjacencyList[key].getAdj()){
+			returnGraph[g.adjacencyList[key].getId()][w] = g.adjacencyList[key].getWeight(w);
+		}
+	}
+	return returnGraph;
+}
+
+//Color nodes found in dijkstra
+function colorDijkstraNodes(list, path, callback){
+	for (var x = 0, ln = list.length; x < ln; x++) {
+		setTimeout(function(y) { 
+			scene.getObjectByName(parseInt(list[y]), true).children[1].material.color.setHex(0x9C27B0);
+			scene.getObjectByName(parseInt(list[y]), true).children[1].material.emissive.setHex(0xE040FB);
+			if (y == list.length - 1){
+				callback(path, list);
+			}
+		}, x * 100, x);
+	}
+}
+function colorDijkstraPath(path, list){
+	for (var i = 0; i < list.length; i++){
+		scene.getObjectByName(parseInt(list[i]), true).children[1].material.color.setHex(0x388E3C);
+		scene.getObjectByName(parseInt(list[i]), true).children[1].material.emissive.setHex(0x4CAF50);
+	}
+	for (var i = 0; i < path.length; i++){
+		scene.getObjectByName(parseInt(path[i]), true).children[1].material.color.setHex(0x9C27B0);
+		scene.getObjectByName(parseInt(path[i]), true).children[1].material.emissive.setHex(0xE040FB);
+	}
+	for (var i = 0; i < path.length - 1; i++){
+		var tempStart = path[i];
+		var tempEnd = path[i+1];
+		var edge = "edge"+tempStart+"to"+tempEnd;
+		var edgeReverse = "edge"+tempEnd+"to"+tempStart;
+			if (scene.getObjectByName(edge, true)){
+				scene.getObjectByName(edge, true).material.color.setHex(0x9C27B0);
+				scene.getObjectByName(edge, true).material.emissive.setHex(0xE040FB);
+			}
+			if (scene.getObjectByName(edgeReverse, true)){
+				scene.getObjectByName(edgeReverse, true).material.color.setHex(0x9C27B0);
+				scene.getObjectByName(edgeReverse, true).material.emissive.setHex(0xE040FB);
+			}
+	}
+}
+
 //Setup scene
 scene = new THREE.Scene();
 scene.background = new THREE.Color( 0xfafafa );

@@ -2,6 +2,7 @@
 function Vertex(key){
 	this.id = key;
 	this.adj = {};
+	this.distance = Number.POSITIVE_INFINITY;
 	this.discovered = false;
 	this.predecessor = null;
 
