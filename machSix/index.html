@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Dapper Alien</title>
+	<!--Favicons-->
+		<link rel="apple-touch-icon" sizes="180x180" href="./favicons/apple-touch-icon.png">
+		<link rel="icon" type="image/png" href="./favicons/favicon-32x32.png" sizes="32x32">
+		<link rel="icon" type="image/png" href="./favicons/favicon-16x16.png" sizes="16x16">
+		<link rel="manifest" href="./favicons/manifest.json">
+		<link rel="mask-icon" href="./favicons/safari-pinned-tab.svg" color="#212121">
+		<meta name="theme-color" content="#1B5E20">
+	<!---->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+	<div class="menu">
+
+	</div>
+	<div class="header">
+		<div class="menu-button ripple-button" onclick="menuAnimation()">
+			<svg height="60" width="120" class="dapper">
+				<defs>
+					<linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+					<stop offset="0%" style="stop-color:#4CAF50; stop-opacity:1"/>
+					<stop offset="100%" style="stop-color:#000000; stop-opacity:1"/>
+					</linearGradient>
+				</defs>
+				<text x="0" y="40" font-family="Lato-Hairline" font-size="30" font-weight="600" fill="url(#gradient)" letter-spacing="-1" class="svg_text">
+					DAPPER
+				</text>
+			</svg>
+			<img src="./images/alien.svg" class="alien-logo"></img>
+			<svg  xmlns="http://www.w3.org/2000/svg" viewBox="-50 -50 750 1000" class="alien-A">
+				<path d="M542 0l-70 161h-285l-73 -161h-110l332 706l316 -706h-110zM229 257h202l-99 226z" />
+			</svg>
+			<svg  xmlns="http://www.w3.org/2000/svg" class="alien-L" viewBox="0 -50 450 1000">
+				<path d="M80 667h102v-571h196v-96h-298v667z" />
+			</svg>
+			<svg  xmlns="http://www.w3.org/2000/svg" class="alien-I" viewBox="0 -50 250 1000">
+				<path d="M80 667h102v-667h-102v667z" />
+			</svg>
+			<svg  xmlns="http://www.w3.org/2000/svg" class="alien-E" viewBox="0 -50 525 1000">
+				<path d="M448 667v-96h-266v-169h258v-96h-258v-210h266v-96h-368v667h368z" />
+			</svg>
+			<svg  xmlns="http://www.w3.org/2000/svg" class="alien-N" viewBox="0 -50 750 1000">
+				<path d="M182 0h-102v712l484 -507v462h102v-708l-484 507v-466z" />
+			</svg>
+		</div>
+		<div class="hamburger-button ripple-button" onclick="menuAnimation()">
+			<div class="stem"></div>
+			<div class="hamburger-top"></div>
+			<div class="hamburger-middle-right"></div>
+			<div class="hamburger-middle-left"></div>
+			<div class="hamburger-bottom"></div>
+		</div>
+	</div>
+	<div class="portfolio-page-1">
+		<img class="watermark" src="./images/alien.svg"></img>
+		<svg height="60" width="200" class="tagline">
+			<defs>
+				<linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+				<stop offset="0%" style="stop-color:#4CAF50; stop-opacity:1"/>
+				<stop offset="100%" style="stop-color:#1B5E20; stop-opacity:1"/>
+				</linearGradient>
+			</defs>
+			<text x="0" y="40" font-family="Lato-Regular" font-size="40" font-weight="400" fill="url(#gradient2)" letter-spacing="-1">
+				Designer
+			</text>
+		</svg>
+		<div class="occupation">Front-end Developer</div>
+		<div class="intro">Hi, I am Dapper Alien, I like to program web and mobile applications.</div>
+		<a href="http://dapperalien.com/about"><div class="generic-button ripple-button">About & Contact</div></a>
+		<div class="scroll-button ripple-button" onclick="scrollToPortfolio()">
+			<img src="./images/down.svg" class="chevron1"></img>
+			<img src="./images/down.svg" class="chevron2"></img>
+		</div>
+	</div>
+	<div class="portfolio-page-2">
+		<div class="backdrop">Notebooks</div>
+		<div class="heading">Python</div>
+		<img src="./images/jupyter-phone.png" class="phone"></img>
+		<img src="./images/jupyter-tablet.png" class="tablet"></img>
+		<img src="./images/jupyter-laptop.png" class="laptop"></img>
+		<a href="http://dapperalien.com/notebooks/tableOfContents"><div class="generic-button ripple-button">View Project</div></a>
+		<div class="backdrop">Portfolio</div>
+		<div class="heading">Websites</div>
+		<img src="./images/under-construction-phone.png" class="phone"></img>
+		<img src="./images/under-construction-tablet.png" class="tablet"></img>
+		<img src="./images/under-construction-laptop.png" class="laptop"></img>
+		<a href="http://dapperalien.com/underConstruction"><div class="generic-button ripple-button">View Project</div></a>
+		<div class="backdrop">Portfolio</div>
+		<div class="heading">Mobile</div>
+		<img src="./images/habit-phone.png" class="phone"></img>
+		<img src="./images/habit-tablet.png" class="tablet"></img>
+		<img src="./images/habit-laptop.png" class="laptop"></img>
+		<a href="http://dapperalien.com/notebooks/tableOfContents"><div class="generic-button ripple-button">View Project</div></a>
+	</div>
+	<div class="footer">
+		<video autoplay="autoplay" loop="loop" class="galaxy">
+			<source src="./videos/galaxy.mp4" type="video/mp4" />
+		</video>
+		<div class="footer-text">Want to know more about me?</div>
+		<a href="http://dapperalien.com/about"><div class="footer-button ripple-button">About & Contact</div></a>
+	</div>
+</body>
+	<script src="js/classListShim.js"></script>
+	<script src="js/ripple.js"></script>
+	<script src="js/menu.js"></script>
+	<script src="js/scrollAnimation.js"></script>
+</html>
