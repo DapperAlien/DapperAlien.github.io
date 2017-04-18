@@ -33,7 +33,7 @@
 }
 html, body{
 	font-family: 'Lato-Regular', sans-serif;
-	text-rendering: geometricPrecision;
+	text-rendering: optimizeLegibility;
 	padding:0;
 	margin:0;
 }
