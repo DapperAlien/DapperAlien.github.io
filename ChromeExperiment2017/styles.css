@@ -1,5 +1,16 @@
+@font-face {
+  font-family: 'Lato-Regular';
+  src: url('../fonts/regular/Lato-Regular.eot');
+  src: url('../fonts/regular/Lato-Regular.woff2') format('woff2'),
+       url('../fonts/regular/Lato-Regular.woff') format('woff'),
+       url('../fonts/regular/Lato-Regular.ttf') format('truetype'),
+       url('../fonts/regular/Lato-Regular.svg#Lato-Regular') format('svg'),
+       url('../fonts/regular/Lato-Regular.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
 html, body{
-	font-family: 'Lato', sans-serif;
+	font-family: 'Lato-Regular', sans-serif;
 	margin:0;
 	padding:0;
 	overflow:hidden;

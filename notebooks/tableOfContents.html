@@ -10,10 +10,9 @@
 		<meta name="theme-color" content="#ffffff">
 	<!---->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,900" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="../styles.css">
-	</head>
-	<style>
+</head>
+<style>
 	a{
 		text-decoration:none;
 		color:#2196F3;
@@ -67,54 +66,78 @@
 			font-size:450%;
 		}
 	}
-	</style>
-	<body>
-		<div class="menu">
-			<a href="http://www.dapperalien.com"><div class="menu-button ripple-button">Portfolio</div></a>
-			<a href="http://www.dapperalien.com/about"><div class="menu-button ripple-button">About & Contact</div></a>
+</style>
+<body>
+	<div class="menu">
+		<a href="http://dapperalien.com"><div class="link-button ripple-button">Portfolio</div></a>
+		<a href="http://dapperalien.com/about"><div class="link-button ripple-button">About & Contact</div></a>
+	</div>
+	<div class="header">
+		<div class="menu-button ripple-button" onclick="menuAnimation()">
+			<svg height="60" width="120" class="dapper">
+				<defs>
+					<linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+					<stop offset="0%" style="stop-color:#4CAF50; stop-opacity:1"/>
+					<stop offset="100%" style="stop-color:#000000; stop-opacity:1"/>
+					</linearGradient>
+				</defs>
+				<text x="0" y="40" font-family="Lato-Hairline" font-size="30" font-weight="600" fill="url(#gradient)" letter-spacing="-1" class="svg_text">
+					DAPPER
+				</text>
+			</svg>
+			<img src="../images/alien.svg" class="alien-logo"></img>
+			<svg  xmlns="http://www.w3.org/2000/svg" viewBox="-50 -50 750 1000" class="alien-A">
+				<path d="M542 0l-70 161h-285l-73 -161h-110l332 706l316 -706h-110zM229 257h202l-99 226z" />
+			</svg>
+			<svg  xmlns="http://www.w3.org/2000/svg" class="alien-L" viewBox="0 -50 450 1000">
+				<path d="M80 667h102v-571h196v-96h-298v667z" />
+			</svg>
+			<svg  xmlns="http://www.w3.org/2000/svg" class="alien-I" viewBox="0 -50 250 1000">
+				<path d="M80 667h102v-667h-102v667z" />
+			</svg>
+			<svg  xmlns="http://www.w3.org/2000/svg" class="alien-E" viewBox="0 -50 525 1000">
+				<path d="M448 667v-96h-266v-169h258v-96h-258v-210h266v-96h-368v667h368z" />
+			</svg>
+			<svg  xmlns="http://www.w3.org/2000/svg" class="alien-N" viewBox="0 -50 750 1000">
+				<path d="M182 0h-102v712l484 -507v462h102v-708l-484 507v-466z" />
+			</svg>
 		</div>
-		<div class="header">
-			<div class="header-title ripple-button" onclick="menuAnimation()">
-				<span class="dapper">DAPPER</span>
-				<img src="../images/alien.svg" class="header-title-logo"></img>
-				<span class="alien">ALIEN</span>
-			</div>
-			<div class="hamburger-button ripple-button" onclick="menuAnimation()">
-				<div class="stem"></div>
-				<div class="hamburger-top"></div>
-				<div class="hamburger-middle-right"></div>
-				<div class="hamburger-middle-left"></div>
-				<div class="hamburger-bottom"></div>
-			</div>
+		<div class="hamburger-button ripple-button" onclick="menuAnimation()">
+			<div class="stem"></div>
+			<div class="hamburger-top"></div>
+			<div class="hamburger-middle-right"></div>
+			<div class="hamburger-middle-left"></div>
+			<div class="hamburger-bottom"></div>
 		</div>
-		<div class="directory">
-			<img src="../images/jupyter.svg" class="logo"></img>
-			<div class="toc-title">Table of Contents</div>
-			<div class="toc-content">
-				<h1>Computer Science</h1>
+	</div>
+	<div class="directory">
+		<img src="../images/jupyter.svg" class="logo"></img>
+		<div class="toc-title">Table of Contents</div>
+		<div class="toc-content">
+			<h1>Computer Science</h1>
+			<ul>
+			<li>Hacker Rank</l1>
 				<ul>
-				<li>Hacker Rank</l1>
-					<ul>
-						<li class="sublist"><a href="http://www.dapperalien.com/notebooks/algorithms">Algorithms</a></li>
-					</ul>
+					<li class="sublist"><a href="http://www.dapperalien.com/notebooks/algorithms">Algorithms</a></li>
 				</ul>
-				<h1>Mathematics</h1>
+			</ul>
+			<h1>Mathematics</h1>
+			<ul>
+			<li>Project Euler</l1>
 				<ul>
-				<li>Project Euler</l1>
-					<ul>
-						<li class="sublist"><a href="http://www.dapperalien.com/notebooks/ProjectEulerProblem1">Problem 1</a></li>
-						<li class="sublist"><a href="http://www.dapperalien.com/notebooks/ProjectEulerProblem2">Problem 2</a></li>
-						<li class="sublist"><a href="http://www.dapperalien.com/notebooks/ProjectEulerProblem16">Problem 16</a></li>
-					</ul>
+					<li class="sublist"><a href="http://www.dapperalien.com/notebooks/ProjectEulerProblem1">Problem 1</a></li>
+					<li class="sublist"><a href="http://www.dapperalien.com/notebooks/ProjectEulerProblem2">Problem 2</a></li>
 				</ul>
+			</ul>
+			<ul>
+			<li>Calculus</l1>
 				<ul>
-				<li>Calculus</l1>
-					<ul>
-						<li class="sublist"><a href="http://www.dapperalien.com/notebooks/CycloidEpicycloidHypocycloid">Cycloid, Epicycloid, Hypocycloid</a></li>
-					</ul>
+					<li class="sublist"><a href="http://www.dapperalien.com/notebooks/CycloidEpicycloidHypocycloid">Cycloid, Epicycloid, Hypocycloid</a></li>
 				</ul>
-			</div>
+			</ul>
 		</div>
-	</body>
-	<script src="ripple.js"></script>
+	</div>
+</body>
+<script src="../js/ripple.js"></script>
+<script src="../js/menu.js"></script>
 </html>

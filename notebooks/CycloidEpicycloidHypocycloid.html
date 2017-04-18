@@ -12,7 +12,6 @@
 		<meta name="theme-color" content="#ffffff">
 	<!---->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,900" rel="stylesheet">
 <style type="text/css">
     /*!
 *
@@ -11780,15 +11779,41 @@ div#notebook {
     <!-- End of mathjax configuration --></head>
 <body>
 	<div class="menu">
-			<a href="http://www.dapperalien.com"><div class="menu-button ripple-button">Portfolio</div></a>
-			<a href="http://www.dapperalien.com/about"><div class="menu-button ripple-button">About & Contact</div></a>
+		<a href="http://dapperalien.com"><div class="link-button ripple-button">Portfolio</div></a>
+		<a href="http://dapperalien.com/about"><div class="link-button ripple-button">About & Contact</div></a>
 	</div>
 	<div class="header">
-		<a href="http://www.dapperalien.com/notebooks/tableOfContents"><div class="toc ripple-button"><img src="../images/toc.svg" class="toc-img"></img></div></a>
-		<div class="header-title ripple-button" onclick="menuAnimation()">
-			<span class="dapper">DAPPER</span>
-			<img src="../images/alien.svg" class="header-title-logo"></img>
-			<span class="alien">ALIEN</span>
+		<a href="http://dapperalien.com/notebooks/tableOfContents"><div class="toc ripple-button">
+			<img src="../images/toc.svg"></img>
+		</div></a>
+		<div class="menu-button ripple-button" onclick="menuAnimation()">
+			<svg height="60" width="120" class="dapper">
+				<defs>
+					<linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+					<stop offset="0%" style="stop-color:#4CAF50; stop-opacity:1"/>
+					<stop offset="100%" style="stop-color:#000000; stop-opacity:1"/>
+					</linearGradient>
+				</defs>
+				<text x="0" y="40" font-family="Lato-Hairline" font-size="30" font-weight="600" fill="url(#gradient)" letter-spacing="-1" class="svg_text">
+					DAPPER
+				</text>
+			</svg>
+			<img src="../images/alien.svg" class="alien-logo"></img>
+			<svg  xmlns="http://www.w3.org/2000/svg" viewBox="-50 -50 750 1000" class="alien-A">
+				<path d="M542 0l-70 161h-285l-73 -161h-110l332 706l316 -706h-110zM229 257h202l-99 226z" />
+			</svg>
+			<svg  xmlns="http://www.w3.org/2000/svg" class="alien-L" viewBox="0 -50 450 1000">
+				<path d="M80 667h102v-571h196v-96h-298v667z" />
+			</svg>
+			<svg  xmlns="http://www.w3.org/2000/svg" class="alien-I" viewBox="0 -50 250 1000">
+				<path d="M80 667h102v-667h-102v667z" />
+			</svg>
+			<svg  xmlns="http://www.w3.org/2000/svg" class="alien-E" viewBox="0 -50 525 1000">
+				<path d="M448 667v-96h-266v-169h258v-96h-258v-210h266v-96h-368v667h368z" />
+			</svg>
+			<svg  xmlns="http://www.w3.org/2000/svg" class="alien-N" viewBox="0 -50 750 1000">
+				<path d="M182 0h-102v712l484 -507v462h102v-708l-484 507v-466z" />
+			</svg>
 		</div>
 		<div class="hamburger-button ripple-button" onclick="menuAnimation()">
 			<div class="stem"></div>
@@ -12809,5 +12834,6 @@ LPgMwzAJgQWfYRgmIbDgMwzDJAQWfIZhmITAgs8wDJMQ/h9tTAGZcsryRwAAAABJRU5ErkJggg==
 
  
 
-<script src="./ripple.js"></script>
+<script src="../js/menu.js"></script>
+<script src="../js/ripple.js"></script>
 </html>
