@@ -33,6 +33,7 @@
 }
 html, body{
 	font-family: 'Lato-Regular', sans-serif;
+	text-rendering: geometricPrecision;
 	padding:0;
 	margin:0;
 }
@@ -500,6 +501,7 @@ a{
 	-o-transform:translate(0, 0) scale(.5, 1);
 }
 .portfolio-page-1{
+	z-index:1;
 	box-sizing:border-box;
 	position:relative;
 	width:100%;
@@ -631,6 +633,7 @@ a{
 		to {opacity: 1;}
 }
 .portfolio-page-2{
+	z-index:1;
 	box-sizing:border-box;
 	width:100%;
 	min-width:310px;
