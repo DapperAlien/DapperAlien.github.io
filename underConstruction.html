@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>Dapper Alien</title>
+	<!--TODO Add prefixes to splash animations-->
+	<!--Favicons-->
+		<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+		<link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
+		<link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16">
+		<link rel="manifest" href="manifest.json">
+		<link rel="mask-icon" href="safari-pinned-tab.svg" color="#212121">
+		<meta name="theme-color" content="#ffffff">
+	<!---->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<style>
+		.construction-heading{
+			box-sizing:border-box;
+			width:100%;
+			padding-top:40px;
+			padding-bottom:40px;
+			text-align:center;
+		}
+		.construction-backdrop{
+			font-weight:900;
+			font-size:350%;
+			opacity:0.075;
+		}
+		.construction-title{
+			font-weight:900;
+			font-size:250%;
+			opacity:0.65;
+			margin-top:-40px;
+		}
+		.construction{
+			position:relative;
+			top:60px;
+			width:100%;
+			text-align:center;
+			overflow:hidden;
+		}
+		.construction-logo{
+			width:100%;
+			text-align:center;
+		}
+		.construction-watermark{
+			width:60%;
+			max-width:600px;
+		}
+		.hat{
+			position:absolute;
+			width:25%;
+			max-width:250px;
+			left:0;
+			right:0;
+			margin:auto;
+			transform:translate(-8%, -19%);
+		}
+		.list{
+			position:relative;
+			box-sizing:border-box;
+			padding:40px;
+			width:100%;
+			max-width:800px;
+			margin:auto;
+			text-align:left;
+			font-size:125%;
+			line-height:1.5;
+			opacity:0.5;
+		}
+		@media only screen and (min-width: 495px) {
+			.list{
+				font-size:150%;
+				line-height:2;
+			}
+		}
+		@media only screen and (min-width: 768px) {
+			.construction-backdrop{
+				font-size:450%;
+			}
+			.construction-title{
+				font-size:350%;
+				margin-top:-50px;
+			}
+		}
+		@media only screen and (min-width: 1200px) {
+			.construction-backdrop{
+				font-size:550%;
+			}
+			.construction-title{
+				font-size:450%;
+				margin-top:-60px;
+			}
+		}
+	</style>
+	</head>
+	<body>
+	<div class="menu">
+		<a href="http://dapperalien.com"><div class="link-button ripple-button" onclick="menuAnimation()">Portfolio</div></a>
+		<a href="http://dapperalien.com/about"><div class="link-button ripple-button">About & Contact</div></a>
+	</div>
+	<div class="header">
+		<div class="menu-button ripple-button" onclick="menuAnimation()">
+			<svg height="60" width="120" class="dapper">
+				<defs>
+					<linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+					<stop offset="0%" style="stop-color:#4CAF50; stop-opacity:1"/>
+					<stop offset="100%" style="stop-color:#000000; stop-opacity:1"/>
+					</linearGradient>
+				</defs>
+				<text x="0" y="40" font-family="Lato-Hairline" font-size="30" font-weight="600" fill="url(#gradient)" letter-spacing="-1" class="svg_text">
+					DAPPER
+				</text>
+			</svg>
+			<img src="./images/alien.svg" class="alien-logo"></img>
+			<svg  xmlns="http://www.w3.org/2000/svg" viewBox="-50 -50 750 1000" class="alien-A">
+				<path d="M542 0l-70 161h-285l-73 -161h-110l332 706l316 -706h-110zM229 257h202l-99 226z" />
+			</svg>
+			<svg  xmlns="http://www.w3.org/2000/svg" class="alien-L" viewBox="0 -50 450 1000">
+				<path d="M80 667h102v-571h196v-96h-298v667z" />
+			</svg>
+			<svg  xmlns="http://www.w3.org/2000/svg" class="alien-I" viewBox="0 -50 250 1000">
+				<path d="M80 667h102v-667h-102v667z" />
+			</svg>
+			<svg  xmlns="http://www.w3.org/2000/svg" class="alien-E" viewBox="0 -50 525 1000">
+				<path d="M448 667v-96h-266v-169h258v-96h-258v-210h266v-96h-368v667h368z" />
+			</svg>
+			<svg  xmlns="http://www.w3.org/2000/svg" class="alien-N" viewBox="0 -50 750 1000">
+				<path d="M182 0h-102v712l484 -507v462h102v-708l-484 507v-466z" />
+			</svg>
+		</div>
+		<div class="hamburger-button ripple-button" onclick="menuAnimation()">
+			<div class="stem"></div>
+			<div class="hamburger-top"></div>
+			<div class="hamburger-middle-right"></div>
+			<div class="hamburger-middle-left"></div>
+			<div class="hamburger-bottom"></div>
+		</div>
+	</div>
+		<div class="construction">
+			<div class="construction-heading">
+				<div class="construction-backdrop">				
+					Under Construction
+				</div>
+				<div class="construction-title">				
+					Coming soon
+				</div>
+			</div>
+			<div class="construction-logo">
+				<img src="./images/constructionHat.svg" class="hat"></img>
+				<img src="./images/alien.svg" class="construction-watermark"></img>
+			</div>
+			<div class="construction-title" style="margin-top:0px;">Temporary Project Directory</div>
+			<div class="list">
+				<li><a href="https://github.com/DandroidDeveloper">Github</a></li>
+				<li><a href="http://dandroiddeveloper.github.io/code.html#scroll-tab-2">Independent Study: AI</a></li>
+				<li><a href="http://dandroiddeveloper.github.io/theHitchhikersGuideToPython">Hitchhiker's Guide to Python</a></li>
+				<li><a href="http://dandroiddeveloper.github.io/Notebook">Python Notes</a></li>
+				<li><a href="http://dandroiddeveloper.github.io/Project/MusicTheory.html">Music Theory Notes</a></li>
+				<li><a href="https://github.com/DandroidDeveloper/List">Android List Application</a></li>
+				<li><a href="https://github.com/Dmarcoux111/OpenGLPrograms">OpenGL Trackball Controls</a></li>
+				<li><a href="https://github.com/Dmarcoux111/ProjectEulerProblems">Java Project Euler Problems</a></li>
+			</div>
+		</div>
+	</body>
+	<script src="./js/menu.js"></script>
+	<script src="./js/ripple.js"></script>
+</html>
