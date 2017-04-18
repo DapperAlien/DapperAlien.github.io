@@ -7,7 +7,7 @@
 
  -D A P P E R  A L | E N 
 
--->
+	-->
 	<!--Favicons-->
 		<link rel="apple-touch-icon" sizes="180x180" href="./favicons/apple-touch-icon.png">
 		<link rel="icon" type="image/png" href="./favicons/favicon-32x32.png" sizes="32x32">
@@ -33,7 +33,7 @@
 					<stop offset="100%" style="stop-color:#000000; stop-opacity:1"/>
 					</linearGradient>
 				</defs>
-				<text x="0" y="40" font-family="Lato-Regular, sans-serif" font-size="30" font-weight="100" fill="url(#gradient)" letter-spacing="-1" class="svg_text">
+				<text x="0" y="40" font-family="Lato-Hairline, sans-serif" font-size="30" font-weight="600" fill="url(#gradient)" letter-spacing="-1" class="svg_text">
 					DAPPER
 				</text>
 			</svg>
@@ -123,13 +123,20 @@
 	<script>
 		document.querySelector(".galaxy").play();
 		document.addEventListener("DOMContentLoaded", function() {
-			var is_chrome = navigator.userAgent.indexOf('Chrome') > -1
+			var is_chrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+			var is_safari = /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor);
 		  var is_explorer = navigator.userAgent.indexOf('MSIE') > -1
 		  var is_firefox = navigator.userAgent.indexOf('Firefox') > -1
-		  var is_safari = navigator.userAgent.indexOf("Safari") > -1
 		  var is_opera = navigator.userAgent.indexOf("Presto") > -1
 		  var is_mac = (navigator.userAgent.indexOf('Mac OS') != -1)
     	var is_windows = !is_mac
+			if (is_firefox){
+				document.querySelector(".alien-logo").style.marginLeft = "-28px";
+			}
+			if (is_safari){
+				document.querySelector(".svg_text").style.fontFamily = "Lato-Regular, sans-serif";
+				document.querySelector(".svg_text").style.fontWeight = "100";
+			}
 		});
 	</script>
 	<script src="js/classListShim.js"></script>

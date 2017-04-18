@@ -31,13 +31,11 @@
   font-weight: normal;
   font-style: normal;
 }
+* { margin: 0; padding: 0px; }
 html, body{
 	font-family: 'Lato-Regular', sans-serif;
 	padding:0;
 	margin:0;
-}
-.safariFontFix{
-	-webkit-text-stroke: '0.5px';
 }
 body::-webkit-scrollbar {
 	width: 8px;
@@ -49,21 +47,22 @@ body::-webkit-scrollbar-thumb {
 	background: -moz-linear-gradient(#4CAF50, #1B5E20); /* For Firefox 3.6 to 15 */
 	background: linear-gradient(#4CAF50 , #1B5E20); /* Standard syntax */
 }
-.svg_text{
-	-webkit-font-smoothing: subpixel-antialiased;
-}
 a{
 	color:#2196F3;
 	text-decoration:none;
 }
 .generic-button{
-	box-sizing:border-box;
 	padding:20px;
 	display:inline-block;
 	text-align:center;
 	border:1px solid #BDBDBD;
 	font-size:125%;
 	color:#757575;
+
+	/*Box-Sizing*/
+	box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
 }
 .ripple-button{
 	cursor:pointer;
@@ -280,7 +279,7 @@ a{
 	position:relative;
 	top:10px;
 	margin-left:-38px;
-	margin-right:-24.5px;
+	margin-right:-22.5px;
 	height:60px;
 }
 .menu-button{
@@ -504,12 +503,16 @@ a{
 }
 .portfolio-page-1{
 	z-index:1;
-	box-sizing:border-box;
 	position:relative;
 	width:100%;
 	min-width:310px;
 	padding:60px 20px 0 20px;
 	background:white;
+
+	/*Box Sizing*/
+	box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
 }
 .watermark{
 	display:none;
@@ -636,16 +639,22 @@ a{
 }
 .portfolio-page-2{
 	z-index:1;
-	box-sizing:border-box;
 	width:100%;
 	min-width:310px;
 	text-align:center;
 	padding:40px 20px 40px 20px;
 	margin-bottom:260px;
 	background:white;
+
+	/*Box Shadow*/
 	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 	-webkit-box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 	-moz-box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+
+	/*Box-Sizing*/
+	box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
 }
 .backdrop{
 	font-weight:900;
@@ -724,7 +733,6 @@ a{
 }
 /*About*/
 .introduction{
-	box-sizing:border-box;
 	z-index:1;
 	min-width:310px;
 	position:relative;
@@ -732,13 +740,22 @@ a{
 	background:white;
 	width:100%;
 	padding-bottom:120px;
+
+	/*Box-Sizing*/
+	box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
 }
 .about-heading{
-	box-sizing:border-box;
 	width:100%;
 	padding-top:40px;
 	padding-bottom:40px;
 	text-align:center;
+
+	/*Box-Sizing*/
+	box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
 }
 .about-backdrop{
 	font-weight:900;
@@ -752,7 +769,6 @@ a{
 	margin-top:-40px;
 }
 .description{
-	box-sizing:border-box;
 	width:100%;
 	max-width:1000px;
 	margin:auto;		
@@ -763,6 +779,11 @@ a{
 	font-size:125%;
 	line-height:1.5;
 	opacity:0.5;
+
+	/*Box-Sizing*/
+	box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
 }
 .button-row{
 	width:100%;
@@ -775,7 +796,6 @@ a{
 	transform:translate(0, 5px);
 }
 .generic-about-button{
-	box-sizing:border-box;
 	padding:20px 40px;
 	display:inline-block;
 	text-align:center;
@@ -783,6 +803,11 @@ a{
 	font-size:125%;
 	color:#757575;
 	margin:40px 40px 0 40px;
+
+	/*Box-Sizing*/
+	box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
 }
 .about{
 	z-index:1;
@@ -829,8 +854,12 @@ a{
 	margin:auto;
 	padding:40px;
 	padding-top:0px;
-	box-sizing:border-box;
 	text-align:center;
+
+	/*Box-Sizing*/
+	box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
 }
 .contact-button{
 	background:transparent;
@@ -969,8 +998,12 @@ a{
 	width:100%;
 	text-align:center;
 	padding:40px;
-	box-sizing:border-box;
 	opacity:0.65;
+
+	/*Box-Sizing*/
+	box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
 }
 /*Media Queries*/
 @media only screen and (min-width: 350px) {
