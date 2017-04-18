@@ -46,6 +46,9 @@ body::-webkit-scrollbar-thumb {
 	background: -moz-linear-gradient(#4CAF50, #1B5E20); /* For Firefox 3.6 to 15 */
 	background: linear-gradient(#4CAF50 , #1B5E20); /* Standard syntax */
 }
+.svg_text{
+	-webkit-font-smoothing: subpixel-antialiased;
+}
 a{
 	color:#2196F3;
 	text-decoration:none;
