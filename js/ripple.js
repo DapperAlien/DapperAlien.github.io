@@ -6,7 +6,7 @@ for (var i = 0; i < buttons.length; i++){
 
 //Splash
 function rippleEffect(e){
-	var tempDiv = e.toElement;
+	var tempDiv = e.toElement || e.target;
 	var parentWidth = tempDiv.getBoundingClientRect().width;
 	var parentHeight = tempDiv.getBoundingClientRect().height;
 	var parentLeft = tempDiv.getBoundingClientRect().left;
