@@ -4,6 +4,15 @@ for (var i = 0; i < buttons.length; i++){
 	buttons[i].addEventListener("mouseover", rippleEffect);
 }
 
+// Create remove function if not exist
+if (!('remove' in Element.prototype)) {
+    Element.prototype.remove = function() {
+        if (this.parentNode) {
+            this.parentNode.removeChild(this);
+        }
+    };
+}
+
 //Splash
 function rippleEffect(e){
 	var tempDiv = e.toElement || e.target;
