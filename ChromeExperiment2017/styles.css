@@ -433,3 +433,24 @@ canvas{
 	margin:auto;
 	z-index:2;
 }
+.fab{
+	z-index:3;
+	position:fixed;
+	bottom:16px;
+	right:16px;
+	width:60px;
+	height:60px;
+	border-radius:50%;
+	background:#FFFFFF;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+	cursor:pointer;
+}
+.fab img{
+
+	position:absolute;
+	top:0;
+	right:0;
+	bottom:0;
+	left:0;
+	margin:auto;
+}

@@ -63,9 +63,6 @@
 				min="0" max="100" value="0" tabindex="0" oninput="updateSparseness(this.value)" onchange="updateSparseness(this.value)" id="sparsenessSlider">
 			<span id="sparseness">Random</span>
 		</div>
-		<div class="footer ripple-button" onclick="generateGraph()">
-			<h5>Regenerate</h5>
-		</div>
 	</div>
 	<div class="root"></div>
 	<div class="errorModal">
@@ -82,6 +79,7 @@
 		<div class="initModal-middle">Select a start and end node by clicking on two spheres.</div>
 		<div class="initModal-button ripple-button" onclick="closeInitModal()">OK</div>
 	</div>
+	<div class="fab ripple-button"><img src="./Images/reset.svg" onclick="generateGraph()"></img></div>
 </body>
 <script src="./JS/app.js"></script>
 <script src="./JS/splash.js"></script>
